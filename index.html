@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- get the css in -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/rgb_triads.css" />
+
+    <script type="text/javascript">
+        // When the window has loaded, DOM is ready. init our main app
+        function init() {
+            mainInit();
+        }
+        window.onload = init;
+    </script>
+
+    <!-- just define the shaders here for now... ideally these need to be in separate files -->
+    <script id="vtxShader" type="x-shader/x-vertex">
+        // here's the calculated model-view-projection matrix
+        uniform mat4 u_MVPMatrix;
+        // here's the texture transform matrix
+        uniform mat4 u_TexMatrix;
+
+        // per-vertex position
+        attribute vec3 a_Position;
+        // per-vertex color
+        attribute vec4 a_Color;
+        // texture coordinate
+        attribute vec2 a_TexCoord;
+
+        // tex coord to pass to the frag shader
+        varying vec2 v_TexCoord;
+        // color passed to the frag shader
+        varying vec4 v_Color;
+
+        // main program
+        void main()
+        {
+            // vertex color passed into the varying (to be interpolated per fragment)
+            v_Color = a_Color;
+
+            // transform our vertex coords here
+            vec4 texTransformed = u_TexMatrix * vec4(a_TexCoord.x, a_TexCoord.y, 0.0, 1.0);
+            v_TexCoord = texTransformed.xy;
+
+            // transform our vertex here
+            gl_Position = u_MVPMatrix * vec4(a_Position, 1.0);
+        }
+    </script>
+
+    <script id="fragShader" type="x-shader/x-fragment">
+        // set medium precision on the frag shader
+        precision mediump float;
+
+        // here's the input shader
+        uniform sampler2D u_Texture;
+        uniform bool u_doVignette;
+        uniform float u_vigOuterBorder;
+        uniform float u_vigFade;
+        uniform float u_fStop;
+        uniform float u_texCenterU;
+        uniform float u_texCenterV;
+
+        // here's the interpolated vertex color for this fragment
+        varying vec4 v_Color;
+        // and the interpolated tex coord
+        varying vec2 v_TexCoord;
+
+        // user vars
+        float vigInnerBorder = 0.0;
+
+        float vignette()
+        {
+            if (!u_doVignette) {
+                return 1.0;
+            }
+            float dist = distance(v_TexCoord.xy, vec2(u_texCenterU, u_texCenterV));
+            dist = smoothstep(u_vigOuterBorder + (u_fStop / u_vigFade), vigInnerBorder + (u_fStop / u_vigFade), dist);
+            return clamp(dist, 0.0, 1.0);
+        }
+
+        // main program
+        void main()
+        {
+            // final color is the vertex color with the texture
+            gl_FragColor = vignette() * v_Color * texture2D(u_Texture, v_TexCoord);
+            // gl_FragColor.rgb = vec3(1.0, 1.0, 1.0);
+            gl_FragColor.a = 1.0;
+        }
+    </script>
+
+    <title>RGB Triads</title>
+
+</head>
+
+<body class="unselectable">
+
+<span>Select state: </span>
+<select id="StateSelect" name="StateSelect">
+    <option value="SpinningImages">SpinningImages</option>
+    <option selected="selected" value="StaticImages">StaticImages</option>
+    <option value="FloatyImages">FloatyImages</option>
+    <option value="Slide">Slide</option>
+    <option value="Radial">Radial</option>
+</select>
+<button type="button" onclick="switchState();">Switch to State</button>
+<span id="msgArea"></span>
+<span style="position: relative">source: <a href="https://github.com/jchionh/webgl_app01">https://github.com/jchionh/webgl_app01</a></span>
+
+<div id="renderArea" style="position: relative; left: 0px; top: 0px;">
+    <canvas id="renderCanvas" style="width: 1680px; height: 1620px; position: absolute; left: 0px; top: 0px;"></canvas>
+</div>
+<div id="controls" style="position: relative; left: 1680px; top: 0px;">
+    <!--
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Vignette</td>
+            <td>&nbsp;</td>
+            <td><input id="doVignette" type="checkbox" checked="checked" onchange="vignetteOnOff();"/></td>
+            <td>&nbsp;</td>
+            <td><div id="doVignetteText">On</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Border</td>
+            <td>&nbsp;</td>
+            <td><input id="vigOuterBorder" type="range" min="0.01" max="128.0" step="0.01" value="32.0" oninput="sliderChanged('vigOuterBorder');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="vigOuterBorderText">1.3</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Fade</td>
+            <td>&nbsp;</td>
+            <td><input id="vigFade" type="range" min="10" max="70" step="1" value="22" oninput="sliderChanged('vigFade');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="vigFadeText">22</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>F-Stop</td>
+            <td>&nbsp;</td>
+            <td><input id="fStop" type="range" min="0.01" max="8.0" step="0.01" value="0.9" oninput="sliderChanged('fStop');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="fStopText">0.9</div></td>
+        </tr>
+    </table>
+    <button onclick="defaultVignetteValues();">Default Vignette Values</button>
+    -->
+    <div>Control Area</div>
+</div>
+<!--
+<div id="sysMessageArea" style="position: relative;">
+</div>
+-->
+
+<!-- js sources -->
+<script src="js/webgl_app01.js"></script>
+
+<!-- utils -->
+<script src="js/utils/extend.js"></script>
+<script src="js/utils/webgl-utils.js"></script>
+<script src="js/utils/ShaderUtils.js"></script>
+<script src="js/utils/IntrusiveList.js"></script>
+<script src="js/utils/IntrusiveListNode.js"></script>
+<script src="js/utils/glMatrix.js"></script>
+<script src="js/utils/ImageUtils.js"></script>
+<script src="js/render/RenderConstants.js"></script>
+
+<!-- texture -->
+<script src="js/texture/Texture.js"></script>
+
+<!-- cache -->
+<script src="js/cache/QuadVertexBufferLibrary.js"></script>
+<script src="js/cache/QuadVertexColorBufferLibrary.js"></script>
+<script src="js/cache/QuadTexCoordBufferLibrary.js"></script>
+<script src="js/cache/TextureLibrary.js"></script>
+
+<!-- renderer -->
+<script src="js/render/Viewpoint.js"></script>
+<script src="js/render/FrustumViewpoint.js"></script>
+<script src="js/render/Shape.js"></script>
+<script src="js/render/QuadShape.js"></script>
+<script src="js/render/SceneNode.js"></script>
+<script src="js/render/Scene.js"></script>
+<script src="js/render/ShaderHandleRefs.js"></script>
+<script src="js/render/Renderer.js"></script>
+
+<!-- input -->
+<script src="js/input/MouseInput.js"></script>
+<script src="js/input/InputManager.js"></script>
+
+<!-- run states -->
+<script src="js/runstate/BaseRunState.js"></script>
+<script src="js/runstate/GLRunState.js"></script>
+<script src="js/runstate/StateRunner.js"></script>
+
+<!-- app run states -->
+<script src="js/states/InitialState.js"></script>
+<script src="js/states/RGBTriads.js"></script>
+
+<!-- main -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
