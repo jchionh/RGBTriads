@@ -12,8 +12,8 @@ wa.render.RenderConstants.FLOATS_PER_VTX = 3;
 wa.render.RenderConstants.FLOATS_PER_TEX_COORD = 2;
 wa.render.RenderConstants.FLOATS_PER_COLOR = 4;
 wa.render.RenderConstants.DEFAULT_TEXTURE_ID = "UNTEXTURED";
-wa.render.RenderConstants.MAX_TEXTURE_DIMENSION = 512 * 1.0;
-wa.render.RenderConstants.MAX_QUAD_DIMENSION = 512 * 1.0;
+wa.render.RenderConstants.MAX_TEXTURE_DIMENSION = 4192 * 1.0;
+wa.render.RenderConstants.MAX_QUAD_DIMENSION = 4192 * 1.0;
 
 // these are in sort form for ease
 var v = {};

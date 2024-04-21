@@ -66,6 +66,14 @@ wa.states.RGBTriads.prototype.onStart = function() {
         wa.utils.inList.addChild(root, imageEntity);
     }
     */
+   this.rgbTriadImage = new wa.entity.ImageEntity();
+   // load image
+   this.rgbTriadImage.loadImageURL("images/RGB5x3_128x128.jpg", false);
+   this.rgbTriadImage.setDimensions(1600, 1600);
+   this.rgbTriadImage.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;
+   this.rgbTriadImage.texScale[v.Y] = wa.entity.ImageEntityGlobals.rgbTexScale;
+   this.rgbTriadImage.texScale[v.Z] = 1.00;
+   wa.utils.inList.addChild(root, this.rgbTriadImage);
 };
 
 /**
@@ -84,6 +92,8 @@ wa.states.RGBTriads.prototype.onStop = function() {
     this.imageEntities.length = 0;
     this.imageEntities = null;
     */
+    this.rgbTriadImag.release();
+    this.rgbTriadImag = null;
 
     // release our scene
     this.scene.release();
@@ -98,6 +108,9 @@ wa.states.RGBTriads.prototype.onStop = function() {
  */
 wa.states.RGBTriads.prototype.onUpdate = function(dt) {
     //console.log('StaticImages::onUpdate');
+    this.rgbTriadImage.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;
+    this.rgbTriadImage.texScale[v.Y] = wa.entity.ImageEntityGlobals.rgbTexScale;
+    this.rgbTriadImage.texScale[v.Z] = 1.00;
 };
 
 /**

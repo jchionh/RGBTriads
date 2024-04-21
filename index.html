@@ -146,6 +146,16 @@
     <button onclick="defaultVignetteValues();">Default Vignette Values</button>
     -->
     <div>Control Area</div>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>RGBTexScale</td>
+            <td>&nbsp;</td>
+            <td><input id="rgbTexScale" type="range" min="1.0" max="128.0" step="1.00" value="32.0" oninput="sliderChanged('rgbTexScale');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="rgbTexScaleText">32</div></td>
+        </tr>
+    </table>
 </div>
 <!--
 <div id="sysMessageArea" style="position: relative;">
@@ -183,6 +193,12 @@
 <script src="js/render/Scene.js"></script>
 <script src="js/render/ShaderHandleRefs.js"></script>
 <script src="js/render/Renderer.js"></script>
+
+<!-- entity -->
+<script src="js/entity/Entity.js"></script>
+<script src="js/entity/ImageEntityGlobals.js"></script>
+<script src="js/entity/ImageEntity.js"></script>
+<script src="js/entity/ImageEntityFactory.js"></script>
 
 <!-- input -->
 <script src="js/input/MouseInput.js"></script>
