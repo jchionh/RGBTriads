@@ -1,6 +1,6 @@
 /**
  * User: jchionh
- * Date: 2/23/13
+ * Date: 4/21/24
  * Time: 11:02 PM
  */
 // namespace
@@ -11,7 +11,7 @@ wa.entity = wa.entity || {};
  * @constructor
  * @extends wa.entity.Entity
  */
-wa.entity.ImageEntity = function() {
+wa.entity.RGBTriadImageEntity = function() {
     // calls the base class ctor
     wa.entity.Entity.call(this);
 
@@ -91,7 +91,7 @@ wa.entity.ImageEntity = function() {
         var scaledQuadHeight = scaledImageHeight * quadScale;
 
         if (self.resizeQuadToMatchImage) {
-            console.log("ImageEntity resize [" + scaledQuadWidth + "x" + scaledQuadHeight + "]");
+            console.log("RGBTriadImageEntity resize [" + scaledQuadWidth + "x" + scaledQuadHeight + "]");
             self.setDimensions(Math.floor(scaledQuadWidth), Math.floor(scaledQuadHeight));
         }
 
@@ -104,13 +104,13 @@ wa.entity.ImageEntity = function() {
 };
 
 // extend image entity from entity
-wa.utils.extend(wa.entity.ImageEntity, wa.entity.Entity);
+wa.utils.extend(wa.entity.RGBTriadImageEntity, wa.entity.Entity);
 
 /**
  * release resources that we're holding on to
  * @override
  */
-wa.entity.ImageEntity.prototype.release = function() {
+wa.entity.RGBTriadImageEntity.prototype.release = function() {
     // call super release
     wa.entity.Entity.prototype.release.call(this);
     //console.log('ImageEntity::release');
@@ -124,7 +124,7 @@ wa.entity.ImageEntity.prototype.release = function() {
  * @param {number} width
  * @param {number} height
  */
-wa.entity.ImageEntity.prototype.setDimensions = function(width, height) {
+wa.entity.RGBTriadImageEntity.prototype.setDimensions = function(width, height) {
     this.shape.setDimensions(width, height);
 };
 
@@ -135,7 +135,7 @@ wa.entity.ImageEntity.prototype.setDimensions = function(width, height) {
  * @param {string} imageURL
  * @param {Boolean} resizeQuadToMatchImage
  */
-wa.entity.ImageEntity.prototype.loadImageURL = function(imageURL, resizeQuadToMatchImage) {
+wa.entity.RGBTriadImageEntity.prototype.loadImageURL = function(imageURL, resizeQuadToMatchImage) {
     this.resizeQuadToMatchImage = resizeQuadToMatchImage;
     this.image.src = imageURL;
 };
@@ -146,7 +146,7 @@ wa.entity.ImageEntity.prototype.loadImageURL = function(imageURL, resizeQuadToMa
  * @param {WebGLRenderingContext} gl
  * @param {wa.render.ShaderHandleRefs} shaderHandleRefs
  */
-wa.entity.ImageEntity.prototype.drawTexture = function(gl, shaderHandleRefs) {
+wa.entity.RGBTriadImageEntity.prototype.drawTexture = function(gl, shaderHandleRefs) {
 
     // set the active texture and bind
     gl.activeTexture(gl.TEXTURE0);
@@ -178,7 +178,7 @@ wa.entity.ImageEntity.prototype.drawTexture = function(gl, shaderHandleRefs) {
  * @override
  * @param {number} dt
  */
-wa.entity.ImageEntity.prototype.update = function(dt) {
+wa.entity.RGBTriadImageEntity.prototype.update = function(dt) {
     /*this.orientation[o.PITCH] += this.rotationSpeed;
     if (this.orientation[o.PITCH] > 360.0) {
         this.orientation[o.PITCH] -= (this.orientation[o.PITCH] - 360.0);
@@ -205,7 +205,7 @@ wa.entity.ImageEntity.prototype.update = function(dt) {
  * @param {wa.render.Renderer} renderer
  */
 /*
-wa.entity.ImageEntity.prototype.draw = function(gl, renderer) {
+wa.entity.RGBTriadImageEntity.prototype.draw = function(gl, renderer) {
     // call the super class draw
     wa.render.SceneNode.prototype.draw.call(this, gl, renderer);
 };

@@ -22,7 +22,7 @@ wa.render.QuadShape = function() {
 
     // now init our buffers
     this.setVertexBufferObject(wa.gVtxLibrary.getVBO(1, 1));
-    this.setColorBufferObject(wa.gClrLibrary.getVBO(wa.cache.QuadShapeConst.ColorKey.WHITE));
+    this.setColorBufferObject(wa.gClrLibrary.getVBO(wa.cache.QuadShapeConst.ColorKey.WHITE_ALPHA));
     this.setTexCoordBufferObject(wa.gTexCoordLibrary.getVBO(wa.cache.QuadShapeConst.TexCoordKey.FULL));
 };
 

@@ -86,6 +86,9 @@ wa.render.Renderer.prototype.setViewpoint = function(gl, viewpoint) {
 wa.render.Renderer.prototype.render = function(gl, scene) {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
     // TESTING draw a scene node
     // just iterate a list for now, no tree
     var sceneRoot = scene.getRoot();

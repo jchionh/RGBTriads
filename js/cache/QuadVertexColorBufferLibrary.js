@@ -13,6 +13,13 @@ wa.cache.QuadShapeConst.VERTEX_COLORS_WHITE = new Float32Array([
     1.0, 1.0, 1.0, 1.0
 ]);
 
+wa.cache.QuadShapeConst.VERTEX_COLORS_WHITE_ALPHA = new Float32Array([
+    1.0, 1.0, 1.0, 0.5,
+    1.0, 1.0, 1.0, 0.5,
+    1.0, 1.0, 1.0, 0.5,
+    1.0, 1.0, 1.0, 0.5
+]);
+
 wa.cache.QuadShapeConst.VERTEX_COLORS_MULTI = new Float32Array([
     1.0, 0.0, 0.0, 1.0,
     0.0, 1.0, 0.0, 1.0,
@@ -22,6 +29,7 @@ wa.cache.QuadShapeConst.VERTEX_COLORS_MULTI = new Float32Array([
 
 wa.cache.QuadShapeConst.ColorKey = {};
 wa.cache.QuadShapeConst.ColorKey.WHITE = "WHITE";
+wa.cache.QuadShapeConst.ColorKey.WHITE_ALPHA = "WHITE_ALPHA";
 wa.cache.QuadShapeConst.ColorKey.MULTI = "MULTI";
 
 /**
@@ -40,6 +48,7 @@ wa.cache.QuadVertexColorBufferLibrary = function(gl) {
 
     // let's init a default VBO of white;
     this.createVBO(wa.cache.QuadShapeConst.ColorKey.WHITE, wa.cache.QuadShapeConst.VERTEX_COLORS_WHITE);
+    this.createVBO(wa.cache.QuadShapeConst.ColorKey.WHITE_ALPHA, wa.cache.QuadShapeConst.VERTEX_COLORS_WHITE_ALPHA);
     this.createVBO(wa.cache.QuadShapeConst.ColorKey.MULTI, wa.cache.QuadShapeConst.VERTEX_COLORS_MULTI);
 };
 
