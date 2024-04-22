@@ -107,19 +107,19 @@ function sliderChanged(name) {
 
 function defaultVignetteValues() {
     var name = "vigOuterBorder";
-    document.getElementById(name).value = 1.3;
-    document.getElementById(name + "Text").innerText = "1.3";
-    wa.entity.ImageEntityGlobals[name] = 1.3;
+    document.getElementById(name).value = 40.0;
+    document.getElementById(name + "Text").innerText = "40.0";
+    wa.entity.ImageEntityGlobals[name] = 40.0;
 
     name = "vigFade";
-    document.getElementById(name).value = 22;
-    document.getElementById(name + "Text").innerText = "22";
-    wa.entity.ImageEntityGlobals[name] = 22;
+    document.getElementById(name).value = 70;
+    document.getElementById(name + "Text").innerText = "70";
+    wa.entity.ImageEntityGlobals[name] = 70;
 
     name = "fStop";
-    document.getElementById(name).value = 0.9;
-    document.getElementById(name + "Text").innerText = "0.9";
-    wa.entity.ImageEntityGlobals[name] = 0.9;
+    document.getElementById(name).value = 8.0;
+    document.getElementById(name + "Text").innerText = "8.0";
+    wa.entity.ImageEntityGlobals[name] = 8.0;
 }
 
 

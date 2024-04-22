@@ -21,6 +21,8 @@
         uniform mat4 u_MVPMatrix;
         // here's the texture transform matrix
         uniform mat4 u_TexMatrix;
+        // here's the image texture transform matrix
+        uniform mat4 u_ImageTexMatrix;
 
         // per-vertex position
         attribute vec3 a_Position;
@@ -31,6 +33,7 @@
 
         // tex coord to pass to the frag shader
         varying vec2 v_TexCoord;
+        varying vec2 v_ImageTexCoord;
         // color passed to the frag shader
         varying vec4 v_Color;
 
@@ -44,6 +47,9 @@
             vec4 texTransformed = u_TexMatrix * vec4(a_TexCoord.x, a_TexCoord.y, 0.0, 1.0);
             v_TexCoord = texTransformed.xy;
 
+            vec4 texImageTransformed = u_ImageTexMatrix * vec4(a_TexCoord.x, a_TexCoord.y, 0.0, 1.0);
+            v_ImageTexCoord = texImageTransformed.xy;
+
             // transform our vertex here
             gl_Position = u_MVPMatrix * vec4(a_Position, 1.0);
         }
@@ -55,17 +61,20 @@
 
         // here's the input shader
         uniform sampler2D u_Texture;
+        uniform sampler2D u_ImageTexture;
         uniform bool u_doVignette;
         uniform float u_vigOuterBorder;
         uniform float u_vigFade;
         uniform float u_fStop;
         uniform float u_texCenterU;
         uniform float u_texCenterV;
+        uniform float u_imageBrightness;
 
         // here's the interpolated vertex color for this fragment
         varying vec4 v_Color;
         // and the interpolated tex coord
         varying vec2 v_TexCoord;
+        varying vec2 v_ImageTexCoord;
 
         // user vars
         float vigInnerBorder = 0.0;
@@ -84,7 +93,16 @@
         void main()
         {
             // final color is the vertex color with the texture
-            gl_FragColor = vignette() * v_Color * texture2D(u_Texture, v_TexCoord);
+            vec4 rgbTriad = texture2D(u_Texture, v_TexCoord);
+            vec4 image = texture2D(u_ImageTexture, v_ImageTexCoord);
+
+            vec4 texColor;
+            texColor.r = rgbTriad.r * image.r;
+            texColor.g = rgbTriad.g * image.g;
+            texColor.b = rgbTriad.b * image.b;
+            texColor.a = rgbTriad.a * image.a;
+
+            gl_FragColor = u_imageBrightness * vignette() * v_Color * texColor;
             // gl_FragColor.rgb = vec3(1.0, 1.0, 1.0);
             gl_FragColor.a = 1.0;
         }
@@ -110,52 +128,62 @@
 <div id="controls" style="position: relative; left: 1600px; top: 0px;">
     <!--
     <table>
-        <tr>
-            <td>&nbsp;</td>
-            <td>Vignette</td>
-            <td>&nbsp;</td>
-            <td><input id="doVignette" type="checkbox" checked="checked" onchange="vignetteOnOff();"/></td>
-            <td>&nbsp;</td>
-            <td><div id="doVignetteText">On</div></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>Border</td>
-            <td>&nbsp;</td>
-            <td><input id="vigOuterBorder" type="range" min="0.01" max="128.0" step="0.01" value="32.0" oninput="sliderChanged('vigOuterBorder');"/></td>
-            <td>&nbsp;</td>
-            <td><div id="vigOuterBorderText">1.3</div></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>Fade</td>
-            <td>&nbsp;</td>
-            <td><input id="vigFade" type="range" min="10" max="70" step="1" value="22" oninput="sliderChanged('vigFade');"/></td>
-            <td>&nbsp;</td>
-            <td><div id="vigFadeText">22</div></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>F-Stop</td>
-            <td>&nbsp;</td>
-            <td><input id="fStop" type="range" min="0.01" max="8.0" step="0.01" value="0.9" oninput="sliderChanged('fStop');"/></td>
-            <td>&nbsp;</td>
-            <td><div id="fStopText">0.9</div></td>
-        </tr>
+        
     </table>
-    <button onclick="defaultVignetteValues();">Default Vignette Values</button>
+    
     -->
     <div>Control Area</div>
     <table>
         <tr>
             <td>&nbsp;</td>
-            <td>RGBTexScale</td>
+            <td>RGB Triad Scale</td>
             <td>&nbsp;</td>
-            <td><input id="rgbTexScale" type="range" min="1.0" max="128.0" step="1.00" value="32.0" oninput="sliderChanged('rgbTexScale');"/></td>
+            <td><input id="rgbTexScale" type="range" min="1.0" max="256.0" step="1.00" value="50.0" oninput="sliderChanged('rgbTexScale');"/></td>
             <td>&nbsp;</td>
-            <td><div id="rgbTexScaleText">32</div></td>
+            <td><div id="rgbTexScaleText">50</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Image Brightness</td>
+            <td>&nbsp;</td>
+            <td><input id="imageBrightness" type="range" min="0.1" max="4.0" step="0.1" value="1.2" oninput="sliderChanged('imageBrightness');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="imageBrightnessText">1.2</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Vignette</td>
+            <td>&nbsp;</td>
+            <td><input id="doVignette" type="checkbox" onchange="vignetteOnOff();"/></td>
+            <td>&nbsp;</td>
+            <td><div id="doVignetteText">Off</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Border</td>
+            <td>&nbsp;</td>
+            <td><input id="vigOuterBorder" type="range" min="0.01" max="100.0" step="0.01" value="40.0" oninput="sliderChanged('vigOuterBorder');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="vigOuterBorderText">40.0</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Fade</td>
+            <td>&nbsp;</td>
+            <td><input id="vigFade" type="range" min="10" max="200" step="1" value="70" oninput="sliderChanged('vigFade');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="vigFadeText">70</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>F-Stop</td>
+            <td>&nbsp;</td>
+            <td><input id="fStop" type="range" min="0.01" max="10.0" step="0.01" value="8.0" oninput="sliderChanged('fStop');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="fStopText">8.0</div></td>
         </tr>
     </table>
+    <button onclick="defaultVignetteValues();">Default Vignette Values</button>
 </div>
 <!--
 <div id="sysMessageArea" style="position: relative;">

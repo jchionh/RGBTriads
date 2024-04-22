@@ -10,8 +10,9 @@ wa.entity = wa.entity || {};
 wa.entity.ImageEntityGlobals = {};
 
 wa.entity.ImageEntityGlobals.doVignette = false;
-wa.entity.ImageEntityGlobals.vigOuterBorder = 1.3;
-wa.entity.ImageEntityGlobals.vigFade = 22;
-wa.entity.ImageEntityGlobals.fStop = 0.9;
+wa.entity.ImageEntityGlobals.vigOuterBorder = 40.0;
+wa.entity.ImageEntityGlobals.vigFade = 70;
+wa.entity.ImageEntityGlobals.fStop = 8.0;
 
-wa.entity.ImageEntityGlobals.rgbTexScale = 32.0;
+wa.entity.ImageEntityGlobals.rgbTexScale = 50.0;
+wa.entity.ImageEntityGlobals.imageBrightness = 1.2;

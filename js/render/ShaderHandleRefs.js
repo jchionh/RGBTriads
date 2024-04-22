@@ -16,7 +16,9 @@ wa.render.ShaderHandleRefs = function() {
     this.colorHandle = 0; // GLint
     this.matrixHandle = null; // WebGLUniformLocation
     this.texMatrixHandle = null; // WebGLUniformLocation
+    this.texImageMatrixHandle = null; // WebGLUniformLocation
     this.texSamplerHandle = null; // WebGLUniformLocation
+    this.texImageSamplerHandle = null; // WebGLUniformLocation
     this.texCoordHandle = 0; // GLint
     this.doVignetteHandle = 0; // bool
     this.vigOuterHandle = 0; // float
@@ -24,4 +26,5 @@ wa.render.ShaderHandleRefs = function() {
     this.fStop = 0; // float
     this.texCenterU = 0; // float
     this.texCenterV = 0; // float
+    this.imageBrightness = 0; // float
 };

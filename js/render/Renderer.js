@@ -52,12 +52,16 @@ wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, frag
     this.shaderHandleRefs.texCoordHandle = gl.getAttribLocation(shaderProgram, "a_TexCoord");
     this.shaderHandleRefs.matrixHandle = gl.getUniformLocation(shaderProgram, "u_MVPMatrix");
     this.shaderHandleRefs.texMatrixHandle = gl.getUniformLocation(shaderProgram, "u_TexMatrix");
+    this.shaderHandleRefs.texImageMatrixHandle = gl.getUniformLocation(shaderProgram, "u_ImageTexMatrix");
     this.shaderHandleRefs.texSamplerHandle = gl.getUniformLocation(shaderProgram, "u_Texture");
+    this.shaderHandleRefs.texImageSamplerHandle = gl.getUniformLocation(shaderProgram, "u_ImageTexture");
 
     this.shaderHandleRefs.doVignetteHandle = gl.getUniformLocation(shaderProgram, "u_doVignette");
     this.shaderHandleRefs.vigOuterHandle = gl.getUniformLocation(shaderProgram, "u_vigOuterBorder");
     this.shaderHandleRefs.vigFadeHandle = gl.getUniformLocation(shaderProgram, "u_vigFade");
     this.shaderHandleRefs.fStop = gl.getUniformLocation(shaderProgram, "u_fStop");
+
+    this.shaderHandleRefs.imageBrightness = gl.getUniformLocation(shaderProgram, "u_imageBrightness");
 
     this.shaderHandleRefs.texCenterU = gl.getUniformLocation(shaderProgram, "u_texCenterU");
     this.shaderHandleRefs.texCenterV = gl.getUniformLocation(shaderProgram, "u_texCenterV");
