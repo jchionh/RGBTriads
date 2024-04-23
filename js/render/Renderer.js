@@ -63,6 +63,10 @@ wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, frag
 
     this.shaderHandleRefs.imageBrightness = gl.getUniformLocation(shaderProgram, "u_imageBrightness");
 
+    this.shaderHandleRefs.rBrightness = gl.getUniformLocation(shaderProgram, "u_rBrightness");
+    this.shaderHandleRefs.gBrightness = gl.getUniformLocation(shaderProgram, "u_gBrightness");
+    this.shaderHandleRefs.bBrightness = gl.getUniformLocation(shaderProgram, "u_bBrightness");
+
     this.shaderHandleRefs.texCenterU = gl.getUniformLocation(shaderProgram, "u_texCenterU");
     this.shaderHandleRefs.texCenterV = gl.getUniformLocation(shaderProgram, "u_texCenterV");
 

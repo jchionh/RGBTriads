@@ -251,6 +251,10 @@ wa.entity.RGBTriadImageEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1f(shaderHandleRefs.fStop, wa.entity.ImageEntityGlobals.fStop);
     gl.uniform1f(shaderHandleRefs.imageBrightness, wa.entity.ImageEntityGlobals.imageBrightness);
 
+    gl.uniform1f(shaderHandleRefs.rBrightness, wa.entity.ImageEntityGlobals.rBrightness);
+    gl.uniform1f(shaderHandleRefs.gBrightness, wa.entity.ImageEntityGlobals.gBrightness);
+    gl.uniform1f(shaderHandleRefs.bBrightness, wa.entity.ImageEntityGlobals.bBrightness);
+
     gl.uniform1f(shaderHandleRefs.texCenterU, this.texScale[v.X] / 2.0);
     gl.uniform1f(shaderHandleRefs.texCenterV, this.texScale[v.Y] / 2.0);
 

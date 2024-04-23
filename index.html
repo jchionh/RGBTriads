@@ -70,6 +70,10 @@
         uniform float u_texCenterV;
         uniform float u_imageBrightness;
 
+        uniform float u_rBrightness;
+        uniform float u_gBrightness;
+        uniform float u_bBrightness;
+
         // here's the interpolated vertex color for this fragment
         varying vec4 v_Color;
         // and the interpolated tex coord
@@ -89,18 +93,35 @@
             return clamp(dist, 0.0, 1.0);
         }
 
+        float rgbToLuma(vec3 color)
+        {
+            return (0.2126 * color.r) + (0.7152 * color.g) + (0.0722 * color.b);
+        }
+
         // main program
         void main()
         {
             // final color is the vertex color with the texture
             vec4 rgbTriad = texture2D(u_Texture, v_TexCoord);
             vec4 image = texture2D(u_ImageTexture, v_ImageTexCoord);
+            
+            // float luma = rgbToLuma(image.rgb);
+
+            // vec4 texColor = rgbTriad * luma;
+
+            // vec4 texColor = rgbTriad * (luma + image);
+
+            // vec4 texColor = rgbTriad * image;
+
+            //vec4 texColor;
+            //texColor.r = rgbTriad.r * pow(image.r, 2.2);
+            //texColor.g = rgbTriad.g * pow(image.g, 2.2);
+            //texColor.b = rgbTriad.b * pow(image.b, 2.2);
 
             vec4 texColor;
-            texColor.r = rgbTriad.r * image.r;
-            texColor.g = rgbTriad.g * image.g;
-            texColor.b = rgbTriad.b * image.b;
-            texColor.a = rgbTriad.a * image.a;
+            texColor.r = u_rBrightness * rgbTriad.r * image.r;
+            texColor.g = u_gBrightness * rgbTriad.g * image.g;
+            texColor.b = u_bBrightness * rgbTriad.b * image.b;
 
             gl_FragColor = u_imageBrightness * vignette() * v_Color * texColor;
             // gl_FragColor.rgb = vec3(1.0, 1.0, 1.0);
@@ -146,9 +167,33 @@
             <td>&nbsp;</td>
             <td>Image Brightness</td>
             <td>&nbsp;</td>
-            <td><input id="imageBrightness" type="range" min="0.1" max="4.0" step="0.1" value="1.2" oninput="sliderChanged('imageBrightness');"/></td>
+            <td><input id="imageBrightness" type="range" min="0.1" max="3.0" step="0.001" value="1.236" oninput="sliderChanged('imageBrightness');"/></td>
             <td>&nbsp;</td>
-            <td><div id="imageBrightnessText">1.2</div></td>
+            <td><div id="imageBrightnessText">1.236</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Red</td>
+            <td>&nbsp;</td>
+            <td><input id="rBrightness" type="range" min="0.1" max="3.0" step="0.001" value="1.0" oninput="sliderChanged('rBrightness');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="rBrightnessText">1.0</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Green</td>
+            <td>&nbsp;</td>
+            <td><input id="gBrightness" type="range" min="0.1" max="3.0" step="0.001" value="1.0" oninput="sliderChanged('gBrightness');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="gBrightnessText">1.0</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Blue</td>
+            <td>&nbsp;</td>
+            <td><input id="bBrightness" type="range" min="0.1" max="3.0" step="0.001" value="1.0" oninput="sliderChanged('bBrightness');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="bBrightnessText">1.0</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>

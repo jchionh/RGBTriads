@@ -27,4 +27,7 @@ wa.render.ShaderHandleRefs = function() {
     this.texCenterU = 0; // float
     this.texCenterV = 0; // float
     this.imageBrightness = 0; // float
+    this.rBrightness = 0; // float
+    this.gBrightness = 0; // float
+    this.bBrightness = 0; // float
 };
