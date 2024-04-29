@@ -57,7 +57,8 @@
 
     <script id="fragShader" type="x-shader/x-fragment">
         // set medium precision on the frag shader
-        precision mediump float;
+        precision highp float;
+        precision highp sampler2D;
 
         // here's the input shader
         uniform sampler2D u_Texture;
@@ -93,38 +94,21 @@
             return clamp(dist, 0.0, 1.0);
         }
 
-        float rgbToLuma(vec3 color)
-        {
-            return (0.2126 * color.r) + (0.7152 * color.g) + (0.0722 * color.b);
-        }
-
         // main program
         void main()
         {
-            // final color is the vertex color with the texture
+            // sample the RGB Triad
             vec4 rgbTriad = texture2D(u_Texture, v_TexCoord);
+
+            // sample the texture
             vec4 image = texture2D(u_ImageTexture, v_ImageTexCoord);
-            
-            // float luma = rgbToLuma(image.rgb);
-
-            // vec4 texColor = rgbTriad * luma;
-
-            // vec4 texColor = rgbTriad * (luma + image);
-
-            // vec4 texColor = rgbTriad * image;
-
-            //vec4 texColor;
-            //texColor.r = rgbTriad.r * pow(image.r, 2.2);
-            //texColor.g = rgbTriad.g * pow(image.g, 2.2);
-            //texColor.b = rgbTriad.b * pow(image.b, 2.2);
 
             vec4 texColor;
-            texColor.r = u_rBrightness * rgbTriad.r * image.r;
-            texColor.g = u_gBrightness * rgbTriad.g * image.g;
-            texColor.b = u_bBrightness * rgbTriad.b * image.b;
+            texColor.r = u_imageBrightness * u_rBrightness * (rgbTriad.r * image.r);
+            texColor.g = u_imageBrightness * u_gBrightness * (rgbTriad.g * image.g);
+            texColor.b = u_imageBrightness * u_bBrightness * (rgbTriad.b * image.b);
 
             gl_FragColor = u_imageBrightness * vignette() * v_Color * texColor;
-            // gl_FragColor.rgb = vec3(1.0, 1.0, 1.0);
             gl_FragColor.a = 1.0;
         }
     </script>
@@ -135,11 +119,12 @@
 
 <body class="unselectable">
 
-<span>Select state: </span>
-<select id="StateSelect" name="StateSelect">
-    <option selected="selected" value="RGBTriads">RGB Triads</option>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;Select image: </span>
+<select id="ImageSelect" name="ImageSelect" onchange="switchImage()">
 </select>
-<button type="button" onclick="switchState();">Switch to State</button>
+<!--
+<button type="button" onclick="switchImage();">Switch to State</button>
+-->
 <span id="msgArea"></span>
 <span style="position: relative">source: <a href="https://github.com/jchionh/RGBTriads">https://github.com/jchionh/RGBTriads</a></span>
 
@@ -159,17 +144,17 @@
             <td>&nbsp;</td>
             <td>RGB Triad Scale</td>
             <td>&nbsp;</td>
-            <td><input id="rgbTexScale" type="range" min="1.0" max="256.0" step="1.00" value="50.0" oninput="sliderChanged('rgbTexScale');"/></td>
+            <td><input id="rgbTexScale" type="range" min="1.0" max="256.0" step="1.00" value="25.0" oninput="sliderChanged('rgbTexScale');"/></td>
             <td>&nbsp;</td>
-            <td><div id="rgbTexScaleText">50</div></td>
+            <td><div id="rgbTexScaleText">25</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>Image Brightness</td>
             <td>&nbsp;</td>
-            <td><input id="imageBrightness" type="range" min="0.1" max="3.0" step="0.001" value="1.236" oninput="sliderChanged('imageBrightness');"/></td>
+            <td><input id="imageBrightness" type="range" min="0.1" max="3.0" step="0.001" value="1.374" oninput="sliderChanged('imageBrightness');"/></td>
             <td>&nbsp;</td>
-            <td><div id="imageBrightnessText">1.236</div></td>
+            <td><div id="imageBrightnessText">1.374</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -273,6 +258,9 @@
 <script src="js/entity/ImageEntity.js"></script>
 <script src="js/entity/RGBTriadImageEntity.js"></script>
 <script src="js/entity/ImageEntityFactory.js"></script>
+
+<!-- app data -->
+<script src="js/data/ImageList.js"></script>
 
 <!-- input -->
 <script src="js/input/MouseInput.js"></script>

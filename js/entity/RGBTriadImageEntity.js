@@ -75,7 +75,10 @@ wa.entity.RGBTriadImageEntity = function() {
         var addToLibraryNext = true;
 
         var scaledImage = self.rgbTriadImage;
-        if (!wa.utils.isPowerOfTwo(scaledImageWidth) || !wa.utils.isPowerOfTwo(scaledImageHeight)) {
+
+        // skip this if it is webgl2 since webgl2 supports NPOT, so we don't need extra processing
+        if (wa.gWebGLType !== 'webgl2' && (!wa.utils.isPowerOfTwo(scaledImageWidth) || !wa.utils.isPowerOfTwo(scaledImageHeight))) {
+            console.log("WebGL2 not found, scaling non power of 2 texture dimensions.");
             // now create a new scaled image
             var scaledCanvas = document.createElement("canvas");
             scaledCanvas.width = wa.utils.nextHighestPowerOfTwo(scaledImageWidth);
@@ -108,13 +111,15 @@ wa.entity.RGBTriadImageEntity = function() {
         var scaledQuadWidth = scaledImageWidth * quadScale;
         var scaledQuadHeight = scaledImageHeight * quadScale;
 
+        /*
         if (self.resizeQuadToMatchImage) {
             console.log("RGBTriadImageEntity resize [" + scaledQuadWidth + "x" + scaledQuadHeight + "]");
             self.setDimensions(Math.floor(scaledQuadWidth), Math.floor(scaledQuadHeight));
         }
+        */
 
         if (addToLibraryNext) {
-            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, false);
+            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
             //console.log("w: " + self.rgbTriadImage.width + " h: " + self.rgbTriadImage.height);
             self.rgbTriadTexture = savedTexture;
         }
@@ -146,7 +151,10 @@ wa.entity.RGBTriadImageEntity = function() {
         var addToLibraryNext = true;
 
         var scaledImage = self.mainImage;
-        if (!wa.utils.isPowerOfTwo(scaledImageWidth) || !wa.utils.isPowerOfTwo(scaledImageHeight)) {
+
+        // skip this if it is webgl2 since webgl2 supports NPOT, so we don't need extra processing
+        if (wa.gWebGLType !== 'webgl2' && (!wa.utils.isPowerOfTwo(scaledImageWidth) || !wa.utils.isPowerOfTwo(scaledImageHeight))) {
+            console.log("WebGL2 not found, scaling non power of 2 texture dimensions.");
             // now create a new scaled image
             var scaledCanvas = document.createElement("canvas");
             scaledCanvas.width = wa.utils.nextHighestPowerOfTwo(scaledImageWidth);
@@ -187,7 +195,7 @@ wa.entity.RGBTriadImageEntity = function() {
         */
 
         if (addToLibraryNext) {
-            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, false);
+            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
             //console.log("w: " + self.mainImage.width + " h: " + self.mainImage.height);
             self.imageTexture = savedTexture;
         }

@@ -14,12 +14,23 @@ function mainInit() {
 
     // initing our app globals
     wa.gTitleElement = document.getElementsByTagName('title')[0];
+
+    var selectElement = document.getElementById('ImageSelect');
+
+    for (var i = 0; i < wa.data.ImageListURLs.length; ++i) {
+        var opt = document.createElement("option");
+        opt.value= wa.data.ImageListURLs[i];
+        opt.innerHTML = wa.data.ImageListURLs[i].slice("images/".length);
+        // then append it to the select element
+        selectElement.appendChild(opt);
+    }
+
     //wa.gSysMessageElement = document.getElementById('sysMessageArea');
     wa.gPrevTimestamp = 0;
     wa.gDelta = 0;
     wa.gTrackedInputArea = document.getElementById('renderArea');
     wa.gCanvasElement = document.getElementById('renderCanvas');
-    wa.gSelectState = document.getElementById('StateSelect');
+    wa.gSelectImage = document.getElementById('ImageSelect');
     wa.gMsgArea = document.getElementById('msgArea');
 
     wa.gDevicePixelRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
@@ -27,7 +38,7 @@ function mainInit() {
     wa.gCanvasElement.height = wa.gCanvasElement.clientHeight * wa.gDevicePixelRatio;
     console.log('devicePixelRatio: ' + wa.gDevicePixelRatio);
 
-    wa.gCanvasContext = wa.gCanvasElement.getContext('webgl');
+    // wa.gCanvasContext = wa.gCanvasElement.getContext('webgl2');
 
     // now, use khronos helper to test for webGL support and setup the gl context
     gl = WebGLUtils.setupWebGL(wa.gCanvasElement);
@@ -79,10 +90,22 @@ function mainInit() {
     wa.gRenderer.setViewpoint(gl, wa.gViewpoint);
 
     // add a the RGB Triad State here
-    wa.gStateRunner.addState(new wa.states.RGBTriads());
+    wa.gRGBTriadState = new wa.states.RGBTriads();
+    wa.gStateRunner.addState(wa.gRGBTriadState);
 
     // call our mainloop the first time with a current timestamp
     mainLoop(new Date().getTime());
+}
+
+function switchImage() {
+    if (wa.gRGBTriadState === null) {
+        return;
+    }
+
+    var selectedImage = wa.gSelectImage.value;
+    console.log("Selected: " + selectedImage);
+
+    wa.gRGBTriadState.rgbTriadImage.loadImageURL("images/RGB5x15_256x256.png", selectedImage, false);
 }
 
 

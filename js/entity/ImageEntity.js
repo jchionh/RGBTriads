@@ -57,7 +57,10 @@ wa.entity.ImageEntity = function() {
         var addToLibraryNext = true;
 
         var scaledImage = self.image;
-        if (!wa.utils.isPowerOfTwo(scaledImageWidth) || !wa.utils.isPowerOfTwo(scaledImageHeight)) {
+        
+        // skip this if it is webgl2 since webgl2 supports NPOT, so we don't need extra processing
+        if (wa.gWebGLType !== 'webgl2' && (!wa.utils.isPowerOfTwo(scaledImageWidth) || !wa.utils.isPowerOfTwo(scaledImageHeight))) {
+            console.log("WebGL2 not found, scaling non power of 2 texture dimensions.");
             // now create a new scaled image
             var scaledCanvas = document.createElement("canvas");
             scaledCanvas.width = wa.utils.nextHighestPowerOfTwo(scaledImageWidth);
@@ -80,6 +83,7 @@ wa.entity.ImageEntity = function() {
                 self.texture = savedTexture;
             }
         }
+        
 
         // now let's set our quad dimensions based on scaled image loaded values
         var quadWidthScale = wa.render.RenderConstants.MAX_QUAD_DIMENSION / scaledImageWidth * 1.0;
