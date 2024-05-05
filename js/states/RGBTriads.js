@@ -70,7 +70,8 @@ wa.states.RGBTriads.prototype.onStart = function() {
    // load image
    // this.rgbTriadImage.loadImageURL("images/RGB5x3_128x128.jpg", "images/marco_slug_1.jpg", false);
    var selectedImage = wa.gSelectImage.value;
-   this.rgbTriadImage.loadImageURL("images/RGB5x15_256x256.png", selectedImage, false);
+   var selectedTriad = wa.gSelectTriad.value;
+   this.rgbTriadImage.loadImageURL(selectedTriad, selectedImage, false);
    // this.rgbTriadImage.loadImageURL("images/RGB5x3_128x128.jpg", "images/metal_slug_tank_direct_1.png", false);
    this.rgbTriadImage.setDimensions(1600, 1200);
    this.rgbTriadImage.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;

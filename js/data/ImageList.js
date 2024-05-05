@@ -7,6 +7,18 @@
 // namespace
 wa.data = wa.data || {};
 
+wa.data.RGBTriadListURLs = [
+    "images/RGB5x15_256x256.png",
+    "images/RGB2x10_21x22.png",
+    "images/RGB2x7_21x16.png",
+    "images/RGB2x7_252x240.png",
+    "images/RGB2x7_28x24.png",
+    "images/RGB4x14_256x256.png",
+    "images/RGB5x14_256x256.png",
+    "images/RGB5x15_256x256.png",
+    "images/RGB5x15_64x64.png",
+];
+
 wa.data.ImageListURLs = [
     "images/msx_plane_2.png",
     "images/avp_fight_1.png",

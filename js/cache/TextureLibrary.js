@@ -53,6 +53,7 @@ wa.cache.TextureLibrary.prototype.addTexture = function(textureId, image, genMip
 
     var minFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR : this.gl.LINEAR;
     var maxFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR : this.gl.LINEAR;
+    
     if (wa.gWebGLType !== "webgl2") 
     {
         maxFilter = this.gl.LINEAR;

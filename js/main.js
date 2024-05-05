@@ -25,12 +25,23 @@ function mainInit() {
         selectElement.appendChild(opt);
     }
 
+    var selectTriadElement = document.getElementById('TriadSelect');
+
+    for (var i = 0; i < wa.data.RGBTriadListURLs.length; ++i) {
+        var opt = document.createElement("option");
+        opt.value= wa.data.RGBTriadListURLs[i];
+        opt.innerHTML = wa.data.RGBTriadListURLs[i].slice("images/".length);
+        // then append it to the select element
+        selectTriadElement.appendChild(opt);
+    }
+
     //wa.gSysMessageElement = document.getElementById('sysMessageArea');
     wa.gPrevTimestamp = 0;
     wa.gDelta = 0;
     wa.gTrackedInputArea = document.getElementById('renderArea');
     wa.gCanvasElement = document.getElementById('renderCanvas');
     wa.gSelectImage = document.getElementById('ImageSelect');
+    wa.gSelectTriad = document.getElementById('TriadSelect');
     wa.gMsgArea = document.getElementById('msgArea');
 
     wa.gDevicePixelRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
@@ -103,9 +114,12 @@ function switchImage() {
     }
 
     var selectedImage = wa.gSelectImage.value;
-    console.log("Selected: " + selectedImage);
+    console.log("Selected Image: " + selectedImage);
 
-    wa.gRGBTriadState.rgbTriadImage.loadImageURL("images/RGB5x15_256x256.png", selectedImage, false);
+    var selectedTriad = wa.gSelectTriad.value;
+    console.log("Selected Triad: " + selectedTriad);
+
+    wa.gRGBTriadState.rgbTriadImage.loadImageURL(selectedTriad, selectedImage, false);
 }
 
 

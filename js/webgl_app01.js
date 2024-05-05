@@ -29,3 +29,4 @@ wa.gDevicePixelRatio = 1;
 wa.gWebGLType = "webgl2";
 wa.gRGBTriadState = null;
 wa.gSelectImage = document.getElementById('ImageSelect');
+wa.gSelectTriad = document.getElementById('TriadSelect');
