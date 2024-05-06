@@ -12,7 +12,7 @@ wa.entity.ImageEntityGlobals = {};
 wa.entity.ImageEntityGlobals.doTriads = true;
 
 wa.entity.ImageEntityGlobals.doScanLines = false;
-wa.entity.ImageEntityGlobals.scanLinesDensity = 82;
+wa.entity.ImageEntityGlobals.scanLinesDensity = 80;
 wa.entity.ImageEntityGlobals.scanLinesOpacity = 0.25;
 
 wa.entity.ImageEntityGlobals.doVignette = false;

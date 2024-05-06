@@ -195,9 +195,9 @@ function defaultVignetteValues() {
 
 function defaultScanLineValues() {
     var name = "scanLinesDensity";
-    document.getElementById(name).value = 82.0;
-    document.getElementById(name + "Text").innerText = "82.0";
-    wa.entity.ImageEntityGlobals[name] = 82.0;
+    document.getElementById(name).value = 80.0;
+    document.getElementById(name + "Text").innerText = "80.0";
+    wa.entity.ImageEntityGlobals[name] = 80.0;
 
     name = "scanLinesOpacity";
     document.getElementById(name).value = 0.25;
