@@ -71,9 +71,18 @@
         uniform float u_texCenterV;
         uniform float u_imageBrightness;
 
+        uniform float u_ImageWidth;
+        uniform float u_ImageHeight;
+
         uniform float u_rBrightness;
         uniform float u_gBrightness;
         uniform float u_bBrightness;
+
+        uniform bool u_doScanLines;
+        uniform float u_scanLinesDensity;
+        uniform float u_scanLinesOpacity;
+
+        uniform bool u_doTriads;
 
         // here's the interpolated vertex color for this fragment
         varying vec4 v_Color;
@@ -94,6 +103,32 @@
             return clamp(dist, 0.0, 1.0);
         }
 
+        vec3 addScanLines(vec3 col, vec2 texCoord, float imageHeight) 
+        {
+            if (!u_doScanLines) {
+                return col;
+            }
+
+            float lineDensity = u_scanLinesDensity / 100000.0;
+
+            float lineCount = imageHeight * lineDensity;
+            float verticalStride = texCoord.y * imageHeight;
+
+            float lineBrightness = cos(verticalStride * lineCount);
+            
+            col += u_scanLinesOpacity * lineBrightness * col;
+            return col;
+        }
+
+        vec3 addTriads(vec3 triadColor, vec3 imageColor)
+        {
+            if (!u_doTriads)
+            {
+                return imageColor;
+            }
+            return triadColor * imageColor;
+        }
+
         // main program
         void main()
         {
@@ -102,11 +137,14 @@
 
             // sample the texture
             vec4 image = texture2D(u_ImageTexture, v_ImageTexCoord);
+            
+            vec3 imageScanlines = addScanLines(image.rgb, v_ImageTexCoord, u_ImageHeight);
+            vec3 imageTriad = addTriads(rgbTriad.rgb, imageScanlines.rgb);
 
             vec4 texColor;
-            texColor.r = u_imageBrightness * u_rBrightness * (rgbTriad.r * image.r);
-            texColor.g = u_imageBrightness * u_gBrightness * (rgbTriad.g * image.g);
-            texColor.b = u_imageBrightness * u_bBrightness * (rgbTriad.b * image.b);
+            texColor.r = u_rBrightness * imageTriad.r;
+            texColor.g = u_gBrightness * imageTriad.g;
+            texColor.b = u_bBrightness * imageTriad.b;
 
             gl_FragColor = u_imageBrightness * vignette() * v_Color * texColor;
             gl_FragColor.a = 1.0;
@@ -140,7 +178,16 @@
     
     -->
     <div>Control Area</div>
+    <div>&nbsp;</div>
     <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>RGB Triads</td>
+            <td>&nbsp;</td>
+            <td><input id="doTriads" type="checkbox" checked onchange="triadsOnOff();"/></td>
+            <td>&nbsp;</td>
+            <td><div id="doTriadsText">On</div></td>
+        </tr>
         <tr>
             <td>&nbsp;</td>
             <td>RGB Triad Scale</td>
@@ -153,9 +200,9 @@
             <td>&nbsp;</td>
             <td>Image Brightness</td>
             <td>&nbsp;</td>
-            <td><input id="imageBrightness" type="range" min="0.1" max="3.0" step="0.001" value="1.374" oninput="sliderChanged('imageBrightness');"/></td>
+            <td><input id="imageBrightness" type="range" min="0.1" max="9.0" step="0.001" value="1.887" oninput="sliderChanged('imageBrightness');"/></td>
             <td>&nbsp;</td>
-            <td><div id="imageBrightnessText">1.374</div></td>
+            <td><div id="imageBrightnessText">1.887</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -181,6 +228,38 @@
             <td>&nbsp;</td>
             <td><div id="bBrightnessText">1.0</div></td>
         </tr>
+    </table>
+    <button onclick="defaultRGBTriadValues();">Default RGB Triad Values</button>
+    <div>&nbsp;</div>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Scan Lines</td>
+            <td>&nbsp;</td>
+            <td><input id="doScanlines" type="checkbox" onchange="scanLinesOnOff();"/></td>
+            <td>&nbsp;</td>
+            <td><div id="doScanlinesText">Off</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Scan Lines Density</td>
+            <td>&nbsp;</td>
+            <td><input id="scanLinesDensity" type="range" min="0.000" max="220" step="1" value="82" oninput="sliderChanged('scanLinesDensity');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="scanLinesDensityText">82</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Scan Lines Opacity</td>
+            <td>&nbsp;</td>
+            <td><input id="scanLinesOpacity" type="range" min="0.000" max="1.0" step="0.001" value="0.25" oninput="sliderChanged('scanLinesOpacity');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="scanLinesOpacityText">0.25</div></td>
+        </tr>
+    </table>
+    <button onclick="defaultScanLineValues();">Default Scan Line Values</button>
+    <div>&nbsp;</div>
+    <table>
         <tr>
             <td>&nbsp;</td>
             <td>Vignette</td>

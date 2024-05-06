@@ -133,6 +133,40 @@ function vignetteOnOff() {
 }
 
 /**
+ * turn scanlines on or off
+ */
+function scanLinesOnOff() {
+    var doScanLines = document.getElementById("doScanlines").checked;
+    document.getElementById("doScanlinesText").innerText = doScanLines ? "On" : "Off";
+    wa.entity.ImageEntityGlobals.doScanLines = doScanLines;
+}
+
+/**
+ * turn triads on or off
+ */
+function triadsOnOff() {
+    var doTriads = document.getElementById("doTriads").checked;
+    document.getElementById("doTriadsText").innerText = doTriads ? "On" : "Off";
+    wa.entity.ImageEntityGlobals.doTriads = doTriads;
+    if (doTriads) 
+    {
+        // default the image brightness to 1.887
+        var defaultImageBrightness = 1.887
+        document.getElementById("imageBrightness").value = defaultImageBrightness;
+        document.getElementById("imageBrightnessText").innerText = "" + defaultImageBrightness;
+        wa.entity.ImageEntityGlobals.imageBrightness = defaultImageBrightness;
+    }
+    else
+    {
+        // default the image brightness to 1.0
+        var defaultImageBrightness = 1.0
+        document.getElementById("imageBrightness").value = defaultImageBrightness;
+        document.getElementById("imageBrightnessText").innerText = "" + defaultImageBrightness;
+        wa.entity.ImageEntityGlobals.imageBrightness = defaultImageBrightness;
+    }
+}
+
+/**
  * update the state of the slider
  * @param {String} name
  */
@@ -157,6 +191,47 @@ function defaultVignetteValues() {
     document.getElementById(name).value = 8.0;
     document.getElementById(name + "Text").innerText = "8.0";
     wa.entity.ImageEntityGlobals[name] = 8.0;
+}
+
+function defaultScanLineValues() {
+    var name = "scanLinesDensity";
+    document.getElementById(name).value = 82.0;
+    document.getElementById(name + "Text").innerText = "82.0";
+    wa.entity.ImageEntityGlobals[name] = 82.0;
+
+    name = "scanLinesOpacity";
+    document.getElementById(name).value = 0.25;
+    document.getElementById(name + "Text").innerText = "0.25";
+    wa.entity.ImageEntityGlobals[name] = 0.25;
+}
+
+function defaultRGBTriadValues() {
+    var name = "rgbTexScale";
+    document.getElementById(name).value = 25.0;
+    document.getElementById(name + "Text").innerText = "25";
+    wa.entity.ImageEntityGlobals[name] = 25.0;
+
+    var doTriads = document.getElementById("doTriads").checked;
+    var brightnessValue = doTriads ? 1.887 : 1.0;
+    name = "imageBrightness";
+    document.getElementById(name).value = brightnessValue;
+    document.getElementById(name + "Text").innerText = "" + brightnessValue;
+    wa.entity.ImageEntityGlobals[name] = brightnessValue;
+
+    name = "rBrightness";
+    document.getElementById(name).value = 1.0;
+    document.getElementById(name + "Text").innerText = "1.0";
+    wa.entity.ImageEntityGlobals[name] = 1.0;
+
+    name = "gBrightness";
+    document.getElementById(name).value = 1.0;
+    document.getElementById(name + "Text").innerText = "1.0";
+    wa.entity.ImageEntityGlobals[name] = 1.0;
+
+    name = "bBrightness";
+    document.getElementById(name).value = 1.0;
+    document.getElementById(name + "Text").innerText = "1.0";
+    wa.entity.ImageEntityGlobals[name] = 1.0;
 }
 
 

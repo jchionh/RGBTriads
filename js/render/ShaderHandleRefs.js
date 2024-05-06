@@ -30,4 +30,10 @@ wa.render.ShaderHandleRefs = function() {
     this.rBrightness = 0; // float
     this.gBrightness = 0; // float
     this.bBrightness = 0; // float
+    this.imageWidthHandle = 0; // float
+    this.imageHeightHandle = 0; // float
+    this.doTriads = 0; // bool
+    this.doScanLines = 0; // bool
+    this.scanLinesDensity = 0; // float
+    this.scanLinesOpacity = 0; // float
 };

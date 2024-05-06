@@ -175,6 +175,10 @@ wa.entity.ImageEntity.prototype.drawTexture = function(gl, shaderHandleRefs) {
 
     // and send this tex matrix up into the shader
     gl.uniformMatrix4fv(shaderHandleRefs.texMatrixHandle, false, this.texMatrix);
+
+    // send in the image with and height
+    gl.uniform1f(shaderHandleRefs.imageWidth, this.texture.width);
+    gl.uniform1f(shaderHandleRefs.imageHeight, this.texture.height);
 };
 
 /**

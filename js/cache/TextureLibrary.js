@@ -51,8 +51,15 @@ wa.cache.TextureLibrary.prototype.addTexture = function(textureId, image, genMip
         return texture;
     }
 
-    var minFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR : this.gl.LINEAR;
-    var maxFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR : this.gl.LINEAR;
+    /*
+    NEAREST_MIPMAP_NEAREST - no filtering, sharp switching between mipmaps
+    NEAREST_MIPMAP_LINEAR - no filtering, smooth transition between mipmaps
+    LINEAR_MIPMAP_NEAREST - filtering, sharp switching between mipmaps
+    LINEAR_MIPMAP_LINEAR - filtering, smooth transition between mipmaps
+    */
+
+    var minFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR   : this.gl.LINEAR;
+    var maxFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR   : this.gl.LINEAR;
     
     if (wa.gWebGLType !== "webgl2") 
     {

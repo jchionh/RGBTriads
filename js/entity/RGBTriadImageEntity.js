@@ -196,7 +196,7 @@ wa.entity.RGBTriadImageEntity = function() {
 
         if (addToLibraryNext) {
             var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
-            //console.log("w: " + self.mainImage.width + " h: " + self.mainImage.height);
+            console.log("w: " + self.mainImage.width + " h: " + self.mainImage.height);
             self.imageTexture = savedTexture;
         }
     };
@@ -254,6 +254,12 @@ wa.entity.RGBTriadImageEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1i(shaderHandleRefs.texSamplerHandle, 0);
     gl.uniform1i(shaderHandleRefs.doVignetteHandle, wa.entity.ImageEntityGlobals.doVignette);
 
+    gl.uniform1i(shaderHandleRefs.doTriads, wa.entity.ImageEntityGlobals.doTriads);
+
+    gl.uniform1i(shaderHandleRefs.doScanLines, wa.entity.ImageEntityGlobals.doScanLines);
+    gl.uniform1f(shaderHandleRefs.scanLinesDensity, wa.entity.ImageEntityGlobals.scanLinesDensity);
+    gl.uniform1f(shaderHandleRefs.scanLinesOpacity, wa.entity.ImageEntityGlobals.scanLinesOpacity);
+
     gl.uniform1f(shaderHandleRefs.vigOuterHandle, wa.entity.ImageEntityGlobals.vigOuterBorder);
     gl.uniform1f(shaderHandleRefs.vigFadeHandle, wa.entity.ImageEntityGlobals.vigFade);
     gl.uniform1f(shaderHandleRefs.fStop, wa.entity.ImageEntityGlobals.fStop);
@@ -272,6 +278,11 @@ wa.entity.RGBTriadImageEntity.prototype.drawTexture = function(gl, shaderHandleR
 
     gl.activeTexture(gl.TEXTURE1);
     gl.bindTexture(gl.TEXTURE_2D, this.imageTexture.textureHandle);
+
+    // send in the image with and height
+    gl.uniform1f(shaderHandleRefs.imageWidthHandle, this.imageTexture.width);
+    gl.uniform1f(shaderHandleRefs.imageHeightHandle, this.imageTexture.height);
+
     gl.uniform1i(shaderHandleRefs.texImageSamplerHandle, 1);
     // now let's calculate our texture matrix
     this.calcTexMatrix();
