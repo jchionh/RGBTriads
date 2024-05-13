@@ -25,6 +25,15 @@ function mainInit() {
         selectElement.appendChild(opt);
     }
 
+    var selectVideoElement = document.getElementById('VideoSelect');
+    for (var i = 0; i < wa.data.VideoListURLs.length; ++i) {
+        var opt = document.createElement("option");
+        opt.value= wa.data.VideoListURLs[i];
+        opt.innerHTML = wa.data.VideoListURLs[i].slice("video/".length);
+        // then append it to the select element
+        selectVideoElement.appendChild(opt);
+    }
+
     var selectTriadElement = document.getElementById('TriadSelect');
 
     for (var i = 0; i < wa.data.RGBTriadListURLs.length; ++i) {
@@ -101,7 +110,8 @@ function mainInit() {
     wa.gRenderer.setViewpoint(gl, wa.gViewpoint);
 
     // add a the RGB Triad State here
-    wa.gRGBTriadState = new wa.states.RGBTriads();
+    //wa.gRGBTriadState = new wa.states.RGBTriads();
+    wa.gRGBTriadState = new wa.states.RGBTriadVideo();
     wa.gStateRunner.addState(wa.gRGBTriadState);
 
     // call our mainloop the first time with a current timestamp
@@ -120,6 +130,20 @@ function switchImage() {
     console.log("Selected Triad: " + selectedTriad);
 
     wa.gRGBTriadState.rgbTriadImage.loadImageURL(selectedTriad, selectedImage, false);
+}
+
+function switchVideo() {
+    if (wa.gRGBTriadState === null) {
+        return;
+    }
+
+    var selectedVideo = wa.gSelectVideo.value;
+    console.log("Selected Video: " + selectedVideo);
+
+    var selectedTriad = wa.gSelectTriad.value;
+    console.log("Selected Triad: " + selectedTriad);
+
+    wa.gRGBTriadState.rgbTriadVideo.loadVideoURL(selectedTriad, selectedVideo, false);
 }
 
 

@@ -157,11 +157,14 @@
 
 <body class="unselectable">
 
-<span>&nbsp;&nbsp;&nbsp;&nbsp;Select image: </span>
-<select id="ImageSelect" name="ImageSelect" onchange="switchImage()">
+<span style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;Select image: </span>
+<select style="display:none" id="ImageSelect" name="ImageSelect" onchange="switchImage()">
 </select>
-<span>&nbsp;&nbsp;&nbsp;&nbsp;Select RGB Triad: </span>
-<select id="TriadSelect" name="TriadSelect" onchange="switchImage()">
+<span>&nbsp;&nbsp;&nbsp;&nbsp;Select video: </span>
+<select id="VideoSelect" name="VideoSelect" onchange="switchVideo()">
+</select>
+<span style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;Select RGB Triad: </span>
+<select style="display:none" id="TriadSelect" name="TriadSelect" onchange="switchImage()">
 </select>
 
 <span id="msgArea"></span>
@@ -337,6 +340,7 @@
 <script src="js/entity/ImageEntityGlobals.js"></script>
 <script src="js/entity/ImageEntity.js"></script>
 <script src="js/entity/RGBTriadImageEntity.js"></script>
+<script src="js/entity/RGBTriadVideoEntity.js"></script>
 <script src="js/entity/ImageEntityFactory.js"></script>
 
 <!-- app data -->
@@ -354,6 +358,7 @@
 <!-- app run states -->
 <script src="js/states/InitialState.js"></script>
 <script src="js/states/RGBTriads.js"></script>
+<script src="js/states/RGBTriadVideo.js"></script>
 
 <!-- main -->
 <script src="js/main.js"></script>

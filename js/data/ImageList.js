@@ -20,6 +20,8 @@ wa.data.RGBTriadListURLs = [
 ];
 
 wa.data.ImageListURLs = [
+    "images/msx00941_large.png",
+    "images/msx00941_small.png",
     "images/msx_plane_2.png",
     //"images/avp_fight_1.png",
     "images/bobble_1.png",
@@ -71,4 +73,19 @@ wa.data.ImageListURLs = [
     "images/zw_intro_6.png",
     "images/zw_intro_7.png",
     "images/zw_title_1.png",
+];
+
+wa.data.VideoListURLs = [
+    "video/metal_slug_x.mp4",
+    "video/garou_mark_of_the_wolves.mp4",
+    "video/king_of_fighters_98.mp4",
+    "video/metal_slug_2.mp4",
+    "video/metal_slug_3.mp4",
+    "video/metal_slug_4.mp4",
+    "video/metal_slug_x.mp4",
+    "video/neo_turf_masters.mp4",
+    "video/the_last_blade_1.mp4",
+    "video/the_last_blade_2.mp4",
+    "video/visco_rally_championship_1996.mp4",
+    "video/windjammers.mp4",
 ];
