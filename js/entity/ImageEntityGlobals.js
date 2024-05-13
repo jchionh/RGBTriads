@@ -15,7 +15,7 @@ wa.entity.ImageEntityGlobals.doScanLines = true;
 wa.entity.ImageEntityGlobals.scanLinesDensity = 80;
 wa.entity.ImageEntityGlobals.scanLinesOpacity = 0.25;
 
-wa.entity.ImageEntityGlobals.doVignette = false;
+wa.entity.ImageEntityGlobals.doVignette = true;
 wa.entity.ImageEntityGlobals.vigOuterBorder = 40.0;
 wa.entity.ImageEntityGlobals.vigFade = 70;
 wa.entity.ImageEntityGlobals.fStop = 8.0;
