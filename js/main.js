@@ -28,8 +28,8 @@ function mainInit() {
     var selectVideoElement = document.getElementById('VideoSelect');
     for (var i = 0; i < wa.data.VideoListURLs.length; ++i) {
         var opt = document.createElement("option");
-        opt.value= wa.data.VideoListURLs[i];
-        opt.innerHTML = wa.data.VideoListURLs[i].slice("video/".length);
+        opt.value= wa.data.VideoListURLs[i].url;
+        opt.innerHTML = wa.data.VideoListURLs[i].desc;
         // then append it to the select element
         selectVideoElement.appendChild(opt);
     }
@@ -164,6 +164,16 @@ function scanLinesOnOff() {
     document.getElementById("doScanlinesText").innerText = doScanLines ? "On" : "Off";
     wa.entity.ImageEntityGlobals.doScanLines = doScanLines;
 }
+
+/**
+ * turn audio on or off
+ */
+function audioOnOff() {
+    var doAudio = document.getElementById("doAudio").checked;
+    document.getElementById("doAudioText").innerText = doAudio ? "On" : "Off";
+    wa.entity.ImageEntityGlobals.doAudio = doAudio;
+}
+
 
 /**
  * turn triads on or off

@@ -9,6 +9,9 @@ wa.entity = wa.entity || {};
 // static object for constants
 wa.entity.ImageEntityGlobals = {};
 
+wa.entity.ImageEntityGlobals.doAudio = false;
+wa.entity.ImageEntityGlobals.volume = 0.5;
+
 wa.entity.ImageEntityGlobals.doTriads = true;
 
 wa.entity.ImageEntityGlobals.doScanLines = true;

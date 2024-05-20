@@ -185,6 +185,25 @@
     <table>
         <tr>
             <td>&nbsp;</td>
+            <td>Audio</td>
+            <td>&nbsp;</td>
+            <td><input id="doAudio" type="checkbox" onchange="audioOnOff();"/></td>
+            <td>&nbsp;</td>
+            <td><div id="doAudioText">Off</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Volume</td>
+            <td>&nbsp;</td>
+            <td><input id="volume" type="range" min="0.0" max="1.0" step="0.01" value="0.5" oninput="sliderChanged('volume');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="volumeText">0.5</div></td>
+        </tr>
+    </table>
+    <div>&nbsp;</div>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
             <td>RGB Triads</td>
             <td>&nbsp;</td>
             <td><input id="doTriads" type="checkbox" checked onchange="triadsOnOff();"/></td>

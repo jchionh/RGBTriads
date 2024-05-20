@@ -76,16 +76,104 @@ wa.data.ImageListURLs = [
 ];
 
 wa.data.VideoListURLs = [
-    "video/metal_slug_x.mp4",
-    "video/garou_mark_of_the_wolves.mp4",
-    "video/king_of_fighters_98.mp4",
-    "video/metal_slug_2.mp4",
-    "video/metal_slug_3.mp4",
-    "video/metal_slug_4.mp4",
-    "video/metal_slug_x.mp4",
-    "video/neo_turf_masters.mp4",
-    "video/the_last_blade_1.mp4",
-    "video/the_last_blade_2.mp4",
-    "video/visco_rally_championship_1996.mp4",
-    "video/windjammers.mp4",
+    {
+        desc: "[Neo Geo] Metal Slug X (No Audio)",
+        url: "video/metal_slug_x.mp4"
+    },
+    {
+        desc: "[PSX] Final Fantasy VII",
+        url: "video/final_fantasy_7_intro.mp4"
+    },
+    {
+        desc: "[Arcade] Alien Vs Predator",
+        url: "video/alien_vs_predator_intro.mp4"
+    },
+    {
+        desc: "[Arcade] Captain Commando",
+        url: "video/captain_commando_intro.mp4"
+    },
+    {
+        desc: "[Arcade] Street Fighter 2 Hyper Fighting",
+        url: "video/street_fighter_2_hyper_fighting_intro.mp4"
+    },
+    {
+        desc: "[Arcade] Street Fighter Alpha 2",
+        url: "video/street_fighter_alpha_2_intro.mp4"
+    },
+    {
+        desc: "[Arcade] Street Fighter Alpha 3",
+        url: "video/street_fighter_alpha_3_intro.mp4"
+    },
+    {
+        desc: "[Arcade] The Final Fight",
+        url: "video/final_fight_intro.mp4"
+    },
+    {
+        desc: "[SNES] Chrono Trigger",
+        url: "video/chrono_trigger_intro.mp4"
+    },
+    {
+        desc: "[SNES] Final Fantasy V",
+        url: "video/final_fantasy_5_intro.mp4"
+    },
+    {
+        desc: "[SNES] Final Fantasy VI",
+        url: "video/final_fantasy_6_intro.mp4"
+    },
+    {
+        desc: "[SNES] Super Metriod",
+        url: "video/super_metroid_intro.mp4"
+    },
+    {
+        desc: "[SNES] Super Mario World",
+        url: "video/super_mario_world_intro.mp4"
+    },
+    {
+        desc: "[SNES] The Legend of Zelda: A Link to the Past",
+        url: "video/zelda_link_to_the_past.mp4"
+    },
+    {
+        desc: "[Neo Geo] Garou: Mark of the Wolves (No Audio)",
+        url: "video/garou_mark_of_the_wolves.mp4"
+    },
+    {
+        desc: "[Neo Geo] The King of Fighters 98 (No Audio)",
+        url: "video/king_of_fighters_98.mp4"
+    },
+    {
+        desc: "[Neo Geo] Metal Slug X (No Audio)",
+        url: "video/metal_slug_x.mp4"
+    },
+    {
+        desc: "[Neo Geo] Metal Slug 2 (No Audio)",
+        url: "video/metal_slug_2.mp4"
+    },
+    {
+        desc: "[Neo Geo] Metal Slug 3 (No Audio)",
+        url: "video/metal_slug_3.mp4"
+    },
+    {
+        desc: "[Neo Geo] Metal Slug 4 (No Audio)",
+        url: "video/metal_slug_4.mp4"
+    },
+    {
+        desc: "[Neo Geo] Neo Turf Masters (No Audio)",
+        url: "video/neo_turf_masters.mp4"
+    },
+    {
+        desc: "[Neo Geo] The Last Blade 1 (No Audio)",
+        url: "video/the_last_blade_1.mp4"
+    },
+    {
+        desc: "[Neo Geo] The Last Blade 2 (No Audio)",
+        url: "video/the_last_blade_2.mp4"
+    },
+    {
+        desc: "[Neo Geo] Visco Rally Championship (No Audio)",
+        url: "video/visco_rally_championship_1996.mp4"
+    },
+    {
+        desc: "[Neo Geo] Windjammers (No Audio)",
+        url: "video/windjammers.mp4"
+    },
 ];

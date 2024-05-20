@@ -122,6 +122,17 @@ wa.states.RGBTriadVideo.prototype.onStop = function() {
  */
 wa.states.RGBTriadVideo.prototype.onUpdate = function(dt) {
     //console.log('StaticImages::onUpdate');
+
+    // check audio
+    var doAudio = wa.entity.ImageEntityGlobals.doAudio;
+    if (this.rgbTriadVideo.videoElement.muted != !doAudio) {
+        this.rgbTriadVideo.videoElement.muted = !doAudio;
+    }
+
+    if (this.rgbTriadVideo.videoElement.volume != wa.entity.ImageEntityGlobals.volume) {
+        this.rgbTriadVideo.videoElement.volume = wa.entity.ImageEntityGlobals.volume;
+    }
+
     this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;
     this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.rgbTexScale;
     this.rgbTriadVideo.texScale[v.Z] = 1.00;
