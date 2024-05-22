@@ -85,6 +85,10 @@ wa.data.VideoListURLs = [
         url: "video/final_fantasy_7_intro.mp4"
     },
     {
+        desc: "[PSX] Metal Gear Solid",
+        url: "video/metal_gear_solid_intro.mp4"
+    },
+    {
         desc: "[Arcade] Alien Vs Predator",
         url: "video/alien_vs_predator_intro.mp4"
     },
