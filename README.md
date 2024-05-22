@@ -1,4 +1,4 @@
-Trying to use RGB Triads as the base to display images.
+A simple shader using multi-textures to simulate the RGB Triads of a CRT TV screen.
 
-You can see the latest results at:
-http://jchionh.github.io/RGBTriads/
+You can see the latest demo at:
+https://www.rgbtriads.com
