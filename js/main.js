@@ -184,8 +184,8 @@ function triadsOnOff() {
     wa.entity.ImageEntityGlobals.doTriads = doTriads;
     if (doTriads) 
     {
-        // default the image brightness to 2.25
-        var defaultImageBrightness = 2.25
+        // default the image brightness to 2.18
+        var defaultImageBrightness = 2.18
         document.getElementById("imageBrightness").value = defaultImageBrightness;
         document.getElementById("imageBrightnessText").innerText = "" + defaultImageBrightness;
         wa.entity.ImageEntityGlobals.imageBrightness = defaultImageBrightness;
@@ -246,7 +246,7 @@ function defaultRGBTriadValues() {
     wa.entity.ImageEntityGlobals[name] = 25.0;
 
     var doTriads = document.getElementById("doTriads").checked;
-    var brightnessValue = doTriads ? 2.25 : 1.0;
+    var brightnessValue = doTriads ? 2.18 : 1.0;
     name = "imageBrightness";
     document.getElementById(name).value = brightnessValue;
     document.getElementById(name + "Text").innerText = "" + brightnessValue;
