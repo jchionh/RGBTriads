@@ -71,13 +71,13 @@ wa.states.RGBTriadVideo.prototype.onStart = function() {
    // this.rgbTriadVideo.loadImageURL("images/RGB5x3_128x128.jpg", "images/marco_slug_1.jpg", false);
    var selectedImage = wa.gSelectImage.value;
    var selectedTriad = wa.gSelectTriad.value;
-   var selectedVideo = wa.gSelectVideo.value;
-   this.rgbTriadVideo.videoUrl = selectedVideo;
+   var selectedVideoIndex = wa.gSelectVideo.value;
+   this.rgbTriadVideo.videoUrl = wa.data.VideoListURLs[selectedVideoIndex].url;
    this.rgbTriadVideo.loadImageURL(selectedTriad, selectedImage, false);
    // this.rgbTriadVideo.loadImageURL("images/RGB5x3_128x128.jpg", "images/metal_slug_tank_direct_1.png", false);
    this.rgbTriadVideo.setDimensions(1600, 1200);
-   this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;
-   this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.rgbTexScale;
+   this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
+   this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
    this.rgbTriadVideo.texScale[v.Z] = 1.00;
 
    //this.mainImage = new wa.entity.RGBTriadVideoEntity();
@@ -133,8 +133,8 @@ wa.states.RGBTriadVideo.prototype.onUpdate = function(dt) {
         this.rgbTriadVideo.videoElement.volume = wa.entity.ImageEntityGlobals.volume;
     }
 
-    this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;
-    this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.rgbTexScale;
+    this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
+    this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
     this.rgbTriadVideo.texScale[v.Z] = 1.00;
     this.rgbTriadVideo.update(dt);
 };

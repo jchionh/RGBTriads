@@ -28,7 +28,9 @@ function mainInit() {
     var selectVideoElement = document.getElementById('VideoSelect');
     for (var i = 0; i < wa.data.VideoListURLs.length; ++i) {
         var opt = document.createElement("option");
-        opt.value= wa.data.VideoListURLs[i].url;
+        // just set the index
+        opt.value = i;
+        //opt.value= wa.data.VideoListURLs[i].url;
         opt.innerHTML = wa.data.VideoListURLs[i].desc;
         // then append it to the select element
         selectVideoElement.appendChild(opt);
@@ -137,13 +139,21 @@ function switchVideo() {
         return;
     }
 
-    var selectedVideo = wa.gSelectVideo.value;
+    var selectedVideoIndex = wa.gSelectVideo.value;
+    var selectedVideo = wa.data.VideoListURLs[selectedVideoIndex].url;
     console.log("Selected Video: " + selectedVideo);
 
     var selectedTriad = wa.gSelectTriad.value;
     console.log("Selected Triad: " + selectedTriad);
 
     wa.gRGBTriadState.rgbTriadVideo.loadVideoURL(selectedTriad, selectedVideo, false);
+
+    // after switching video, set game demo's current and default settings
+    var gameDemoSettings = wa.data.VideoListURLs[selectedVideoIndex].settings;
+
+    // use the spread operator to create a copy of the object
+    wa.entity.DefaultDemoSettings = { ...gameDemoSettings };
+    wa.entity.CurrentDemoSettings = { ...gameDemoSettings };
 }
 
 
@@ -182,22 +192,16 @@ function triadsOnOff() {
     var doTriads = document.getElementById("doTriads").checked;
     document.getElementById("doTriadsText").innerText = doTriads ? "On" : "Off";
     wa.entity.ImageEntityGlobals.doTriads = doTriads;
-    if (doTriads) 
-    {
-        // default the image brightness to 2.18
-        var defaultImageBrightness = 2.18
-        document.getElementById("imageBrightness").value = defaultImageBrightness;
-        document.getElementById("imageBrightnessText").innerText = "" + defaultImageBrightness;
-        wa.entity.ImageEntityGlobals.imageBrightness = defaultImageBrightness;
-    }
-    else
-    {
-        // default the image brightness to 1.0
-        var defaultImageBrightness = 1.0
-        document.getElementById("imageBrightness").value = defaultImageBrightness;
-        document.getElementById("imageBrightnessText").innerText = "" + defaultImageBrightness;
-        wa.entity.ImageEntityGlobals.imageBrightness = defaultImageBrightness;
-    }
+
+    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
+
+    var name = "imageBrightness";
+    var doTriadsBrightnessValue = defaultDemoSettings[name];
+    var brightnessValue = doTriads ? doTriadsBrightnessValue : 1.0;
+
+    document.getElementById("imageBrightness").value = brightnessValue;
+    document.getElementById("imageBrightnessText").innerText = brightnessValue;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = brightnessValue;
 }
 
 /**
@@ -207,65 +211,85 @@ function triadsOnOff() {
 function sliderChanged(name) {
     var value = document.getElementById(name).value;
     document.getElementById(name + "Text").innerText = "" + value;
-    wa.entity.ImageEntityGlobals[name] = value;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = value;
 }
 
 function defaultVignetteValues() {
+
+    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
+
     var name = "vigOuterBorder";
-    document.getElementById(name).value = 40.0;
-    document.getElementById(name + "Text").innerText = "40.0";
-    wa.entity.ImageEntityGlobals[name] = 40.0;
+    var vigOuterBorder = defaultDemoSettings[name];
+    document.getElementById(name).value = vigOuterBorder;
+    document.getElementById(name + "Text").innerText = vigOuterBorder;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = vigOuterBorder;
 
     name = "vigFade";
-    document.getElementById(name).value = 70;
-    document.getElementById(name + "Text").innerText = "70";
-    wa.entity.ImageEntityGlobals[name] = 70;
+    var vigFade = defaultDemoSettings[name];
+    document.getElementById(name).value = vigFade;
+    document.getElementById(name + "Text").innerText = vigFade;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = vigFade;
 
     name = "fStop";
-    document.getElementById(name).value = 8.0;
-    document.getElementById(name + "Text").innerText = "8.0";
-    wa.entity.ImageEntityGlobals[name] = 8.0;
+    var fStop = defaultDemoSettings[name];
+    document.getElementById(name).value = fStop;
+    document.getElementById(name + "Text").innerText = fStop;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = fStop;
 }
 
 function defaultScanLineValues() {
+
+    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
+
     var name = "scanLinesDensity";
-    document.getElementById(name).value = 80.0;
-    document.getElementById(name + "Text").innerText = "80.0";
-    wa.entity.ImageEntityGlobals[name] = 80.0;
+    var scanLinesDensity = defaultDemoSettings[name];
+    document.getElementById(name).value = scanLinesDensity;
+    document.getElementById(name + "Text").innerText = scanLinesDensity;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = scanLinesDensity;
 
     name = "scanLinesOpacity";
-    document.getElementById(name).value = 0.25;
-    document.getElementById(name + "Text").innerText = "0.25";
-    wa.entity.ImageEntityGlobals[name] = 0.25;
+    var scanLinesOpacity = defaultDemoSettings[name];
+    document.getElementById(name).value = scanLinesOpacity;
+    document.getElementById(name + "Text").innerText = scanLinesOpacity;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = scanLinesOpacity;
 }
 
 function defaultRGBTriadValues() {
+
+    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
+
     var name = "rgbTexScale";
-    document.getElementById(name).value = 25.0;
-    document.getElementById(name + "Text").innerText = "25";
-    wa.entity.ImageEntityGlobals[name] = 25.0;
+    var rgbTexScale = defaultDemoSettings[name];
+    document.getElementById(name).value = rgbTexScale;
+    document.getElementById(name + "Text").innerText = rgbTexScale;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = rgbTexScale;
 
     var doTriads = document.getElementById("doTriads").checked;
-    var brightnessValue = doTriads ? 2.18 : 1.0;
+    
     name = "imageBrightness";
+    var doTriadsBrightnessValue = defaultDemoSettings[name];
+    var brightnessValue = doTriads ? doTriadsBrightnessValue : 1.0;
     document.getElementById(name).value = brightnessValue;
-    document.getElementById(name + "Text").innerText = "" + brightnessValue;
-    wa.entity.ImageEntityGlobals[name] = brightnessValue;
+    document.getElementById(name + "Text").innerText = brightnessValue;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = brightnessValue;
 
     name = "rBrightness";
-    document.getElementById(name).value = 1.0;
-    document.getElementById(name + "Text").innerText = "1.0";
-    wa.entity.ImageEntityGlobals[name] = 1.0;
+    var rBrightness = defaultDemoSettings[name];
+    document.getElementById(name).value = rBrightness;
+    document.getElementById(name + "Text").innerText = rBrightness;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = rBrightness;
 
     name = "gBrightness";
-    document.getElementById(name).value = 1.0;
-    document.getElementById(name + "Text").innerText = "1.0";
-    wa.entity.ImageEntityGlobals[name] = 1.0;
+    var gBrightness = defaultDemoSettings[name];
+    document.getElementById(name).value = gBrightness;
+    document.getElementById(name + "Text").innerText = gBrightness;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = gBrightness;
 
     name = "bBrightness";
-    document.getElementById(name).value = 1.0;
-    document.getElementById(name + "Text").innerText = "1.0";
-    wa.entity.ImageEntityGlobals[name] = 1.0;
+    var bBrightness = defaultDemoSettings[name];
+    document.getElementById(name).value = bBrightness;
+    document.getElementById(name + "Text").innerText = bBrightness;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = bBrightness;
 }
 
 

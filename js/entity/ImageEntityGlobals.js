@@ -19,9 +19,9 @@ wa.entity.ImageEntityGlobals.scanLinesDensity = 80;
 wa.entity.ImageEntityGlobals.scanLinesOpacity = 0.25;
 
 wa.entity.ImageEntityGlobals.doVignette = true;
-wa.entity.ImageEntityGlobals.vigOuterBorder = 40.0;
-wa.entity.ImageEntityGlobals.vigFade = 70;
-wa.entity.ImageEntityGlobals.fStop = 8.0;
+wa.entity.ImageEntityGlobals.vigOuterBorder = 1.0;
+wa.entity.ImageEntityGlobals.vigFade = 50;
+wa.entity.ImageEntityGlobals.fStop = 12.0;
 
 wa.entity.ImageEntityGlobals.rgbTexScale = 25.0;
 wa.entity.ImageEntityGlobals.imageBrightness = 2.18;
@@ -29,3 +29,6 @@ wa.entity.ImageEntityGlobals.imageBrightness = 2.18;
 wa.entity.ImageEntityGlobals.rBrightness = 1.0;
 wa.entity.ImageEntityGlobals.gBrightness = 1.0;
 wa.entity.ImageEntityGlobals.bBrightness = 1.0;
+
+wa.entity.ImageEntityGlobals.CurrentDemoSettings = new wa.data.DemoSettings();
+wa.entity.ImageEntityGlobals.DefaultDemoSettings = new wa.data.DemoSettings();

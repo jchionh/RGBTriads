@@ -98,7 +98,7 @@
             if (!u_doVignette) {
                 return 1.0;
             }
-            float dist = distance(v_TexCoord.xy, vec2(u_texCenterU, u_texCenterV));
+            float dist = distance(v_ImageTexCoord.xy, vec2(u_texCenterU, u_texCenterV));
             dist = smoothstep(u_vigOuterBorder + (u_fStop / u_vigFade), vigInnerBorder + (u_fStop / u_vigFade), dist);
             return clamp(dist, 0.0, 1.0);
         }
@@ -294,25 +294,25 @@
             <td>&nbsp;</td>
             <td>Border</td>
             <td>&nbsp;</td>
-            <td><input id="vigOuterBorder" type="range" min="0.01" max="100.0" step="0.01" value="40.0" oninput="sliderChanged('vigOuterBorder');"/></td>
+            <td><input id="vigOuterBorder" type="range" min="0.0" max="3.0" step="0.001" value="1.0" oninput="sliderChanged('vigOuterBorder');"/></td>
             <td>&nbsp;</td>
-            <td><div id="vigOuterBorderText">40.0</div></td>
+            <td><div id="vigOuterBorderText">1.0</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>Fade</td>
             <td>&nbsp;</td>
-            <td><input id="vigFade" type="range" min="10" max="200" step="1" value="70" oninput="sliderChanged('vigFade');"/></td>
+            <td><input id="vigFade" type="range" min="0" max="100" step="1" value="50" oninput="sliderChanged('vigFade');"/></td>
             <td>&nbsp;</td>
-            <td><div id="vigFadeText">70</div></td>
+            <td><div id="vigFadeText">50</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>F-Stop</td>
             <td>&nbsp;</td>
-            <td><input id="fStop" type="range" min="0.01" max="10.0" step="0.01" value="8.0" oninput="sliderChanged('fStop');"/></td>
+            <td><input id="fStop" type="range" min="0.01" max="30.0" step="0.01" value="12.0" oninput="sliderChanged('fStop');"/></td>
             <td>&nbsp;</td>
-            <td><div id="fStopText">8.0</div></td>
+            <td><div id="fStopText">12.0</div></td>
         </tr>
     </table>
     <button onclick="defaultVignetteValues();">Default Vignette Values</button>
@@ -354,6 +354,10 @@
 <script src="js/render/ShaderHandleRefs.js"></script>
 <script src="js/render/Renderer.js"></script>
 
+<!-- app data -->
+<script src="js/data/DemoSettings.js"></script>
+<script src="js/data/ImageList.js"></script>
+
 <!-- entity -->
 <script src="js/entity/Entity.js"></script>
 <script src="js/entity/ImageEntityGlobals.js"></script>
@@ -361,9 +365,6 @@
 <script src="js/entity/RGBTriadImageEntity.js"></script>
 <script src="js/entity/RGBTriadVideoEntity.js"></script>
 <script src="js/entity/ImageEntityFactory.js"></script>
-
-<!-- app data -->
-<script src="js/data/ImageList.js"></script>
 
 <!-- input -->
 <script src="js/input/MouseInput.js"></script>

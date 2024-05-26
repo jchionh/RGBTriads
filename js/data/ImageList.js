@@ -78,130 +78,162 @@ wa.data.ImageListURLs = [
 wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug X (No Audio)",
-        url: "video/metal_slug_x.mp4"
+        url: "video/metal_slug_x.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[PSX] Final Fantasy VII",
-        url: "video/final_fantasy_7_intro.mp4"
+        url: "video/final_fantasy_7_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[PSX] Final Fantasy VIII",
-        url: "video/final_fantasy_8_intro.mp4"
+        url: "video/final_fantasy_8_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[PSX] Final Fantasy IX",
-        url: "video/final_fantasy_9_intro.mp4"
+        url: "video/final_fantasy_9_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[PSX] Metal Gear Solid",
-        url: "video/metal_gear_solid_intro.mp4"
+        url: "video/metal_gear_solid_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Arcade] Alien Vs Predator",
-        url: "video/alien_vs_predator_intro.mp4"
+        url: "video/alien_vs_predator_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Arcade] Captain Commando",
-        url: "video/captain_commando_intro.mp4"
+        url: "video/captain_commando_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Arcade] Outrun",
-        url: "video/outrun_gameplay.mp4"
+        url: "video/outrun_gameplay.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Arcade] Street Fighter 2 Hyper Fighting",
-        url: "video/street_fighter_2_hyper_fighting_intro.mp4"
+        url: "video/street_fighter_2_hyper_fighting_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Arcade] Street Fighter Alpha 2",
-        url: "video/street_fighter_alpha_2_intro.mp4"
+        url: "video/street_fighter_alpha_2_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Arcade] Street Fighter Alpha 3",
-        url: "video/street_fighter_alpha_3_intro.mp4"
+        url: "video/street_fighter_alpha_3_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Arcade] The Final Fight",
-        url: "video/final_fight_intro.mp4"
+        url: "video/final_fight_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[SNES] Chrono Trigger",
-        url: "video/chrono_trigger_intro.mp4"
+        url: "video/chrono_trigger_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[SNES] Final Fantasy IV",
-        url: "video/final_fantasy_4_intro.mp4"
+        url: "video/final_fantasy_4_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[SNES] Final Fantasy V",
-        url: "video/final_fantasy_5_intro_long.mp4"
+        url: "video/final_fantasy_5_intro_long.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[SNES] Final Fantasy VI",
-        url: "video/final_fantasy_6_intro.mp4"
+        url: "video/final_fantasy_6_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[SNES] Super Metriod",
-        url: "video/super_metroid_intro.mp4"
+        url: "video/super_metroid_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[SNES] Super Mario World",
-        url: "video/super_mario_world_intro.mp4"
+        url: "video/super_mario_world_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[SNES] The Legend of Zelda: A Link to the Past",
-        url: "video/zelda_link_to_the_past.mp4"
+        url: "video/zelda_link_to_the_past.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Garou: Mark of the Wolves",
-        url: "video/garou_mark_of_the_wolves_intro.mp4"
+        url: "video/garou_mark_of_the_wolves_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] The King of Fighters 98",
-        url: "video/king_of_fighters_98_intro.mp4"
+        url: "video/king_of_fighters_98_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Metal Slug X",
-        url: "video/metal_slug_x_intro.mp4"
+        url: "video/metal_slug_x_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Metal Slug 2",
-        url: "video/metal_slug_2_intro.mp4"
+        url: "video/metal_slug_2_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Metal Slug 3",
-        url: "video/metal_slug_3_intro.mp4"
+        url: "video/metal_slug_3_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Metal Slug 4",
-        url: "video/metal_slug_4_intro.mp4"
+        url: "video/metal_slug_4_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Metal Slug 5",
-        url: "video/metal_slug_5_intro.mp4"
+        url: "video/metal_slug_5_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Neo Drift Out",
-        url: "video/neo_drift_out_intro.mp4"
+        url: "video/neo_drift_out_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Neo Turf Masters",
-        url: "video/neo_turf_masters_intro.mp4"
+        url: "video/neo_turf_masters_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Samurai Shodown II",
-        url: "video/samurai_shodown_II_intro.mp4"
+        url: "video/samurai_shodown_II_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] The Last Blade 1",
-        url: "video/the_last_blade_1_intro.mp4"
+        url: "video/the_last_blade_1_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] The Last Blade 2",
-        url: "video/the_last_blade_2_intro.mp4"
+        url: "video/the_last_blade_2_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
     {
         desc: "[Neo Geo] Windjammers",
-        url: "video/windjammers_intro.mp4"
+        url: "video/windjammers_intro.mp4",
+        settings: new wa.data.DemoSettings(),
     },
 ];

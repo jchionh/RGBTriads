@@ -318,20 +318,22 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1i(shaderHandleRefs.doTriads, wa.entity.ImageEntityGlobals.doTriads);
 
     gl.uniform1i(shaderHandleRefs.doScanLines, wa.entity.ImageEntityGlobals.doScanLines);
-    gl.uniform1f(shaderHandleRefs.scanLinesDensity, wa.entity.ImageEntityGlobals.scanLinesDensity);
-    gl.uniform1f(shaderHandleRefs.scanLinesOpacity, wa.entity.ImageEntityGlobals.scanLinesOpacity);
+    gl.uniform1f(shaderHandleRefs.scanLinesDensity, wa.entity.ImageEntityGlobals.CurrentDemoSettings.scanLinesDensity);
+    gl.uniform1f(shaderHandleRefs.scanLinesOpacity, wa.entity.ImageEntityGlobals.CurrentDemoSettings.scanLinesOpacity);
 
-    gl.uniform1f(shaderHandleRefs.vigOuterHandle, wa.entity.ImageEntityGlobals.vigOuterBorder);
-    gl.uniform1f(shaderHandleRefs.vigFadeHandle, wa.entity.ImageEntityGlobals.vigFade);
-    gl.uniform1f(shaderHandleRefs.fStop, wa.entity.ImageEntityGlobals.fStop);
-    gl.uniform1f(shaderHandleRefs.imageBrightness, wa.entity.ImageEntityGlobals.imageBrightness);
+    gl.uniform1f(shaderHandleRefs.vigOuterHandle, wa.entity.ImageEntityGlobals.CurrentDemoSettings.vigOuterBorder);
+    gl.uniform1f(shaderHandleRefs.vigFadeHandle, wa.entity.ImageEntityGlobals.CurrentDemoSettings.vigFade);
+    gl.uniform1f(shaderHandleRefs.fStop, wa.entity.ImageEntityGlobals.CurrentDemoSettings.fStop);
+    gl.uniform1f(shaderHandleRefs.imageBrightness, wa.entity.ImageEntityGlobals.CurrentDemoSettings.imageBrightness);
 
-    gl.uniform1f(shaderHandleRefs.rBrightness, wa.entity.ImageEntityGlobals.rBrightness);
-    gl.uniform1f(shaderHandleRefs.gBrightness, wa.entity.ImageEntityGlobals.gBrightness);
-    gl.uniform1f(shaderHandleRefs.bBrightness, wa.entity.ImageEntityGlobals.bBrightness);
+    gl.uniform1f(shaderHandleRefs.rBrightness, wa.entity.ImageEntityGlobals.CurrentDemoSettings.rBrightness);
+    gl.uniform1f(shaderHandleRefs.gBrightness, wa.entity.ImageEntityGlobals.CurrentDemoSettings.gBrightness);
+    gl.uniform1f(shaderHandleRefs.bBrightness, wa.entity.ImageEntityGlobals.CurrentDemoSettings.bBrightness);
 
-    gl.uniform1f(shaderHandleRefs.texCenterU, this.texScale[v.X] / 2.0);
-    gl.uniform1f(shaderHandleRefs.texCenterV, this.texScale[v.Y] / 2.0);
+    //gl.uniform1f(shaderHandleRefs.texCenterU, this.texScale[v.X] / 2.0);
+    //gl.uniform1f(shaderHandleRefs.texCenterV, this.texScale[v.Y] / 2.0);
+    gl.uniform1f(shaderHandleRefs.texCenterU, 0.5);
+    gl.uniform1f(shaderHandleRefs.texCenterV, 0.5);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, this.shape.getTexCoordBufferObject());
     gl.enableVertexAttribArray(shaderHandleRefs.texCoordHandle);
