@@ -223,7 +223,7 @@ wa.data.VideoListURLs = [
             imageBrightness: 2.32,
 
             // vignette
-            vigOuterBorder: 0.908,
+            vigOuterBorder: 0.82,
         },
     },
     {
@@ -240,7 +240,7 @@ wa.data.VideoListURLs = [
             imageBrightness: 1.733,
 
             // vignette
-            vigOuterBorder: 0.908,
+            vigOuterBorder: 0.82,
         },
     },
     {
@@ -261,67 +261,151 @@ wa.data.VideoListURLs = [
             imageBrightness: 2.389,
 
             // vignette
-            vigOuterBorder: 0.908,
+            vigOuterBorder: 0.82,
         },
     },
     {
         desc: "[Neo Geo] The King of Fighters 98",
         url: "video/king_of_fighters_98_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.285,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Metal Slug X",
         url: "video/metal_slug_x_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.251,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Metal Slug 2",
         url: "video/metal_slug_2_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Metal Slug 3",
         url: "video/metal_slug_3_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.423,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Metal Slug 4",
         url: "video/metal_slug_4_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Metal Slug 5",
         url: "video/metal_slug_5_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Neo Drift Out",
         url: "video/neo_drift_out_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.285,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Neo Turf Masters",
         url: "video/neo_turf_masters_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Samurai Shodown II",
         url: "video/samurai_shodown_II_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] The Last Blade 1",
         url: "video/the_last_blade_1_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] The Last Blade 2",
         url: "video/the_last_blade_2_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
     {
         desc: "[Neo Geo] Windjammers",
         url: "video/windjammers_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
     },
 ];
