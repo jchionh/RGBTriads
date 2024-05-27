@@ -97,12 +97,13 @@ wa.data.VideoListURLs = [
     },
     {
         desc: "[Arcade] Outrun",
-        url: "video/outrun_gameplay.mp4",
+        url: "video/outrun_game.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.94,
+            imageBrightness: 1.837,
             // Scanlines
+            scanLinesDensity: 86,
             scanLinesOpacity: 0.145,
             // Vignette
             fStop: 16.0,
@@ -230,10 +231,11 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.28,
+            imageBrightness: 2.113,
 
             // Scanlines
-            scanLinesOpacity: 0.156,
+            scanLinesDensity: 86,
+            scanLinesOpacity: 0.218,
         },
     },
     {
@@ -397,7 +399,7 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.113,
+            imageBrightness: 2.251,
             // Scanlines
             scanLinesDensity: 92,
             scanLinesOpacity: 0.228,
@@ -421,6 +423,9 @@ wa.data.VideoListURLs = [
             ...new wa.data.DemoSettings(),
             // RGB
             imageBrightness: 2.044,
+            // Scanlines
+            scanLinesDensity: 88,
+            scanLinesOpacity: 0.241,
         },
     },
     {
