@@ -83,11 +83,14 @@ wa.data.VideoListURLs = [
     },
     {
         desc: "[PSX] Final Fantasy VII",
-        url: "video/final_fantasy_7_intro.mp4",
+        url: "video/final_fantasy_7_intro_long.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.423,
+            imageBrightness: 2.113,
+            // Scanlines
+            scanLinesDensity: 92,
+            scanLinesOpacity: 0.228,
         },
     },
     {
@@ -112,11 +115,14 @@ wa.data.VideoListURLs = [
     },
     {
         desc: "[PSX] Metal Gear Solid",
-        url: "video/metal_gear_solid_intro.mp4",
+        url: "video/metal_gear_solid_intro_long.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.354,
+            imageBrightness: 2.251,
+            // Scanlines
+            scanLinesDensity: 90,
+            scanLinesOpacity: 0.238,
         },
     },
     {
@@ -176,6 +182,113 @@ wa.data.VideoListURLs = [
             ...new wa.data.DemoSettings(),
             // RGB
             imageBrightness: 2.251,
+        },
+    },
+    {
+        desc: "[Genesis] Burning Force",
+        url: "video/burning_force_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.871,
+            // Scanlines
+            scanLinesDensity: 90,
+            scanLinesOpacity: 0.238,
+        },
+    },
+    {
+        desc: "[Genesis] Comix Zone",
+        url: "video/comix_zone_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.113,
+            // Scanlines
+            scanLinesDensity: 96,
+            scanLinesOpacity: 0.25,
+        },
+    },
+    {
+        desc: "[Genesis] Castlevania: Bloodlines",
+        url: "video/castlevania_bloodlines_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.975,
+            // Scanlines
+            scanLinesDensity: 98,
+            scanLinesOpacity: 0.187,
+        },
+    },
+    {
+        desc: "[Genesis] Gargoyles",
+        url: "video/gargoyles_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.596,
+            // Scanlines
+            scanLinesDensity: 98,
+            scanLinesOpacity: 0.187,
+        },
+    },
+    {
+        desc: "[Genesis] Gunstar Heroes",
+        url: "video/gunstar_heroes_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.975,
+            // Scanlines
+            scanLinesDensity: 98,
+            scanLinesOpacity: 0.187,
+        },
+    },
+    {
+        desc: "[Genesis] Sonic The Hedgehog",
+        url: "video/sonic_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.182,
+            // Scanlines
+            scanLinesDensity: 98,
+            scanLinesOpacity: 0.165,
+        },
+    },
+    {
+        desc: "[Genesis] Streets of Rage 2",
+        url: "video/streets_of_rage_2_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.182,
+
+            // Scanlines
+            scanLinesOpacity: 0.176,
+        },
+    },
+    {
+        desc: "[Genesis] Thunder Force IV",
+        url: "video/thunder_force_4_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.28,
+
+            // Scanlines
+            scanLinesOpacity: 0.156,
+        },
+    },
+    {
+        desc: "[Genesis] Zero Wing",
+        url: "video/zero_wing_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+
+            // Scanlines
+            scanLinesDensity: 94,
+            scanLinesOpacity: 0.187,
         },
     },
     {
