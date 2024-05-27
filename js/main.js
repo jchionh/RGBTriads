@@ -152,10 +152,26 @@ function switchVideo() {
     var gameDemoSettings = wa.data.VideoListURLs[selectedVideoIndex].settings;
 
     // use the spread operator to create a copy of the object
-    wa.entity.DefaultDemoSettings = { ...gameDemoSettings };
-    wa.entity.CurrentDemoSettings = { ...gameDemoSettings };
+    wa.entity.ImageEntityGlobals.DefaultDemoSettings = { ...gameDemoSettings };
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings = { ...gameDemoSettings };
+
+    updateCurrentDemoSettings(wa.entity.ImageEntityGlobals.CurrentDemoSettings);
 }
 
+/**
+ * Given a demo setting, update the UI
+ * @param {wa.data.DemoSettings} currentSettings
+ */
+function updateCurrentDemoSettings(currentSettings) {
+    // do triads
+    setRGBTriadValues(currentSettings);
+
+    // do scanlines
+    setScanLineValues(currentSettings);
+
+    // do vignette
+    setVignetteValues(currentSettings);
+}
 
 /**
  * turn vignette on or off
@@ -215,51 +231,66 @@ function sliderChanged(name) {
 }
 
 function defaultVignetteValues() {
+    setVignetteValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
+}
 
-    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
-
+/**
+ * Set Vignette Settings
+ * @param {wa.data.DemoSettings} currentSettings
+ */
+function setVignetteValues(currentSettings) {
     var name = "vigOuterBorder";
-    var vigOuterBorder = defaultDemoSettings[name];
+    var vigOuterBorder = currentSettings[name];
     document.getElementById(name).value = vigOuterBorder;
     document.getElementById(name + "Text").innerText = vigOuterBorder;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = vigOuterBorder;
 
     name = "vigFade";
-    var vigFade = defaultDemoSettings[name];
+    var vigFade = currentSettings[name];
     document.getElementById(name).value = vigFade;
     document.getElementById(name + "Text").innerText = vigFade;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = vigFade;
 
     name = "fStop";
-    var fStop = defaultDemoSettings[name];
+    var fStop = currentSettings[name];
     document.getElementById(name).value = fStop;
     document.getElementById(name + "Text").innerText = fStop;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = fStop;
 }
 
 function defaultScanLineValues() {
+    setScanLineValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
+}
 
-    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
-
+/**
+ * Set Scanline Settings
+ * @param {wa.data.DemoSettings} currentSettings
+ */
+function setScanLineValues(currentSettings) {
     var name = "scanLinesDensity";
-    var scanLinesDensity = defaultDemoSettings[name];
+    var scanLinesDensity = currentSettings[name];
     document.getElementById(name).value = scanLinesDensity;
     document.getElementById(name + "Text").innerText = scanLinesDensity;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = scanLinesDensity;
 
     name = "scanLinesOpacity";
-    var scanLinesOpacity = defaultDemoSettings[name];
+    var scanLinesOpacity = currentSettings[name];
     document.getElementById(name).value = scanLinesOpacity;
     document.getElementById(name + "Text").innerText = scanLinesOpacity;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = scanLinesOpacity;
 }
 
 function defaultRGBTriadValues() {
+    setRGBTriadValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
+}
 
-    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
-
+/**
+ * Set Triads Settings
+ * @param {wa.data.DemoSettings} currentSettings
+ */
+function setRGBTriadValues(currentSettings) {
     var name = "rgbTexScale";
-    var rgbTexScale = defaultDemoSettings[name];
+    var rgbTexScale = currentSettings[name];
     document.getElementById(name).value = rgbTexScale;
     document.getElementById(name + "Text").innerText = rgbTexScale;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = rgbTexScale;
@@ -267,26 +298,26 @@ function defaultRGBTriadValues() {
     var doTriads = document.getElementById("doTriads").checked;
     
     name = "imageBrightness";
-    var doTriadsBrightnessValue = defaultDemoSettings[name];
+    var doTriadsBrightnessValue = currentSettings[name];
     var brightnessValue = doTriads ? doTriadsBrightnessValue : 1.0;
     document.getElementById(name).value = brightnessValue;
     document.getElementById(name + "Text").innerText = brightnessValue;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = brightnessValue;
 
     name = "rBrightness";
-    var rBrightness = defaultDemoSettings[name];
+    var rBrightness = currentSettings[name];
     document.getElementById(name).value = rBrightness;
     document.getElementById(name + "Text").innerText = rBrightness;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = rBrightness;
 
     name = "gBrightness";
-    var gBrightness = defaultDemoSettings[name];
+    var gBrightness = currentSettings[name];
     document.getElementById(name).value = gBrightness;
     document.getElementById(name + "Text").innerText = gBrightness;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = gBrightness;
 
     name = "bBrightness";
-    var bBrightness = defaultDemoSettings[name];
+    var bBrightness = currentSettings[name];
     document.getElementById(name).value = bBrightness;
     document.getElementById(name + "Text").innerText = bBrightness;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = bBrightness;

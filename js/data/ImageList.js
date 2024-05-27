@@ -84,22 +84,40 @@ wa.data.VideoListURLs = [
     {
         desc: "[PSX] Final Fantasy VII",
         url: "video/final_fantasy_7_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.423,
+        },
     },
     {
         desc: "[PSX] Final Fantasy VIII",
         url: "video/final_fantasy_8_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.30,
+            // vignette
+            vigFade: 45,
+        },
     },
     {
         desc: "[PSX] Final Fantasy IX",
         url: "video/final_fantasy_9_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.044,
+        },
     },
     {
         desc: "[PSX] Metal Gear Solid",
         url: "video/metal_gear_solid_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.354,
+        },
     },
     {
         desc: "[Arcade] Alien Vs Predator",
@@ -109,22 +127,42 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Captain Commando",
         url: "video/captain_commando_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.94,
+        },
     },
     {
         desc: "[Arcade] Outrun",
         url: "video/outrun_gameplay.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.94,
+            // Scanlines
+            scanLinesOpacity: 0.145,
+            // Vignette
+            fStop: 16.0,
+        },
     },
     {
         desc: "[Arcade] Street Fighter 2 Hyper Fighting",
         url: "video/street_fighter_2_hyper_fighting_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.94,
+        },
     },
     {
         desc: "[Arcade] Street Fighter Alpha 2",
         url: "video/street_fighter_alpha_2_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.94,
+        },
     },
     {
         desc: "[Arcade] Street Fighter Alpha 3",
@@ -134,27 +172,59 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] The Final Fight",
         url: "video/final_fight_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.251,
+        },
     },
     {
         desc: "[SNES] Chrono Trigger",
         url: "video/chrono_trigger_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.354,
+
+            // vignette
+            vigOuterBorder: 0.831,
+        },
     },
     {
         desc: "[SNES] Final Fantasy IV",
         url: "video/final_fantasy_4_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.415,
+
+            // vignette
+            vigOuterBorder: 0.878,
+        },
     },
     {
         desc: "[SNES] Final Fantasy V",
         url: "video/final_fantasy_5_intro_long.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.354,
+
+            // vignette
+            vigOuterBorder: 0.808,
+        },
     },
     {
         desc: "[SNES] Final Fantasy VI",
         url: "video/final_fantasy_6_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.32,
+
+            // vignette
+            vigOuterBorder: 0.908,
+        },
     },
     {
         desc: "[SNES] Super Metriod",
@@ -164,17 +234,35 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Super Mario World",
         url: "video/super_mario_world_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.733,
+
+            // vignette
+            vigOuterBorder: 0.908,
+        },
     },
     {
         desc: "[SNES] The Legend of Zelda: A Link to the Past",
         url: "video/zelda_link_to_the_past.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            bBrightness: 1.363,
+        },
     },
     {
         desc: "[Neo Geo] Garou: Mark of the Wolves",
         url: "video/garou_mark_of_the_wolves_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.389,
+
+            // vignette
+            vigOuterBorder: 0.908,
+        },
     },
     {
         desc: "[Neo Geo] The King of Fighters 98",

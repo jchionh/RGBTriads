@@ -1,3 +1,9 @@
+body {
+	color-scheme: light dark;
+	background-color: Canvas;
+  	color: CanvasText;
+}
+
 /* make everything non selectable */
 .unselectable {
 	-webkit-user-select: none;
@@ -6,4 +12,3 @@
 	-o-user-select: none;
 	user-select: none;
 }
-
