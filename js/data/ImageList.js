@@ -82,50 +82,6 @@ wa.data.VideoListURLs = [
         settings: new wa.data.DemoSettings(),
     },
     {
-        desc: "[PSX] Final Fantasy VII",
-        url: "video/final_fantasy_7_intro_long.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.113,
-            // Scanlines
-            scanLinesDensity: 92,
-            scanLinesOpacity: 0.228,
-        },
-    },
-    {
-        desc: "[PSX] Final Fantasy VIII",
-        url: "video/final_fantasy_8_intro.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.30,
-            // vignette
-            vigFade: 45,
-        },
-    },
-    {
-        desc: "[PSX] Final Fantasy IX",
-        url: "video/final_fantasy_9_intro.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.044,
-        },
-    },
-    {
-        desc: "[PSX] Metal Gear Solid",
-        url: "video/metal_gear_solid_intro_long.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.251,
-            // Scanlines
-            scanLinesDensity: 90,
-            scanLinesOpacity: 0.238,
-        },
-    },
-    {
         desc: "[Arcade] Alien Vs Predator",
         url: "video/alien_vs_predator_intro.mp4",
         settings: new wa.data.DemoSettings(),
@@ -292,80 +248,6 @@ wa.data.VideoListURLs = [
         },
     },
     {
-        desc: "[SNES] Chrono Trigger",
-        url: "video/chrono_trigger_intro.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.354,
-
-            // vignette
-            vigOuterBorder: 0.831,
-        },
-    },
-    {
-        desc: "[SNES] Final Fantasy IV",
-        url: "video/final_fantasy_4_intro.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.415,
-
-            // vignette
-            vigOuterBorder: 0.878,
-        },
-    },
-    {
-        desc: "[SNES] Final Fantasy V",
-        url: "video/final_fantasy_5_intro_long.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.354,
-
-            // vignette
-            vigOuterBorder: 0.808,
-        },
-    },
-    {
-        desc: "[SNES] Final Fantasy VI",
-        url: "video/final_fantasy_6_intro.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 2.32,
-
-            // vignette
-            vigOuterBorder: 0.82,
-        },
-    },
-    {
-        desc: "[SNES] Super Metriod",
-        url: "video/super_metroid_intro.mp4",
-        settings: new wa.data.DemoSettings(),
-    },
-    {
-        desc: "[SNES] Super Mario World",
-        url: "video/super_mario_world_intro.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 1.733,
-
-            // vignette
-            vigOuterBorder: 0.82,
-        },
-    },
-    {
-        desc: "[SNES] The Legend of Zelda: A Link to the Past",
-        url: "video/zelda_link_to_the_past.mp4",
-        settings: {
-            ...new wa.data.DemoSettings(),
-            // RGB
-            bBrightness: 1.363,
-        },
-    },
-    {
         desc: "[Neo Geo] Garou: Mark of the Wolves",
         url: "video/garou_mark_of_the_wolves_intro.mp4",
         settings: {
@@ -510,8 +392,88 @@ wa.data.VideoListURLs = [
         },
     },
     {
-        desc: "[Neo Geo] Windjammers",
-        url: "video/windjammers_intro.mp4",
+        desc: "[PSX] Final Fantasy VII",
+        url: "video/final_fantasy_7_intro_long.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.113,
+            // Scanlines
+            scanLinesDensity: 92,
+            scanLinesOpacity: 0.228,
+        },
+    },
+    {
+        desc: "[PSX] Final Fantasy VIII",
+        url: "video/final_fantasy_8_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.30,
+            // vignette
+            vigFade: 45,
+        },
+    },
+    {
+        desc: "[PSX] Final Fantasy IX",
+        url: "video/final_fantasy_9_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.044,
+        },
+    },
+    {
+        desc: "[PSX] Metal Gear Solid",
+        url: "video/metal_gear_solid_intro_long.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.251,
+            // Scanlines
+            scanLinesDensity: 90,
+            scanLinesOpacity: 0.238,
+        },
+    },
+    {
+        desc: "[SNES] Chrono Trigger",
+        url: "video/chrono_trigger_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.354,
+
+            // vignette
+            vigOuterBorder: 0.831,
+        },
+    },
+    {
+        desc: "[SNES] Final Fantasy IV",
+        url: "video/final_fantasy_4_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.415,
+
+            // vignette
+            vigOuterBorder: 0.878,
+        },
+    },
+    {
+        desc: "[SNES] Final Fantasy V",
+        url: "video/final_fantasy_5_intro_long.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.354,
+
+            // vignette
+            vigOuterBorder: 0.808,
+        },
+    },
+    {
+        desc: "[SNES] Final Fantasy VI",
+        url: "video/final_fantasy_6_intro.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -519,6 +481,32 @@ wa.data.VideoListURLs = [
 
             // vignette
             vigOuterBorder: 0.82,
+        },
+    },
+    {
+        desc: "[SNES] Super Metriod",
+        url: "video/super_metroid_intro.mp4",
+        settings: new wa.data.DemoSettings(),
+    },
+    {
+        desc: "[SNES] Super Mario World",
+        url: "video/super_mario_world_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.733,
+
+            // vignette
+            vigOuterBorder: 0.82,
+        },
+    },
+    {
+        desc: "[SNES] The Legend of Zelda: A Link to the Past",
+        url: "video/zelda_link_to_the_past.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            bBrightness: 1.363,
         },
     },
 ];
