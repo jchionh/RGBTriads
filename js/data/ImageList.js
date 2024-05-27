@@ -258,7 +258,7 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.389,
+            imageBrightness: 2.251,
 
             // vignette
             vigOuterBorder: 0.82,
