@@ -28,7 +28,7 @@ wa.data.DemoSettings = function() {
 
     // vignette settings
     this.doVignette = true;
-    this.vigOuterBorder = 1.0;
+    this.vigOuterBorder = 0.866;
     this.vigFade = 50;
     this.fStop = 12.0;
 }

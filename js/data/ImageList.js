@@ -79,12 +79,18 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug X (No Audio)",
         url: "video/metal_slug_x.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+        },
     },
     {
         desc: "[Arcade] Alien Vs Predator",
         url: "video/alien_vs_predator_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // vignette
+            vigFade: 40,
+        },
     },
     {
         desc: "[Arcade] Captain Commando",
@@ -93,6 +99,8 @@ wa.data.VideoListURLs = [
             ...new wa.data.DemoSettings(),
             // RGB
             imageBrightness: 1.94,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -116,6 +124,8 @@ wa.data.VideoListURLs = [
             ...new wa.data.DemoSettings(),
             // RGB
             imageBrightness: 1.94,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -125,12 +135,18 @@ wa.data.VideoListURLs = [
             ...new wa.data.DemoSettings(),
             // RGB
             imageBrightness: 1.94,
+            // vignette
+            vigFade: 40,
         },
     },
     {
         desc: "[Arcade] Street Fighter Alpha 3",
         url: "video/street_fighter_alpha_3_intro.mp4",
-        settings: new wa.data.DemoSettings(),
+        settings:  {
+            ...new wa.data.DemoSettings(),
+            // vignette
+            vigFade: 40,
+        },
     },
     {
         desc: "[Arcade] The Final Fight",
@@ -139,6 +155,8 @@ wa.data.VideoListURLs = [
             ...new wa.data.DemoSettings(),
             // RGB
             imageBrightness: 2.251,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -151,6 +169,8 @@ wa.data.VideoListURLs = [
             // Scanlines
             scanLinesDensity: 90,
             scanLinesOpacity: 0.238,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -163,6 +183,8 @@ wa.data.VideoListURLs = [
             // Scanlines
             scanLinesDensity: 96,
             scanLinesOpacity: 0.25,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -175,6 +197,8 @@ wa.data.VideoListURLs = [
             // Scanlines
             scanLinesDensity: 98,
             scanLinesOpacity: 0.187,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -187,6 +211,8 @@ wa.data.VideoListURLs = [
             // Scanlines
             scanLinesDensity: 98,
             scanLinesOpacity: 0.187,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -403,6 +429,8 @@ wa.data.VideoListURLs = [
             // Scanlines
             scanLinesDensity: 92,
             scanLinesOpacity: 0.228,
+            // vignette
+            vigFade: 40,
         },
     },
     {
@@ -514,4 +542,4 @@ wa.data.VideoListURLs = [
             bBrightness: 1.363,
         },
     },
-];
+]
