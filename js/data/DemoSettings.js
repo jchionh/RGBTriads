@@ -31,4 +31,9 @@ wa.data.DemoSettings = function() {
     this.vigOuterBorder = 0.866;
     this.vigFade = 50;
     this.fStop = 12.0;
+
+    // video image settings
+    this.saturation = 0.0;
+    this.brightness = 0.0;
+    this.contrast = 0.0;
 }

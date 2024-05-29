@@ -280,8 +280,36 @@ function setScanLineValues(currentSettings) {
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = scanLinesOpacity;
 }
 
+function defaultVideoImageValues() {
+    setVideoImageValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
+}
+
 function defaultRGBTriadValues() {
     setRGBTriadValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
+}
+
+/**
+ * Set Video Image Settings
+ * @param {wa.data.DemoSettings} currentSettings
+ */
+function setVideoImageValues(currentSettings) {
+    var name = "saturation";
+    var saturation = currentSettings[name];
+    document.getElementById(name).value = saturation;
+    document.getElementById(name + "Text").innerText = saturation;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = saturation;
+
+    name = "brightness";
+    var brightness = currentSettings[name];
+    document.getElementById(name).value = brightness;
+    document.getElementById(name + "Text").innerText = brightness;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = brightness;
+
+    name = "contrast";
+    var contrast = currentSettings[name];
+    document.getElementById(name).value = contrast;
+    document.getElementById(name + "Text").innerText = contrast;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = contrast;
 }
 
 /**
