@@ -88,8 +88,16 @@ wa.data.VideoListURLs = [
         url: "video/alien_vs_predator_intro.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.651,
+
             // vignette
             vigFade: 40,
+
+            // video image values
+            saturation: 0.364,
+            brightness: 0.0,
+            contrast: 0.132,
         },
     },
     {
@@ -98,9 +106,13 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.94,
+            imageBrightness: 1.315,
             // vignette
             vigFade: 40,
+            // video image values
+            saturation: 0.442,
+            brightness: 0.132,
+            contrast: 0.209,
         },
     },
     {
@@ -109,12 +121,17 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.837,
+            imageBrightness: 1.216,
             // Scanlines
             scanLinesDensity: 86,
             scanLinesOpacity: 0.145,
             // Vignette
             fStop: 16.0,
+
+            // video image values
+            saturation: 0.414,
+            brightness: 0.173,
+            contrast: 0.371,
         },
     },
     {
@@ -123,9 +140,28 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.94,
+            imageBrightness: 1.513,
             // vignette
             vigFade: 40,
+            // video image values
+            saturation: 0.265,
+            brightness: 0.085,
+            contrast: 0.194,
+        },
+    },
+    {
+        desc: "[Arcade] Street Fighter Alpha",
+        url: "video/street_fighter_alpha_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.513,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.271,
+            brightness: 0.093,
+            contrast: 0.294,
         },
     },
     {
@@ -134,9 +170,13 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.94,
+            imageBrightness: 1.513,
             // vignette
             vigFade: 40,
+            // video image values
+            saturation: 0.271,
+            brightness: 0.093,
+            contrast: 0.294,
         },
     },
     {
@@ -144,8 +184,14 @@ wa.data.VideoListURLs = [
         url: "video/street_fighter_alpha_3_intro.mp4",
         settings:  {
             ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.341,
             // vignette
             vigFade: 40,
+            // video image values
+            saturation: 0.271,
+            brightness: 0.093,
+            contrast: 0.294,
         },
     },
     {
@@ -154,9 +200,13 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.251,
+            imageBrightness: 1.721,
             // vignette
             vigFade: 40,
+            // video image values
+            saturation: 0.356,
+            brightness: 0.023,
+            contrast: 0.387,
         },
     },
     {
@@ -474,10 +524,13 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.354,
-
+            imageBrightness: 1.996,
             // vignette
             vigOuterBorder: 0.831,
+            // video image values
+            saturation: 0.256,
+            brightness: 0.093,
+            contrast: 0.209,
         },
     },
     {
@@ -510,10 +563,13 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.32,
-
+            imageBrightness: 1.824,
             // vignette
             vigOuterBorder: 0.82,
+            // video image values
+            saturation: 0.318,
+            brightness: 0.077,
+            contrast: 0.186,
         },
     },
     {

@@ -185,6 +185,28 @@
                    imageColor;
         }
 
+        float imageBrightness()
+        {
+            if (!u_doTriads)
+            {
+                return 1.0;
+            }
+            return u_imageBrightness;
+        }
+
+        vec4 applyRGBBrightness(vec4 imageColor) {
+            if (!u_doTriads)
+            {
+                return imageColor;
+            }
+            return vec4(
+                u_rBrightness * imageColor.r,
+                u_gBrightness * imageColor.g,
+                u_bBrightness * imageColor.b,
+                imageColor.a
+            );
+        }
+
         // main program
         void main()
         {
@@ -193,21 +215,23 @@
 
             // sample the texture
             vec4 image = texture2D(u_ImageTexture, v_ImageTexCoord);
-            
-            vec4 imageBCS = applyBCS(image);
+            vec4 imageRGB = applyRGBBrightness(image);
+            vec4 imageBCS = applyBCS(imageRGB);
             vec3 imageScanlines = addScanLines(imageBCS.rgb, v_ImageTexCoord, u_ImageHeight);
             vec3 imageTriad = addTriads(rgbTriad.rgb, imageScanlines.rgb);
 
             vec4 texColor = vec4(imageTriad, 1.0);
 
+            /*
             if (u_doTriads)
             {
                 texColor.r = u_rBrightness * imageTriad.r;
                 texColor.g = u_gBrightness * imageTriad.g;
                 texColor.b = u_bBrightness * imageTriad.b;
             }
+            */
 
-            gl_FragColor = u_imageBrightness * vignette() * v_Color * texColor;
+            gl_FragColor = imageBrightness() * vignette() * v_Color * texColor;
             gl_FragColor.a = 1.0;
         }
     </script>
@@ -265,6 +289,22 @@
     <table>
         <tr>
             <td>&nbsp;</td>
+            <td>RGB Triads</td>
+            <td>&nbsp;</td>
+            <td><input id="doTriads" type="checkbox" checked onchange="triadsOnOff();"/></td>
+            <td>&nbsp;</td>
+            <td><div id="doTriadsText">On</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>RGB Triad Scale</td>
+            <td>&nbsp;</td>
+            <td><input id="rgbTexScale" type="range" min="1.0" max="100.0" step="1.00" value="25.0" oninput="sliderChanged('rgbTexScale');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="rgbTexScaleText">25</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
             <td>-/+ Saturation</td>
             <td>&nbsp;</td>
             <td><input id="saturation" type="range" min="-1.0" max="1.0" step="0.001" value="0.0" oninput="sliderChanged('saturation');"/></td>
@@ -287,26 +327,6 @@
             <td>&nbsp;</td>
             <td><div id="contrastText">0.0</div></td>
         </tr>
-    </table>
-    <button onclick="defaultVideoImageValues();">Default SBC Values</button>
-    <div>&nbsp;</div>
-    <table>
-        <tr>
-            <td>&nbsp;</td>
-            <td>RGB Triads</td>
-            <td>&nbsp;</td>
-            <td><input id="doTriads" type="checkbox" checked onchange="triadsOnOff();"/></td>
-            <td>&nbsp;</td>
-            <td><div id="doTriadsText">On</div></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>RGB Triad Scale</td>
-            <td>&nbsp;</td>
-            <td><input id="rgbTexScale" type="range" min="1.0" max="100.0" step="1.00" value="25.0" oninput="sliderChanged('rgbTexScale');"/></td>
-            <td>&nbsp;</td>
-            <td><div id="rgbTexScaleText">25</div></td>
-        </tr>
         <tr>
             <td>&nbsp;</td>
             <td>Post Brightness</td>
@@ -315,6 +335,10 @@
             <td>&nbsp;</td>
             <td><div id="imageBrightnessText">2.18</div></td>
         </tr>
+    </table>
+    <button onclick="defaultRGBTriadValues();">Default Triad Values</button>
+    <div>&nbsp;</div>
+    <table>
         <tr>
             <td>&nbsp;</td>
             <td>Red</td>
@@ -340,7 +364,7 @@
             <td><div id="bBrightnessText">1.0</div></td>
         </tr>
     </table>
-    <button onclick="defaultRGBTriadValues();">Default RGB Triad Values</button>
+    <button onclick="defaultRGBValues();">Default RGB Values</button>
     <div>&nbsp;</div>
     <table>
         <tr>

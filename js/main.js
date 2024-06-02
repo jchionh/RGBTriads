@@ -163,6 +163,9 @@ function switchVideo() {
  * @param {wa.data.DemoSettings} currentSettings
  */
 function updateCurrentDemoSettings(currentSettings) {
+    // do videoImageValues
+    setVideoImageValues(currentSettings);
+
     // do triads
     setRGBTriadValues(currentSettings);
 
@@ -208,16 +211,6 @@ function triadsOnOff() {
     var doTriads = document.getElementById("doTriads").checked;
     document.getElementById("doTriadsText").innerText = doTriads ? "On" : "Off";
     wa.entity.ImageEntityGlobals.doTriads = doTriads;
-
-    var defaultDemoSettings = wa.entity.ImageEntityGlobals.DefaultDemoSettings;
-
-    var name = "imageBrightness";
-    var doTriadsBrightnessValue = defaultDemoSettings[name];
-    var brightnessValue = doTriads ? doTriadsBrightnessValue : 1.0;
-
-    document.getElementById("imageBrightness").value = brightnessValue;
-    document.getElementById("imageBrightnessText").innerText = brightnessValue;
-    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = brightnessValue;
 }
 
 /**
@@ -288,6 +281,24 @@ function defaultRGBTriadValues() {
     setRGBTriadValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
 }
 
+function defaultRGBValues() {
+    var defaultValue = 1.0;
+    var name = "rBrightness";
+    document.getElementById(name).value = defaultValue;
+    document.getElementById(name + "Text").innerText = defaultValue;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = defaultValue;
+    
+    name = "gBrightness";
+    document.getElementById(name).value = defaultValue;
+    document.getElementById(name + "Text").innerText = defaultValue;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = defaultValue;
+
+    name = "bBrightness";
+    document.getElementById(name).value = defaultValue;
+    document.getElementById(name + "Text").innerText = defaultValue;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = defaultValue;
+}
+
 /**
  * Set Video Image Settings
  * @param {wa.data.DemoSettings} currentSettings
@@ -324,6 +335,8 @@ function setRGBTriadValues(currentSettings) {
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = rgbTexScale;
 
     var doTriads = document.getElementById("doTriads").checked;
+
+    setVideoImageValues(currentSettings);
     
     name = "imageBrightness";
     var doTriadsBrightnessValue = currentSettings[name];
