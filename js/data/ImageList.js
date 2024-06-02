@@ -539,10 +539,13 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.415,
-
+            imageBrightness: 1.789,
             // vignette
             vigOuterBorder: 0.878,
+            // video image values
+            saturation: 0.356,
+            brightness: 0.101,
+            contrast: 0.248,
         },
     },
     {
@@ -551,10 +554,13 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.354,
-
+            imageBrightness: 1.824,
             // vignette
             vigOuterBorder: 0.808,
+            // video image values
+            saturation: 0.256,
+            brightness: 0.093,
+            contrast: 0.341,
         },
     },
     {
