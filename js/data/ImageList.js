@@ -8,6 +8,7 @@
 wa.data = wa.data || {};
 
 wa.data.RGBTriadListURLs = [
+    "images/RGB5x14_256x256.png",
     "images/RGB5x15_256x256.png",
     //"images/RGB2x10_21x22.png",
     //"images/RGB2x7_21x16.png",
