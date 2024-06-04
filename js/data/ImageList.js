@@ -93,7 +93,7 @@ wa.data.VideoListURLs = [
             imageBrightness: 1.651,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
 
             // vignette
             vigFade: 40,
@@ -101,7 +101,7 @@ wa.data.VideoListURLs = [
             // video image values
             saturation: 0.364,
             brightness: 0.0,
-            contrast: 0.132,
+            contrast: 0.093,
         },
     },
     {
@@ -110,15 +110,15 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.315,
+            imageBrightness: 1.672,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigFade: 40,
             // video image values
             saturation: 0.442,
-            brightness: 0.132,
-            contrast: 0.209,
+            brightness: 0.015,
+            contrast: 0.147,
         },
     },
     {
@@ -129,7 +129,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.479,
             // Scanlines
-            scanLinesDensity: 66,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.145,
             // Vignette
             fStop: 16.0,
@@ -148,7 +148,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.479,
             // Scanlines
-            scanLinesDensity: 66,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.145,
             // Vignette
             fStop: 16.0,
@@ -167,7 +167,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.479,
             // Scanlines
-            scanLinesDensity: 66,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.145,
             // Vignette
             fStop: 16.0,
@@ -186,7 +186,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.513,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigFade: 40,
             // video image values
@@ -201,15 +201,15 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.513,
+            imageBrightness: 1.309,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigFade: 40,
             // video image values
-            saturation: 0.271,
-            brightness: 0.093,
-            contrast: 0.294,
+            saturation: 0.217,
+            brightness: 0.116,
+            contrast: 0.147,
         },
     },
     {
@@ -220,13 +220,13 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.513,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigFade: 40,
             // video image values
             saturation: 0.271,
             brightness: 0.093,
-            contrast: 0.294,
+            contrast: 0.155,
         },
     },
     {
@@ -235,15 +235,15 @@ wa.data.VideoListURLs = [
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.341,
+            imageBrightness: 1.369,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigFade: 40,
             // video image values
             saturation: 0.271,
             brightness: 0.093,
-            contrast: 0.294,
+            contrast: 0.217,
         },
     },
     {
@@ -252,15 +252,15 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.721,
+            imageBrightness: 1.944,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigFade: 40,
             // video image values
-            saturation: 0.356,
+            saturation: 0.155,
             brightness: 0.023,
-            contrast: 0.387,
+            contrast: 0.178,
         },
     },
     {
@@ -269,9 +269,9 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.893,
+            imageBrightness: 1.883,
             // Scanlines
-            scanLinesDensity: 62,
+            scanLinesDensity: 66,
             scanLinesOpacity: 0.25,
             // vignette
             vigFade: 40,
@@ -287,16 +287,16 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.548,
+            imageBrightness: 1.536,
             // Scanlines
-            scanLinesDensity: 62,
+            scanLinesDensity: 68,
             scanLinesOpacity: 0.187,
             // vignette
             vigFade: 40,
             // video image values
-            saturation: 0.411,
-            brightness: 0.108,
-            contrast: 0.312,
+            saturation: 0.302,
+            brightness: 0.124,
+            contrast: 0.256,
         },
     },
     {
@@ -307,7 +307,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.584,
             // Scanlines
-            scanLinesDensity: 62,
+            scanLinesDensity: 66,
             scanLinesOpacity: 0.187,
             // video image values
             saturation: 0.426,
@@ -323,12 +323,12 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.617,
             // Scanlines
-            scanLinesDensity: 62,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.165,
             // video image values
-            saturation: 0.504,
+            saturation: 0.372,
             brightness: 0.093,
-            contrast: 0.411,
+            contrast: 0.294,
         },
     },
     {
@@ -341,12 +341,12 @@ wa.data.VideoListURLs = [
 
             // Scanlines
             // Scanlines
-            scanLinesDensity: 62,
+            scanLinesDensity: 66,
             scanLinesOpacity: 0.176,
             // video image values
-            saturation: 0.465,
+            saturation: 0.387,
             brightness: 0.077,
-            contrast: 0.311,
+            contrast: 0.232,
         },
     },
     {
@@ -358,7 +358,7 @@ wa.data.VideoListURLs = [
             imageBrightness: 1.651,
 
             // Scanlines
-            scanLinesDensity: 62,
+            scanLinesDensity: 68,
             scanLinesOpacity: 0.191,
             // video image values
             saturation: 0.434,
@@ -376,13 +376,13 @@ wa.data.VideoListURLs = [
             imageBrightness: 1.582,
 
             // Scanlines
-            scanLinesDensity: 62,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.315,
 
             // video image values
             saturation: 0.442,
             brightness: 0.163,
-            contrast: 0.333,
+            contrast: 0.294,
         },
     },
     {
@@ -402,7 +402,7 @@ wa.data.VideoListURLs = [
             // video image values
             saturation: 0.340,
             brightness: 0.023,
-            contrast: 0.279,
+            contrast: 0.248,
         },
     },
     {
@@ -417,7 +417,7 @@ wa.data.VideoListURLs = [
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 66,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.311,
             // video image values
             saturation: 0.294,
@@ -431,18 +431,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -450,19 +450,19 @@ wa.data.VideoListURLs = [
         url: "video/metal_slug_2_intro.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
-            // RGB
-            imageBrightness: 1.651,
+           // RGB
+           imageBrightness: 1.868,
 
-            // vignette
-            vigOuterBorder: 0.82,
+           // vignette
+           vigOuterBorder: 0.82,
 
-            // Scanlines
-            scanLinesDensity: 64,
-            scanLinesOpacity: 0.25,
-            // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+           // Scanlines
+           scanLinesDensity: 76,
+           scanLinesOpacity: 0.25,
+           // video image values
+           saturation: 0.232,
+           brightness: 0.085,
+           contrast: 0.139,
         },
     },
     {
@@ -471,18 +471,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -491,18 +491,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -511,18 +511,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -531,18 +531,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -551,18 +551,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -571,18 +571,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -591,18 +591,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.225,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -611,18 +611,18 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.651,
+            imageBrightness: 1.868,
 
             // vignette
             vigOuterBorder: 0.82,
 
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             scanLinesOpacity: 0.25,
             // video image values
-            saturation: 0.07,
-            brightness: 0.031,
-            contrast: 0.062,
+            saturation: 0.232,
+            brightness: 0.085,
+            contrast: 0.139,
         },
     },
     {
@@ -637,7 +637,7 @@ wa.data.VideoListURLs = [
             // vignette
             vigFade: 40,
             // Scanlines
-            scanLinesDensity: 80,
+            scanLinesDensity: 90,
             scanLinesOpacity: 0.228,
 
             // video image values
@@ -659,7 +659,7 @@ wa.data.VideoListURLs = [
             // vignette
             vigFade: 45,
             // Scanlines
-            scanLinesDensity: 80,
+            scanLinesDensity: 90,
             scanLinesOpacity: 0.228,
 
             // video image values
@@ -681,7 +681,7 @@ wa.data.VideoListURLs = [
             // vignette
             vigFade: 45,
             // Scanlines
-            scanLinesDensity: 80,
+            scanLinesDensity: 90,
             scanLinesOpacity: 0.241,
 
             // video image values
@@ -703,7 +703,7 @@ wa.data.VideoListURLs = [
             // vignette
             vigFade: 45,
             // Scanlines
-            scanLinesDensity: 80,
+            scanLinesDensity: 90,
             scanLinesOpacity: 0.207,
 
             // video image values
@@ -720,15 +720,15 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.996,
+            imageBrightness: 1.717,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigOuterBorder: 0.831,
             // video image values
-            saturation: 0.256,
-            brightness: 0.093,
-            contrast: 0.209,
+            saturation: 0.349,
+            brightness: 0.116,
+            contrast: 0.302,
         },
     },
     {
@@ -739,7 +739,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.789,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigOuterBorder: 0.878,
             // video image values
@@ -756,7 +756,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.824,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigOuterBorder: 0.808,
             // video image values
@@ -773,7 +773,7 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.824,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigOuterBorder: 0.82,
             // video image values
@@ -790,13 +790,13 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.824,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigOuterBorder: 0.82,
             // video image values
             saturation: 0.186,
-            brightness: 0.0,
-            contrast: 0.093,
+            brightness: 0.085,
+            contrast: 0.194,
         }
     },
     {
@@ -807,13 +807,13 @@ wa.data.VideoListURLs = [
             // RGB
             imageBrightness: 1.548,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigOuterBorder: 0.82,
             // video image values
             saturation: 0.248,
-            brightness: 0.0,
-            contrast: 0.077,
+            brightness: 0.108,
+            contrast: 0.318,
         },
     },
     {
@@ -822,14 +822,14 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.169,
+            imageBrightness: 1.611,
             // Scanlines
-            scanLinesDensity: 64,
+            scanLinesDensity: 76,
             // vignette
             vigOuterBorder: 0.82,
             // video image values
             saturation: 0.217,
-            brightness: 0.186,
+            brightness: 0.101,
             contrast: 0.287,
         },
     },
