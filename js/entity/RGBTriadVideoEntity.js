@@ -18,6 +18,8 @@ wa.entity.RGBTriadVideoEntity = function() {
     // now we have a shape
     this.shape = new wa.render.QuadShape();
 
+    this.initRandomRotateTranslateSpeeds();
+
     // let's have an image object to store image data too
     this.rgbTriadImage = new Image();
 
@@ -28,8 +30,6 @@ wa.entity.RGBTriadVideoEntity = function() {
     this.rgbTriadTexture = wa.gTextureLibrary.getTexture(wa.render.RenderConstants.DEFAULT_TEXTURE_ID);
     this.imageTexture = wa.gTextureLibrary.getTexture(wa.render.RenderConstants.DEFAULT_TEXTURE_ID);
 
-    this.rotationSpeed = 0.0;
-    this.translateSpeed = 1.0;
     this.direction = -1;
     this.resizeQuadToMatchImage = true;
 
@@ -50,7 +50,6 @@ wa.entity.RGBTriadVideoEntity = function() {
 
     var self = this;
     this.rgbTriadImage.onload = function() {
-
         // TODO: Move this chunk of code to a separate function
 
         // cache the values
@@ -260,6 +259,14 @@ wa.entity.RGBTriadVideoEntity.prototype.setDimensions = function(width, height) 
 };
 
 /**
+ * init random rotation and translate speed
+ */
+wa.entity.RGBTriadVideoEntity.prototype.initRandomRotateTranslateSpeeds = function() {
+    this.rotationSpeed = (Math.random() * 0.003) + 0.0001;
+    this.translateSpeed = (Math.random() * 5.0) + 0.01;
+};
+
+/**
  * check video ready?
  */
 wa.entity.RGBTriadVideoEntity.prototype.checkVideoReady = function() {
@@ -346,6 +353,14 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.activeTexture(gl.TEXTURE1);
     gl.bindTexture(gl.TEXTURE_2D, this.imageTexture.textureHandle);
 
+    if (this.videoUpdateTexture) {
+        // if we need to update the video texture, we'll have to upload a new video image
+        //gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.videoElement);
+        gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, this.imageTexture.width, this.imageTexture.height, gl.RGBA, gl.UNSIGNED_BYTE, this.videoElement);
+        // after updating the new frame, we have to re-generate the mipmaps
+        gl.generateMipmap(gl.TEXTURE_2D);
+    }
+
     // send in the image with and height
     gl.uniform1f(shaderHandleRefs.imageWidthHandle, this.imageTexture.width);
     gl.uniform1f(shaderHandleRefs.imageHeightHandle, this.imageTexture.height);
@@ -370,30 +385,34 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
  * @param {number} dt
  */
 wa.entity.RGBTriadVideoEntity.prototype.update = function(dt) {
-    /*this.orientation[o.PITCH] += this.rotationSpeed;
-    if (this.orientation[o.PITCH] > 360.0) {
-        this.orientation[o.PITCH] -= (this.orientation[o.PITCH] - 360.0);
+
+    if (wa.entity.ImageEntityGlobals.reset3dFun) {
+        this.orientation[o.YAW] = 0.0;
+        this.orientation[o.PITCH] = 0.0;
+        this.orientation[o.ROLL] = 0.0;
+        this.position[v.X] = 0.0;
+        this.position[v.Y] = 0.0;
+        this.position[v.Z] = 0.0;
+        wa.entity.ImageEntityGlobals.reset3dFun = false;
     }
 
-    this.orientation[o.ROLL] -= this.rotationSpeed;
-    if (this.orientation[o.ROLL] < 0.0) {
-        this.orientation[o.ROLL] += (360.0 - this.orientation[o.ROLL]);
-    }
+    if (wa.entity.ImageEntityGlobals.do3dFun) {
+        this.orientation[o.PITCH] += this.rotationSpeed;
+        if (this.orientation[o.PITCH] > 360.0) {
+            this.orientation[o.PITCH] -= (this.orientation[o.PITCH] - 360.0);
+        }
 
-    if (this.position[v.Z] > 0.0 || this.position[v.Z] < -1000.0) {
-        this.direction *= -1.0;
-        this.rotationSpeed = Math.random() * 0.003;
-        this.translateSpeed = Math.random() * 5.0;
-        this.position[v.Z] += (this.direction * 5.5);
-    }
-    this.position[v.Z] += (this.direction * this.translateSpeed);*/
-    if (this.videoUpdateTexture) {
-        // updateTexture(gl, texture, video);
-        gl.activeTexture(gl.TEXTURE1);
-        gl.bindTexture(gl.TEXTURE_2D, this.imageTexture.textureHandle);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.videoElement);
-        // this.videoUpdateTexture = false;
-        // this.gl.generateMipmap(this.gl.TEXTURE_2D);
+        this.orientation[o.ROLL] -= this.rotationSpeed;
+        if (this.orientation[o.ROLL] < 0.0) {
+            this.orientation[o.ROLL] += (360.0 - this.orientation[o.ROLL]);
+        }
+
+        if (this.position[v.Z] > 0.0 || this.position[v.Z] < -1000.0) {
+            this.direction *= -1.0;
+            this.initRandomRotateTranslateSpeeds()
+            this.position[v.Z] += (this.direction * 5.5);
+        }
+        this.position[v.Z] += (this.direction * this.translateSpeed);
     }
 };
 

@@ -59,12 +59,7 @@ wa.cache.TextureLibrary.prototype.addTexture = function(textureId, image, genMip
     */
 
     var minFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR   : this.gl.LINEAR;
-    var maxFilter = genMipMaps ? this.gl.LINEAR_MIPMAP_LINEAR   : this.gl.LINEAR;
-    
-    if (wa.gWebGLType !== "webgl2") 
-    {
-        maxFilter = this.gl.LINEAR;
-    }
+    var maxFilter = this.gl.LINEAR;
 
     // we do not have an existing texture, load it to GPU
     var textureHandle = this.gl.createTexture();
@@ -75,9 +70,6 @@ wa.cache.TextureLibrary.prototype.addTexture = function(textureId, image, genMip
 
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, minFilter);
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, maxFilter);
-
-    //this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.NEAREST);
-    //this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST);
 
     this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.gl.RGBA, this.gl.UNSIGNED_BYTE, image);
     if (genMipMaps) {

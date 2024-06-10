@@ -70,7 +70,11 @@ function mainInit() {
         return;
     } else {
         //wa.gSysMessageElement.innerHTML = "WebGL initialized.";
-        console.log("WebGL initialized.");
+        if (wa.gWebGLType !== "webgl2") {
+            console.log("Require Browser to support WebGL2");
+            return;
+        }
+        console.log("WebGL2 initialized.");
     }
 
     // create our cache libraries
@@ -177,6 +181,15 @@ function updateCurrentDemoSettings(currentSettings) {
 }
 
 /**
+ * Do the 3D fun thing!
+ */
+function do3dFunOnOff() {
+    var do3dFun = document.getElementById("do3dFun").checked;
+    document.getElementById("do3dFunText").innerText = doVignette ? "On" : "Off";
+    wa.entity.ImageEntityGlobals.do3dFun = do3dFun;
+}
+
+/**
  * turn vignette on or off
  */
 function vignetteOnOff() {
@@ -221,6 +234,10 @@ function sliderChanged(name) {
     var value = document.getElementById(name).value;
     document.getElementById(name + "Text").innerText = "" + value;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = value;
+}
+
+function reset3dFun() {
+    wa.entity.ImageEntityGlobals.reset3dFun = true;
 }
 
 function defaultVignetteValues() {

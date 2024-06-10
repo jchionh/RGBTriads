@@ -35,56 +35,27 @@ wa.utils.extend(wa.states.RGBTriadVideo, wa.runstate.GLRunState);
 wa.states.RGBTriadVideo.prototype.onStart = function() {
     console.log('RGBTriadVideo::onStart');
     var root = this.scene.getRoot();
-
+    
     var canvasWidth = wa.gCanvasElement.clientWidth;
     var halfCanvasWidth = canvasWidth / 2.0;
     var canvasHeight = wa.gCanvasElement.clientHeight;
     var halfCanvasHeight = canvasHeight / 2.0;
 
-    // create our image entities
-    /*
-    this.imageEntities = wa.entity.createImageEntityArray(wa.data.ImageListURLs);
+    this.rgbTriadVideo = new wa.entity.RGBTriadVideoEntity();
+    // load image
+    var selectedImage = wa.gSelectImage.value;
+    selectedImage = "images/black_screen_1600_1200.png";
+    var selectedTriad = wa.gSelectTriad.value;
+    var selectedVideoIndex = wa.gSelectVideo.value;
+    this.rgbTriadVideo.videoUrl = wa.data.VideoListURLs[selectedVideoIndex].url;
+    this.rgbTriadVideo.loadImageURL(selectedTriad, selectedImage, false);
 
-    // now init all our images to positions, and add to our scene
-    for (var i = 0; i < this.imageEntities.length; ++i) {
-        var imageEntity = this.imageEntities[i];
-        // randomize positions
-        imageEntity.position[v.X] = Math.floor(Math.random() * canvasWidth) - halfCanvasWidth;
-        imageEntity.position[v.Y] = Math.floor(Math.random() * canvasHeight) - halfCanvasHeight;
-        imageEntity.position[v.Z] = Math.floor(Math.random() * -1000.0);
-        imageEntity.rotationSpeed = Math.random() * 0.003;
-        imageEntity.translateSpeed = Math.random() * 5.0;
-        imageEntity.scale[v.X] = 32.0;
-        imageEntity.scale[v.Y] = 32.0;
-        imageEntity.scale[v.Z] = 1.0;
+    this.rgbTriadVideo.setDimensions(1600, 1200);
+    this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
+    this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
+    this.rgbTriadVideo.texScale[v.Z] = 1.00;
 
-        imageEntity.texScale[v.X] = 32.00;
-        imageEntity.texScale[v.Y] = 32.00;
-        imageEntity.texScale[v.Z] = 1.00;
-
-        // add to our scene
-        wa.utils.inList.addChild(root, imageEntity);
-    }
-    */
-   this.rgbTriadVideo = new wa.entity.RGBTriadVideoEntity();
-   // load image
-   // this.rgbTriadVideo.loadImageURL("images/RGB5x3_128x128.jpg", "images/marco_slug_1.jpg", false);
-   var selectedImage = wa.gSelectImage.value;
-   var selectedTriad = wa.gSelectTriad.value;
-   var selectedVideoIndex = wa.gSelectVideo.value;
-   this.rgbTriadVideo.videoUrl = wa.data.VideoListURLs[selectedVideoIndex].url;
-   this.rgbTriadVideo.loadImageURL(selectedTriad, selectedImage, false);
-   // this.rgbTriadVideo.loadImageURL("images/RGB5x3_128x128.jpg", "images/metal_slug_tank_direct_1.png", false);
-   this.rgbTriadVideo.setDimensions(1600, 1200);
-   this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
-   this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
-   this.rgbTriadVideo.texScale[v.Z] = 1.00;
-
-   //this.mainImage = new wa.entity.RGBTriadVideoEntity();
-   //this.mainImage.loadImageURL("images/natureflowers1342.jpg", true);
-
-   // wa.utils.inList.addChild(root, this.mainImage);
-   wa.utils.inList.addChild(root, this.rgbTriadVideo);
+    wa.utils.inList.addChild(root, this.rgbTriadVideo);
 };
 
 /**
@@ -93,21 +64,11 @@ wa.states.RGBTriadVideo.prototype.onStart = function() {
  */
 wa.states.RGBTriadVideo.prototype.onStop = function() {
     // cleanup
-    /*
-    var count = this.imageEntities.length;
-    for (var i = 0; i < count; ++i) {
-        this.imageEntities[i].release();
-        this.imageEntities[i] = null;
-    }
-    // clear the array
-    this.imageEntities.length = 0;
-    this.imageEntities = null;
-    */
     this.rgbTriadImag.release();
     this.rgbTriadImag = null;
 
-    //this.mainImage.release();
-    //this.mainImage = null;
+    this.mainImage.release();
+    this.mainImage = null;
 
     // release our scene
     this.scene.release();
@@ -121,8 +82,6 @@ wa.states.RGBTriadVideo.prototype.onStop = function() {
  * @param {number} dt
  */
 wa.states.RGBTriadVideo.prototype.onUpdate = function(dt) {
-    //console.log('StaticImages::onUpdate');
-
     // check audio
     var doAudio = wa.entity.ImageEntityGlobals.doAudio;
     if (this.rgbTriadVideo.videoElement.muted != !doAudio) {
