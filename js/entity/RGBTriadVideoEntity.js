@@ -341,8 +341,6 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1f(shaderHandleRefs.brightness, wa.entity.ImageEntityGlobals.CurrentDemoSettings.brightness);
     gl.uniform1f(shaderHandleRefs.contrast, wa.entity.ImageEntityGlobals.CurrentDemoSettings.contrast);
 
-    //gl.uniform1f(shaderHandleRefs.texCenterU, this.texScale[v.X] / 2.0);
-    //gl.uniform1f(shaderHandleRefs.texCenterV, this.texScale[v.Y] / 2.0);
     gl.uniform1f(shaderHandleRefs.texCenterU, 0.5);
     gl.uniform1f(shaderHandleRefs.texCenterV, 0.5);
 

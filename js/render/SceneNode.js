@@ -127,6 +127,11 @@ wa.render.SceneNode.prototype.draw = function(gl, renderer) {
 
     this.shaderHandleRefs = renderer.getShaderHandleRefs();
 
+    // here we draw textures
+    // we do this before drawing as recommended:
+    // https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_best_practices
+    this.drawTexture(gl, this.shaderHandleRefs);
+
     // vertices
     //var vertexBuffer = this.shape.getVertexBufferObject();
     //var posHandle = this.shaderHandleRefs.posHandle;
@@ -139,9 +144,6 @@ wa.render.SceneNode.prototype.draw = function(gl, renderer) {
     gl.bindBuffer(gl.ARRAY_BUFFER, this.shape.getColorBufferObject());
     gl.enableVertexAttribArray(this.shaderHandleRefs.colorHandle);
     gl.vertexAttribPointer(this.shaderHandleRefs.colorHandle, wa.render.RenderConstants.FLOATS_PER_COLOR, gl.FLOAT, false, 0, 0);
-
-    // here we draw textures
-    this.drawTexture(gl, this.shaderHandleRefs);
 
     // send in the mvp matrix
     gl.uniformMatrix4fv(this.shaderHandleRefs.matrixHandle, false, this.mvpMatrix);
