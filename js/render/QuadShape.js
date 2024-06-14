@@ -24,6 +24,7 @@ wa.render.QuadShape = function() {
     this.setVertexBufferObject(wa.gVtxLibrary.getVBO(1, 1));
     this.setColorBufferObject(wa.gClrLibrary.getVBO(wa.cache.QuadShapeConst.ColorKey.WHITE_ALPHA));
     this.setTexCoordBufferObject(wa.gTexCoordLibrary.getVBO(wa.cache.QuadShapeConst.TexCoordKey.FULL));
+    this.setVertexNormalBufferObject(wa.gVtxNormalLibrary.getVBO(wa.cache.QuadShapeConst.NormalKey.OUTWARDS_15_ALONG_POSITIVE_Z));
 };
 
 // quad shape extends from shape

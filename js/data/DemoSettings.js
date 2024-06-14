@@ -36,4 +36,6 @@ wa.data.DemoSettings = function() {
     this.saturation = 0.0;
     this.brightness = 0.0;
     this.contrast = 0.0;
+
+    this.curvature = 0.0;
 }

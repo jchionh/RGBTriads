@@ -18,6 +18,8 @@ wa.entity.ImageEntityGlobals.doScanLines = true;
 wa.entity.ImageEntityGlobals.scanLinesDensity = 80;
 wa.entity.ImageEntityGlobals.scanLinesOpacity = 0.25;
 
+wa.entity.ImageEntityGlobals.curvature = 0.0;
+
 wa.entity.ImageEntityGlobals.do3dFun = false;
 wa.entity.ImageEntityGlobals.reset3dFun = false;
 

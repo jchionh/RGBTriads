@@ -23,6 +23,7 @@ wa.render.Shape = function(gl) {
     this.vertices = null;
     this.vtxColors = null;
     this.texCoords = null;
+    this.vtxNormals = null;
     this.numVertices = 0;
 };
 
@@ -48,6 +49,14 @@ wa.render.Shape.prototype.setColorBufferObject = function(vbo) {
  */
 wa.render.Shape.prototype.setTexCoordBufferObject = function(vbo) {
     this.texCoords = vbo;
+};
+
+/**
+ *
+ * @param {WebGLBuffer} vbo
+ */
+wa.render.Shape.prototype.setVertexNormalBufferObject = function(vbo) {
+    this.vtxNormals = vbo;
 };
 
 /**
@@ -80,4 +89,12 @@ wa.render.Shape.prototype.getColorBufferObject = function() {
  */
 wa.render.Shape.prototype.getTexCoordBufferObject = function() {
     return this.texCoords;
+};
+
+/**
+ *
+ * @return {WebGLBuffer} the vertex normals buffer object
+ */
+wa.render.Shape.prototype.getVtxNormalBufferObject = function() {
+    return this.vtxNormals;
 };

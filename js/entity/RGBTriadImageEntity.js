@@ -95,7 +95,7 @@ wa.entity.RGBTriadImageEntity = function() {
             scaledImage.src = scaledCanvas.toDataURL("image/jpeg");
             addToLibraryNext = false;
             scaledImage.onload = function() {
-                var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
+                var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true, true);
                 //console.log("sw: " + scaledCanvas.width + " sh: " + scaledCanvas.height);
                 //console.log("w: " + self.rgbTriadImage.width + " h: " + self.rgbTriadImage.height);
                 self.rgbTriadTexture = savedTexture;
@@ -119,7 +119,7 @@ wa.entity.RGBTriadImageEntity = function() {
         */
 
         if (addToLibraryNext) {
-            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
+            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true, true);
             //console.log("w: " + self.rgbTriadImage.width + " h: " + self.rgbTriadImage.height);
             self.rgbTriadTexture = savedTexture;
         }

@@ -20,6 +20,7 @@ wa.render.ShaderHandleRefs = function() {
     this.texSamplerHandle = null; // WebGLUniformLocation
     this.texImageSamplerHandle = null; // WebGLUniformLocation
     this.texCoordHandle = 0; // GLint
+    this.vtxNormalHandle = 0; // GLint
     this.doVignetteHandle = 0; // bool
     this.vigOuterHandle = 0; // float
     this.vigFadeHandle = 0; // float
@@ -36,7 +37,7 @@ wa.render.ShaderHandleRefs = function() {
     this.doScanLines = 0; // bool
     this.scanLinesDensity = 0; // float
     this.scanLinesOpacity = 0; // float
-    
+    this.curvature = 0; // float
     this.saturation = 0; // float
     this.brightness = 0; // float
     this.contrast = 0; // float

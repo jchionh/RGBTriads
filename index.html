@@ -30,18 +30,24 @@
         attribute vec4 a_Color;
         // texture coordinate
         attribute vec2 a_TexCoord;
+        // vertex normal
+        attribute vec3 a_VtxNormal;
 
         // tex coord to pass to the frag shader
         varying vec2 v_TexCoord;
         varying vec2 v_ImageTexCoord;
         // color passed to the frag shader
         varying vec4 v_Color;
+        // vertex normal passed to the frag shader
+        varying vec3 v_VtxNormal;
 
         // main program
         void main()
         {
             // vertex color passed into the varying (to be interpolated per fragment)
             v_Color = a_Color;
+            // also interpotlate the vtx normal and pass to the frag shader
+            v_VtxNormal = a_VtxNormal;
 
             // transform our vertex coords here
             vec4 texTransformed = u_TexMatrix * vec4(a_TexCoord.x, a_TexCoord.y, 0.0, 1.0);
@@ -88,11 +94,14 @@
 
         uniform bool u_doTriads;
 
+        uniform float u_curvature;
+
         // here's the interpolated vertex color for this fragment
         varying vec4 v_Color;
         // and the interpolated tex coord
         varying vec2 v_TexCoord;
         varying vec2 v_ImageTexCoord;
+        varying vec3 v_VtxNormal;
 
         // user vars
         float vigInnerBorder = 0.0;
@@ -105,6 +114,27 @@
             float dist = distance(v_ImageTexCoord.xy, vec2(u_texCenterU, u_texCenterV));
             dist = smoothstep(u_vigOuterBorder + (u_fStop / u_vigFade), vigInnerBorder + (u_fStop / u_vigFade), dist);
             return clamp(dist, 0.0, 1.0);
+        }
+
+        vec2 curvatureOffset()
+        {
+            vec2 center = vec2(u_texCenterU, u_texCenterV);
+            float dist = distance(v_ImageTexCoord.xy, center);
+            dist = smoothstep(u_vigOuterBorder + (u_fStop / u_vigFade), vigInnerBorder + (u_fStop / u_vigFade), dist);
+            float magnitude = 1.0 - clamp(dist, 0.0, 1.0);
+            vec2 direction = normalize(v_ImageTexCoord.xy - center);
+            return v_ImageTexCoord.xy + (u_curvature * magnitude * direction);
+        }
+
+        vec4 sampleImageWithCurvature()
+        {
+            vec2 samplePoint = curvatureOffset();
+            if (samplePoint.x < 0.0 || samplePoint.x > 1.0 || samplePoint.y < 0.0 || samplePoint.y > 1.0)
+            {
+                return vec4(0.0, 0.0, 0.0, 1.0);
+            }
+
+            return texture2D(u_ImageTexture, samplePoint);
         }
 
         vec3 addScanLines(vec3 col, vec2 texCoord, float imageHeight) 
@@ -213,8 +243,13 @@
             // sample the RGB Triad
             vec4 rgbTriad = texture2D(u_Texture, v_TexCoord);
 
+            //vec2 samplePoint = (v_VtxNormal.xy * vec2(u_curvature, u_curvature)) + v_ImageTexCoord;
+            //vec2 samplePoint = curvatureOffset();
+
             // sample the texture
-            vec4 image = texture2D(u_ImageTexture, v_ImageTexCoord);
+            //vec4 image = texture2D(u_ImageTexture, v_ImageTexCoord);
+            //vec4 image = texture2D(u_ImageTexture, samplePoint);
+            vec4 image = sampleImageWithCurvature();
             vec4 imageRGB = applyRGBBrightness(image);
             vec4 imageBCS = applyBCS(imageRGB);
             vec3 imageScanlines = addScanLines(imageBCS.rgb, v_ImageTexCoord, u_ImageHeight);
@@ -233,6 +268,7 @@
 
             gl_FragColor = imageBrightness() * vignette() * v_Color * texColor;
             gl_FragColor.a = 1.0;
+            //gl_FragColor = vec4(v_VtxNormal, 1.0);
         }
     </script>
 
@@ -433,6 +469,14 @@
     <table>
         <tr>
             <td>&nbsp;</td>
+            <td>Curvature</td>
+            <td>&nbsp;</td>
+            <td><input id="curvature" type="range" min="0.000" max="1.0" step="0.001" value="0.0" oninput="sliderChanged('curvature');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="curvatureText">0.0</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
             <td>3D Fun!</td>
             <td>&nbsp;</td>
             <td><input id="do3dFun" type="checkbox" onchange="do3dFunOnOff();"/></td>
@@ -469,6 +513,7 @@
 <script src="js/cache/QuadVertexBufferLibrary.js"></script>
 <script src="js/cache/QuadVertexColorBufferLibrary.js"></script>
 <script src="js/cache/QuadTexCoordBufferLibrary.js"></script>
+<script src="js/cache/QuadVertexNormalBufferLibrary.js"></script>
 <script src="js/cache/TextureLibrary.js"></script>
 
 <!-- renderer -->

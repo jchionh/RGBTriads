@@ -82,6 +82,7 @@ function mainInit() {
     wa.gClrLibrary = new wa.cache.QuadVertexColorBufferLibrary(gl);
     wa.gTexCoordLibrary = new wa.cache.QuadTexCoordBufferLibrary(gl);
     wa.gTextureLibrary = new wa.cache.TextureLibrary(gl);
+    wa.gVtxNormalLibrary = new wa.cache.QuadVertexNormalBufferLibrary(gl);
 
     // new our input manager
     // REMEMBER TO RELEASE?

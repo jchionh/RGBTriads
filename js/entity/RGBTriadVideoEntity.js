@@ -94,7 +94,7 @@ wa.entity.RGBTriadVideoEntity = function() {
             scaledImage.src = scaledCanvas.toDataURL("image/jpeg");
             addToLibraryNext = false;
             scaledImage.onload = function() {
-                var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
+                var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true, true);
                 //console.log("sw: " + scaledCanvas.width + " sh: " + scaledCanvas.height);
                 //console.log("w: " + self.rgbTriadImage.width + " h: " + self.rgbTriadImage.height);
                 self.rgbTriadTexture = savedTexture;
@@ -118,7 +118,7 @@ wa.entity.RGBTriadVideoEntity = function() {
         */
 
         if (addToLibraryNext) {
-            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
+            var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true, true);
             //console.log("w: " + self.rgbTriadImage.width + " h: " + self.rgbTriadImage.height);
             self.rgbTriadTexture = savedTexture;
         }
@@ -327,6 +327,8 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1i(shaderHandleRefs.doScanLines, wa.entity.ImageEntityGlobals.doScanLines);
     gl.uniform1f(shaderHandleRefs.scanLinesDensity, wa.entity.ImageEntityGlobals.CurrentDemoSettings.scanLinesDensity);
     gl.uniform1f(shaderHandleRefs.scanLinesOpacity, wa.entity.ImageEntityGlobals.CurrentDemoSettings.scanLinesOpacity);
+
+    gl.uniform1f(shaderHandleRefs.curvature, wa.entity.ImageEntityGlobals.CurrentDemoSettings.curvature);
 
     gl.uniform1f(shaderHandleRefs.vigOuterHandle, wa.entity.ImageEntityGlobals.CurrentDemoSettings.vigOuterBorder);
     gl.uniform1f(shaderHandleRefs.vigFadeHandle, wa.entity.ImageEntityGlobals.CurrentDemoSettings.vigFade);

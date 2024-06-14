@@ -43,8 +43,9 @@ wa.cache.TextureLibrary.prototype.getTexture = function(textureId) {
  * @param {String} textureId
  * @param {Image} image
  * @param {Boolean} genMipMaps
+ * @param {Boolean} repeat
  */
-wa.cache.TextureLibrary.prototype.addTexture = function(textureId, image, genMipMaps) {
+wa.cache.TextureLibrary.prototype.addTexture = function(textureId, image, genMipMaps, repeat = false) {
     var texture = this.getTexture(textureId);
     // if we have an existing texture, let's return it
     if (texture !== null) {
@@ -65,8 +66,9 @@ wa.cache.TextureLibrary.prototype.addTexture = function(textureId, image, genMip
     var textureHandle = this.gl.createTexture();
     this.gl.bindTexture(this.gl.TEXTURE_2D, textureHandle);
     // Set the parameters so we can render any size image.
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.REPEAT);
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.REPEAT);
+    var wrappingFunc = repeat ? this.gl.REPEAT : this.gl.CLAMP_TO_EDGE;
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, wrappingFunc);
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, wrappingFunc);
 
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, minFilter);
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, maxFilter);
