@@ -99,35 +99,40 @@
         // user vars
         float vigInnerBorder = 0.0;
 
+        float radialGradient(float outerThreshold, float innerThreshold, float gradientTop, float gradientBottom) 
+        {
+            float dist = distance(v_ImageTexCoord.xy, vec2(u_texCenterU, u_texCenterV));
+            float gradient = gradientTop / gradientBottom;
+            dist = smoothstep(outerThreshold + gradient, innerThreshold + gradient, dist);
+            return clamp(dist, 0.0, 1.0);
+        }
+
         float vignette()
         {
             if (!u_doVignette) {
                 return 1.0;
             }
-            float dist = distance(v_ImageTexCoord.xy, vec2(u_texCenterU, u_texCenterV));
-            dist = smoothstep(u_vigOuterBorder + (u_fStop / u_vigFade), vigInnerBorder + (u_fStop / u_vigFade), dist);
-            return clamp(dist, 0.0, 1.0);
+            return radialGradient(u_vigOuterBorder, vigInnerBorder, u_fStop, u_vigFade);
         }
 
         vec2 curvatureOffset()
         {
-            vec2 center = vec2(u_texCenterU, u_texCenterV);
-            float dist = distance(v_ImageTexCoord.xy, center);
-            dist = smoothstep(u_vigOuterBorder + (u_fStop / u_vigFade), vigInnerBorder + (u_fStop / u_vigFade), dist);
-            float magnitude = 1.0 - clamp(dist, 0.0, 1.0);
-            vec2 direction = normalize(v_ImageTexCoord.xy - center);
+            float magnitude = 1.0 - radialGradient(u_vigOuterBorder, vigInnerBorder, u_fStop, u_vigFade);;
+            vec2 direction = normalize(v_ImageTexCoord.xy - vec2(u_texCenterU, u_texCenterV));
             return v_ImageTexCoord.xy + (u_curvature * magnitude * direction);
         }
 
         vec4 sampleImageWithCurvature()
         {
             vec2 samplePoint = curvatureOffset();
+            vec4 sampledColor = texture2D(u_ImageTexture, samplePoint);
+
             if (samplePoint.x < 0.0 || samplePoint.x > 1.0 || samplePoint.y < 0.0 || samplePoint.y > 1.0)
             {
                 return vec4(0.0, 0.0, 0.0, 1.0);
             }
 
-            return texture2D(u_ImageTexture, samplePoint);
+            return sampledColor;
         }
 
         vec3 addScanLines(vec3 col, vec2 texCoord, float imageHeight) 
@@ -284,12 +289,6 @@
     <canvas id="renderCanvas" style="width: 1600px; height: 1200px; position: absolute; left: 0px; top: 0px;"></canvas>
 </div>
 <div id="controls" style="position: relative; left: 1600px; top: 0px;">
-    <!--
-    <table>
-        
-    </table>
-    
-    -->
     <div>Control Area</div>
     <div>&nbsp;</div>
     <table>
@@ -458,12 +457,56 @@
     <table>
         <tr>
             <td>&nbsp;</td>
-            <td>Curvature</td>
+            <td>Glass Curvature</td>
+            <td>&nbsp;</td>
+            <td><input id="doCurvature" type="checkbox" checked onchange="curvatureOnOff();"/></td>
+            <td>&nbsp;</td>
+            <td><div id="doCurvatureText">On</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Outer Threshold</td>
+            <td>&nbsp;</td>
+            <td><input id="outerThreshold" type="range" min="0.0" max="3.0" step="0.001" value="0.866" oninput="sliderChanged('outerThreshold');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="outerThresholdText">0.866</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Inner Threshold</td>
+            <td>&nbsp;</td>
+            <td><input id="innerThreshold" type="range" min="0.0" max="3.0" step="0.001" value="0.866" oninput="sliderChanged('innerThreshold');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="innerThresholdText">0.866</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Gradient Bottom</td>
+            <td>&nbsp;</td>
+            <td><input id="gradientBottom" type="range" min="0" max="100" step="1" value="50" oninput="sliderChanged('gradientBottom');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="gradientBottomText">50</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Gradient Top</td>
+            <td>&nbsp;</td>
+            <td><input id="gradientTop" type="range" min="0.01" max="30.0" step="0.01" value="12.0" oninput="sliderChanged('gradientTop');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="gradientTopText">12.0</div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Curvature Intensity</td>
             <td>&nbsp;</td>
             <td><input id="curvature" type="range" min="0.000" max="1.0" step="0.001" value="0.0" oninput="sliderChanged('curvature');"/></td>
             <td>&nbsp;</td>
             <td><div id="curvatureText">0.0</div></td>
         </tr>
+    </table>
+    <button onclick="defaultCurvatureValues();">Default Curvature Values</button>
+    <div>&nbsp;</div>
+    <table>
         <tr>
             <td>&nbsp;</td>
             <td>3D Fun!</td>
