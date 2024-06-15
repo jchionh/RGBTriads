@@ -626,6 +626,28 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[PSX] Castlevania: Symphony of the Night",
+        url: "video/castlevania_symphony_of_the_night_30.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.962,
+
+            // vignette
+            vigFade: 45,
+            // Scanlines
+            scanLinesDensity: 90,
+            scanLinesOpacity: 0.241,
+
+            // video image values
+            saturation: 0.403,
+            brightness: 0.015,
+            contrast: 0.178,
+            // vignette
+            vigFade: 40,
+        },
+    },
+    {
         desc: "[PSX] Final Fantasy VII",
         url: "video/final_fantasy_7_intro_long.mp4",
         settings: {
