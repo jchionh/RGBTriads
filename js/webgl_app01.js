@@ -22,7 +22,6 @@ wa.gViewpoint = null;
 wa.gVtxLibrary = null;
 wa.gClrLibrary = null;
 wa.gTexCoordLibrary = null;
-wa.gVtxNormalLibrary = null;
 wa.gTextureLibrary = null;
 wa.gInputManager = null;
 wa.gStateRunner = null;

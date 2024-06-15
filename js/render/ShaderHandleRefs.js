@@ -20,7 +20,6 @@ wa.render.ShaderHandleRefs = function() {
     this.texSamplerHandle = null; // WebGLUniformLocation
     this.texImageSamplerHandle = null; // WebGLUniformLocation
     this.texCoordHandle = 0; // GLint
-    this.vtxNormalHandle = 0; // GLint
     this.doVignetteHandle = 0; // bool
     this.vigOuterHandle = 0; // float
     this.vigFadeHandle = 0; // float

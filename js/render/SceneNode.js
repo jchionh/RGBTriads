@@ -145,11 +145,6 @@ wa.render.SceneNode.prototype.draw = function(gl, renderer) {
     gl.enableVertexAttribArray(this.shaderHandleRefs.colorHandle);
     gl.vertexAttribPointer(this.shaderHandleRefs.colorHandle, wa.render.RenderConstants.FLOATS_PER_COLOR, gl.FLOAT, false, 0, 0);
 
-    // vtx normals
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.shape.getVtxNormalBufferObject());
-    gl.enableVertexAttribArray(this.shaderHandleRefs.vtxNormalHandle);
-    gl.vertexAttribPointer(this.shaderHandleRefs.vtxNormalHandle, wa.render.RenderConstants.FLOATS_PER_NORMAL, gl.FLOAT, false, 0, 0);
-
     // send in the mvp matrix
     gl.uniformMatrix4fv(this.shaderHandleRefs.matrixHandle, false, this.mvpMatrix);
 

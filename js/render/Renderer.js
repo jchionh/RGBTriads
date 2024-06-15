@@ -42,7 +42,7 @@ wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, frag
     var vtxShader = wa.utils.compileShaderFromScriptElement(gl, "vtxShader");
     var fragShader = wa.utils.compileShaderFromScriptElement(gl, "fragShader");
     // then let's link our program
-    var attribNames = ["a_Position", "a_Color", "a_TexCoord", "a_VtxNormal"];
+    var attribNames = ["a_Position", "a_Color", "a_TexCoord"];
     var shaderProgram = wa.utils.createShaderProgram(gl, vtxShader, fragShader, attribNames);
     // assign to tour shader refs
     this.shaderHandleRefs.shaderProgram = shaderProgram;
@@ -50,7 +50,6 @@ wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, frag
     this.shaderHandleRefs.posHandle = gl.getAttribLocation(shaderProgram, "a_Position");
     this.shaderHandleRefs.colorHandle = gl.getAttribLocation(shaderProgram, "a_Color");
     this.shaderHandleRefs.texCoordHandle = gl.getAttribLocation(shaderProgram, "a_TexCoord");
-    this.shaderHandleRefs.vtxNormalHandle = gl.getAttribLocation(shaderProgram, "a_VtxNormal");
     this.shaderHandleRefs.matrixHandle = gl.getUniformLocation(shaderProgram, "u_MVPMatrix");
     this.shaderHandleRefs.texMatrixHandle = gl.getUniformLocation(shaderProgram, "u_TexMatrix");
     this.shaderHandleRefs.texImageMatrixHandle = gl.getUniformLocation(shaderProgram, "u_ImageTexMatrix");
