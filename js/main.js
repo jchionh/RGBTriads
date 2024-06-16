@@ -15,6 +15,7 @@ function mainInit() {
     // initing our app globals
     wa.gTitleElement = document.getElementsByTagName('title')[0];
     wa.gFrameTimeElement = document.getElementById('frameTimeText');
+    wa.gFrameTimeSlidingWindow = new wa.data.SlidingWindow(10, 0.0);
 
     var selectElement = document.getElementById('ImageSelect');
 
@@ -430,8 +431,11 @@ function mainLoop(timestamp) {
     // calculate our delta
     wa.gDelta = timestamp - wa.gPrevTimestamp;
     wa.gPrevTimestamp = timestamp;
+
+    wa.gFrameTimeSlidingWindow.insertNumber(wa.gDelta);
+    var averageFrameTime = wa.gFrameTimeSlidingWindow.average();
     
-    wa.gFrameTimeElement.innerHTML = wa.gDelta.toFixed(2);
+    wa.gFrameTimeElement.innerHTML = averageFrameTime.toFixed(2);
     // request animation for the next loop call
     // note: requestAnimFrame is a polyfill for cross browser
     // the actual function name is requestAnimationFrame
