@@ -61,6 +61,12 @@ wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, frag
     this.shaderHandleRefs.vigFadeHandle = gl.getUniformLocation(shaderProgram, "u_vigFade");
     this.shaderHandleRefs.fStop = gl.getUniformLocation(shaderProgram, "u_fStop");
 
+    this.shaderHandleRefs.doCurvature = gl.getUniformLocation(shaderProgram, "u_doCurvature");
+    this.shaderHandleRefs.outerWarp = gl.getUniformLocation(shaderProgram, "u_outerWarp");
+    this.shaderHandleRefs.innerWarp = gl.getUniformLocation(shaderProgram, "u_innerWarp");
+    this.shaderHandleRefs.gradientRatio = gl.getUniformLocation(shaderProgram, "u_gradientRatio");
+    this.shaderHandleRefs.curvature = gl.getUniformLocation(shaderProgram, "u_curvature");
+
     this.shaderHandleRefs.doTriads = gl.getUniformLocation(shaderProgram, "u_doTriads");
 
     this.shaderHandleRefs.imageBrightness = gl.getUniformLocation(shaderProgram, "u_imageBrightness");
@@ -82,8 +88,6 @@ wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, frag
     this.shaderHandleRefs.doScanLines = gl.getUniformLocation(shaderProgram, "u_doScanLines");
     this.shaderHandleRefs.scanLinesDensity = gl.getUniformLocation(shaderProgram, "u_scanLinesDensity");
     this.shaderHandleRefs.scanLinesOpacity = gl.getUniformLocation(shaderProgram, "u_scanLinesOpacity");
-
-    this.shaderHandleRefs.curvature = gl.getUniformLocation(shaderProgram, "u_curvature");
 
     console.log("max tex size: " + gl.getParameter(gl.MAX_TEXTURE_SIZE));
     //console.log("texSamplerHandle: " + this.shaderHandleRefs.texSamplerHandle);

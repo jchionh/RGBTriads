@@ -37,5 +37,10 @@ wa.data.DemoSettings = function() {
     this.brightness = 0.0;
     this.contrast = 0.0;
 
-    this.curvature = 0.0;
+    // curvature
+    this.doCurvature = true;
+    this.outerWarp = 0.866;
+    this.innerWarp = 0.0;
+    this.gradientRatio = 0.30;
+    this.curvature = 0.069;
 }

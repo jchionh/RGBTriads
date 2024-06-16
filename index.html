@@ -86,9 +86,13 @@
         uniform float u_scanLinesDensity;
         uniform float u_scanLinesOpacity;
 
-        uniform bool u_doTriads;
-
+        uniform bool u_doCurvature;
+        uniform float u_outerWarp;
+        uniform float u_innerWarp;
+        uniform float u_gradientRatio;
         uniform float u_curvature;
+
+        uniform bool u_doTriads;
 
         // here's the interpolated vertex color for this fragment
         varying vec4 v_Color;
@@ -99,11 +103,10 @@
         // user vars
         float vigInnerBorder = 0.0;
 
-        float radialGradient(float outerThreshold, float innerThreshold, float gradientTop, float gradientBottom) 
+        float radialGradient(float outerThreshold, float innerThreshold, float ratio) 
         {
             float dist = distance(v_ImageTexCoord.xy, vec2(u_texCenterU, u_texCenterV));
-            float gradient = gradientTop / gradientBottom;
-            dist = smoothstep(outerThreshold + gradient, innerThreshold + gradient, dist);
+            dist = smoothstep(outerThreshold + ratio, innerThreshold + ratio, dist);
             return clamp(dist, 0.0, 1.0);
         }
 
@@ -112,12 +115,16 @@
             if (!u_doVignette) {
                 return 1.0;
             }
-            return radialGradient(u_vigOuterBorder, vigInnerBorder, u_fStop, u_vigFade);
+            float ratio = u_fStop / u_vigFade;
+            return radialGradient(u_vigOuterBorder, vigInnerBorder, ratio);
         }
 
         vec2 curvatureOffset()
         {
-            float magnitude = 1.0 - radialGradient(u_vigOuterBorder, vigInnerBorder, u_fStop, u_vigFade);;
+            if (!u_doCurvature) {
+                return v_ImageTexCoord.xy;
+            }
+            float magnitude = 1.0 - radialGradient(u_outerWarp, u_innerWarp, u_gradientRatio);
             vec2 direction = normalize(v_ImageTexCoord.xy - vec2(u_texCenterU, u_texCenterV));
             return v_ImageTexCoord.xy + (u_curvature * magnitude * direction);
         }
@@ -251,15 +258,6 @@
             vec3 imageTriad = addTriads(rgbTriad.rgb, imageScanlines.rgb);
 
             vec4 texColor = vec4(imageTriad, 1.0);
-
-            /*
-            if (u_doTriads)
-            {
-                texColor.r = u_rBrightness * imageTriad.r;
-                texColor.g = u_gBrightness * imageTriad.g;
-                texColor.b = u_bBrightness * imageTriad.b;
-            }
-            */
 
             gl_FragColor = imageBrightness() * vignette() * v_Color * texColor;
             gl_FragColor.a = 1.0;
@@ -457,7 +455,7 @@
     <table>
         <tr>
             <td>&nbsp;</td>
-            <td>Glass Curvature</td>
+            <td>Screen Curvature</td>
             <td>&nbsp;</td>
             <td><input id="doCurvature" type="checkbox" checked onchange="curvatureOnOff();"/></td>
             <td>&nbsp;</td>
@@ -465,35 +463,35 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>Outer Threshold</td>
+            <td>Outer Warp</td>
             <td>&nbsp;</td>
-            <td><input id="outerThreshold" type="range" min="0.0" max="3.0" step="0.001" value="0.866" oninput="sliderChanged('outerThreshold');"/></td>
+            <td><input id="outerWarp" type="range" min="0.0" max="3.0" step="0.001" value="0.866" oninput="sliderChanged('outerWarp');"/></td>
             <td>&nbsp;</td>
-            <td><div id="outerThresholdText">0.866</div></td>
+            <td><div id="outerWarpText">0.866</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>Gradient Bottom</td>
+            <td>Inner Warp</td>
             <td>&nbsp;</td>
-            <td><input id="gradientBottom" type="range" min="0" max="100" step="1" value="50" oninput="sliderChanged('gradientBottom');"/></td>
+            <td><input id="innerWarp" type="range" min="0.0" max="1.0" step="0.001" value="0.0" oninput="sliderChanged('innerWarp');"/></td>
             <td>&nbsp;</td>
-            <td><div id="gradientBottomText">50</div></td>
+            <td><div id="innerWarpText">0.0</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>Gradient Top</td>
+            <td>Gradient Ratio</td>
             <td>&nbsp;</td>
-            <td><input id="gradientTop" type="range" min="0.01" max="30.0" step="0.01" value="12.0" oninput="sliderChanged('gradientTop');"/></td>
+            <td><input id="gradientRatio" type="range" min="0" max="1.0" step="0.001" value="0.30" oninput="sliderChanged('gradientRatio');"/></td>
             <td>&nbsp;</td>
-            <td><div id="gradientTopText">12.0</div></td>
+            <td><div id="gradientRatioText">0.30</div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>Curvature Intensity</td>
             <td>&nbsp;</td>
-            <td><input id="curvature" type="range" min="0.000" max="1.0" step="0.001" value="0.0" oninput="sliderChanged('curvature');"/></td>
+            <td><input id="curvature" type="range" min="0.000" max="1.00" step="0.001" value="0.069" oninput="sliderChanged('curvature');"/></td>
             <td>&nbsp;</td>
-            <td><div id="curvatureText">0.0</div></td>
+            <td><div id="curvatureText">0.069</div></td>
         </tr>
     </table>
     <button onclick="defaultCurvatureValues();">Default Curvature Values</button>

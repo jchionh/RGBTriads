@@ -36,9 +36,14 @@ wa.render.ShaderHandleRefs = function() {
     this.doScanLines = 0; // bool
     this.scanLinesDensity = 0; // float
     this.scanLinesOpacity = 0; // float
-    this.curvature = 0; // float
+    
     this.saturation = 0; // float
     this.brightness = 0; // float
     this.contrast = 0; // float
 
+    this.doCurvature = 0; // bool
+    this.outerWarp = 0; // float
+    this.innerWarp = 0; // float
+    this.gradientRatio = 0; // float
+    this.curvature = 0; // float
 };

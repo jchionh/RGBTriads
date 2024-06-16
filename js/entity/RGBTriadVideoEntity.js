@@ -328,8 +328,6 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1f(shaderHandleRefs.scanLinesDensity, wa.entity.ImageEntityGlobals.CurrentDemoSettings.scanLinesDensity);
     gl.uniform1f(shaderHandleRefs.scanLinesOpacity, wa.entity.ImageEntityGlobals.CurrentDemoSettings.scanLinesOpacity);
 
-    gl.uniform1f(shaderHandleRefs.curvature, wa.entity.ImageEntityGlobals.CurrentDemoSettings.curvature);
-
     gl.uniform1f(shaderHandleRefs.vigOuterHandle, wa.entity.ImageEntityGlobals.CurrentDemoSettings.vigOuterBorder);
     gl.uniform1f(shaderHandleRefs.vigFadeHandle, wa.entity.ImageEntityGlobals.CurrentDemoSettings.vigFade);
     gl.uniform1f(shaderHandleRefs.fStop, wa.entity.ImageEntityGlobals.CurrentDemoSettings.fStop);
@@ -342,6 +340,12 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1f(shaderHandleRefs.saturation, wa.entity.ImageEntityGlobals.CurrentDemoSettings.saturation);
     gl.uniform1f(shaderHandleRefs.brightness, wa.entity.ImageEntityGlobals.CurrentDemoSettings.brightness);
     gl.uniform1f(shaderHandleRefs.contrast, wa.entity.ImageEntityGlobals.CurrentDemoSettings.contrast);
+
+    gl.uniform1i(shaderHandleRefs.doCurvature, wa.entity.ImageEntityGlobals.doCurvature);
+    gl.uniform1f(shaderHandleRefs.outerWarp, wa.entity.ImageEntityGlobals.CurrentDemoSettings.outerWarp);
+    gl.uniform1f(shaderHandleRefs.innerWarp, wa.entity.ImageEntityGlobals.CurrentDemoSettings.innerWarp);
+    gl.uniform1f(shaderHandleRefs.gradientRatio, wa.entity.ImageEntityGlobals.CurrentDemoSettings.gradientRatio);
+    gl.uniform1f(shaderHandleRefs.curvature, wa.entity.ImageEntityGlobals.CurrentDemoSettings.curvature);
 
     gl.uniform1f(shaderHandleRefs.texCenterU, 0.5);
     gl.uniform1f(shaderHandleRefs.texCenterV, 0.5);

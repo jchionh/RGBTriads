@@ -35,5 +35,7 @@ wa.entity.ImageEntityGlobals.rBrightness = 1.0;
 wa.entity.ImageEntityGlobals.gBrightness = 1.0;
 wa.entity.ImageEntityGlobals.bBrightness = 1.0;
 
+wa.entity.ImageEntityGlobals.doCurvature = true;
+
 wa.entity.ImageEntityGlobals.CurrentDemoSettings = new wa.data.DemoSettings();
 wa.entity.ImageEntityGlobals.DefaultDemoSettings = new wa.data.DemoSettings();

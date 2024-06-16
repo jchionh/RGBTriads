@@ -178,6 +178,9 @@ function updateCurrentDemoSettings(currentSettings) {
 
     // do vignette
     setVignetteValues(currentSettings);
+
+    // do curvature
+    setCurvatureValues(currentSettings);
 }
 
 /**
@@ -216,6 +219,14 @@ function audioOnOff() {
     wa.entity.ImageEntityGlobals.doAudio = doAudio;
 }
 
+/**
+ * turn curvature on or off
+ */
+function curvatureOnOff() {
+    var doCurvature = document.getElementById("doCurvature").checked;
+    document.getElementById("doCurvatureText").innerText = doCurvature ? "On" : "Off";
+    wa.entity.ImageEntityGlobals.doCurvature = doCurvature;
+}
 
 /**
  * turn triads on or off
@@ -267,6 +278,41 @@ function setVignetteValues(currentSettings) {
     document.getElementById(name + "Text").innerText = fStop;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = fStop;
 }
+
+/**
+ * Set Curvature Settings
+ * @param {wa.data.DemoSettings} currentSettings
+ */
+function setCurvatureValues(currentSettings) {
+    var name = "outerWarp";
+    var outerWarp = currentSettings[name];
+    document.getElementById(name).value = outerWarp;
+    document.getElementById(name + "Text").innerText = outerWarp;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = outerWarp;
+
+    name = "innerWarp";
+    var innerWarp = currentSettings[name];
+    document.getElementById(name).value = innerWarp;
+    document.getElementById(name + "Text").innerText = innerWarp;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = innerWarp;
+
+    name = "gradientRatio";
+    var gradientRatio = currentSettings[name];
+    document.getElementById(name).value = gradientRatio;
+    document.getElementById(name + "Text").innerText = gradientRatio;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = gradientRatio;
+
+    name = "curvature";
+    var curvature = currentSettings[name];
+    document.getElementById(name).value = curvature;
+    document.getElementById(name + "Text").innerText = curvature;
+    wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = curvature;
+}
+
+function defaultCurvatureValues() {
+    setCurvatureValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
+}
+
 
 function defaultScanLineValues() {
     setScanLineValues(wa.entity.ImageEntityGlobals.DefaultDemoSettings);
