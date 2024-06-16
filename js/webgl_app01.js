@@ -9,6 +9,7 @@ var wa = wa || {};
 
 // here are our globals
 wa.gTitleElement = document.getElementsByTagName('title')[0];
+wa.gFrameTimeElement = document.getElementById('frameTimeText');
 wa.gPrevTimestamp = 0;
 wa.gDelta = 0;
 wa.gTrackedInputArea = document.getElementById('renderArea');

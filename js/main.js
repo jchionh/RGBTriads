@@ -14,6 +14,7 @@ function mainInit() {
 
     // initing our app globals
     wa.gTitleElement = document.getElementsByTagName('title')[0];
+    wa.gFrameTimeElement = document.getElementById('frameTimeText');
 
     var selectElement = document.getElementById('ImageSelect');
 
@@ -429,9 +430,8 @@ function mainLoop(timestamp) {
     // calculate our delta
     wa.gDelta = timestamp - wa.gPrevTimestamp;
     wa.gPrevTimestamp = timestamp;
-
-    // just a test of updating the title so we know our mainloop is running
-    wa.gTitleElement.innerHTML = wa.gDelta;
+    
+    wa.gFrameTimeElement.innerHTML = wa.gDelta.toFixed(2);
     // request animation for the next loop call
     // note: requestAnimFrame is a polyfill for cross browser
     // the actual function name is requestAnimationFrame
