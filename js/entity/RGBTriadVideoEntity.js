@@ -65,8 +65,6 @@ wa.entity.RGBTriadVideoEntity = function() {
         scale = scale < 1.0 ? scale : 1.0;
         var scaledImageWidth = Math.floor(imageWidth * scale);
         var scaledImageHeight = Math.floor(imageHeight * scale);
-        //self.image.width = Math.floor(scaledImageWidth);
-        //self.image.height = Math.floor(scaledImageHeight);
 
         // cache our original source, for setting of id
         var originalSrc = self.rgbTriadImage.src;
@@ -83,11 +81,11 @@ wa.entity.RGBTriadVideoEntity = function() {
             scaledCanvas.width = wa.utils.nextHighestPowerOfTwo(scaledImageWidth);
             var desiredTexScaleX = self.texScale[v.X];
             self.texScale[v.X] =  (scaledImageWidth * 1.0) / (scaledCanvas.width * 1.0) * desiredTexScaleX;
-            //scaledImageWidth = scaledCanvas.width;
+
             scaledCanvas.height = wa.utils.nextHighestPowerOfTwo(scaledImageHeight);
             var desiredTexScaleY = self.texScale[v.Y];
             self.texScale[v.Y] =  (scaledImageHeight * 1.0) / (scaledCanvas.height * 1.0) * desiredTexScaleY;
-            //scaledImageHeight = scaledCanvas.height;
+
             var scaledCtx = scaledCanvas.getContext("2d");
             scaledCtx.drawImage(scaledImage, 0, 0, scaledImageWidth, scaledImageHeight);
             scaledImage = new Image();
@@ -109,13 +107,6 @@ wa.entity.RGBTriadVideoEntity = function() {
 
         var scaledQuadWidth = scaledImageWidth * quadScale;
         var scaledQuadHeight = scaledImageHeight * quadScale;
-
-        /*
-        if (self.resizeQuadToMatchImage) {
-            console.log("RGBTriadVideoEntity resize [" + scaledQuadWidth + "x" + scaledQuadHeight + "]");
-            self.setDimensions(Math.floor(scaledQuadWidth), Math.floor(scaledQuadHeight));
-        }
-        */
 
         if (addToLibraryNext) {
             var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true, true);
@@ -141,8 +132,6 @@ wa.entity.RGBTriadVideoEntity = function() {
         scale = scale < 1.0 ? scale : 1.0;
         var scaledImageWidth = Math.floor(imageWidth * scale);
         var scaledImageHeight = Math.floor(imageHeight * scale);
-        //self.image.width = Math.floor(scaledImageWidth);
-        //self.image.height = Math.floor(scaledImageHeight);
 
         // cache our original source, for setting of id
         var originalSrc = self.mainImage.src;
@@ -159,11 +148,11 @@ wa.entity.RGBTriadVideoEntity = function() {
             scaledCanvas.width = wa.utils.nextHighestPowerOfTwo(scaledImageWidth);
             var desiredTexScaleX = self.texImageScale[v.X];
             self.texImageScale[v.X] =  (scaledImageWidth * 1.0) / (scaledCanvas.width * 1.0) * desiredTexScaleX;
-            //scaledImageWidth = scaledCanvas.width;
+
             scaledCanvas.height = wa.utils.nextHighestPowerOfTwo(scaledImageHeight);
             var desiredTexScaleY = self.texImageScale[v.Y];
             self.texImageScale[v.Y] =  (scaledImageHeight * 1.0) / (scaledCanvas.height * 1.0) * desiredTexScaleY;
-            //scaledImageHeight = scaledCanvas.height;
+
             var scaledCtx = scaledCanvas.getContext("2d");
             scaledCtx.drawImage(scaledImage, 0, 0, scaledImageWidth, scaledImageHeight);
             scaledImage = new Image();
@@ -185,13 +174,6 @@ wa.entity.RGBTriadVideoEntity = function() {
 
         var scaledQuadWidth = scaledImageWidth * quadScale;
         var scaledQuadHeight = scaledImageHeight * quadScale;
-
-        /*
-        if (self.resizeQuadToMatchImage) {
-            console.log("RGBTriadVideoEntity resize [" + scaledQuadWidth + "x" + scaledQuadHeight + "]");
-            self.setDimensions(Math.floor(scaledQuadWidth), Math.floor(scaledQuadHeight));
-        }
-        */
 
         if (addToLibraryNext) {
             var savedTexture = wa.gTextureLibrary.addTexture(originalSrc, scaledImage, true);
@@ -432,5 +414,3 @@ wa.entity.RGBTriadVideoEntity.prototype.draw = function(gl, renderer) {
     wa.render.SceneNode.prototype.draw.call(this, gl, renderer);
 };
 */
-
-
