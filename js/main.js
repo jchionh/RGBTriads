@@ -30,7 +30,6 @@ function mainInit() {
         var opt = document.createElement("option");
         // just set the index
         opt.value = i;
-        //opt.value= wa.data.VideoListURLs[i].url;
         opt.innerHTML = wa.data.VideoListURLs[i].desc;
         // then append it to the select element
         selectVideoElement.appendChild(opt);
@@ -46,7 +45,6 @@ function mainInit() {
         selectTriadElement.appendChild(opt);
     }
 
-    //wa.gSysMessageElement = document.getElementById('sysMessageArea');
     wa.gPrevTimestamp = 0;
     wa.gDelta = 0;
     wa.gTrackedInputArea = document.getElementById('renderArea');
@@ -60,16 +58,12 @@ function mainInit() {
     wa.gCanvasElement.height = wa.gCanvasElement.clientHeight * wa.gDevicePixelRatio;
     console.log('devicePixelRatio: ' + wa.gDevicePixelRatio);
 
-    // wa.gCanvasContext = wa.gCanvasElement.getContext('webgl2');
-
     // now, use khronos helper to test for webGL support and setup the gl context
     gl = WebGLUtils.setupWebGL(wa.gCanvasElement);
     if (!gl) {
-        //wa.gSysMessageElement.innerHTML = "Browser does not support WebGL";
         console.log("Browser does not support WebGL");
         return;
     } else {
-        //wa.gSysMessageElement.innerHTML = "WebGL initialized.";
         if (wa.gWebGLType !== "webgl2") {
             console.log("Require Browser to support WebGL2");
             return;
@@ -116,7 +110,6 @@ function mainInit() {
     wa.gRenderer.setViewpoint(gl, wa.gViewpoint);
 
     // add a the RGB Triad State here
-    //wa.gRGBTriadState = new wa.states.RGBTriads();
     wa.gRGBTriadState = new wa.states.RGBTriadVideo();
     wa.gStateRunner.addState(wa.gRGBTriadState);
 

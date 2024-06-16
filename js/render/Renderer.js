@@ -39,8 +39,8 @@ wa.render.Renderer.prototype.initView = function() {
  */
 wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, fragShaderId) {
     // first we compile our shaders
-    var vtxShader = wa.utils.compileShaderFromScriptElement(gl, "vtxShader");
-    var fragShader = wa.utils.compileShaderFromScriptElement(gl, "fragShader");
+    var vtxShader = wa.utils.compileShaderFromScriptElement(gl, vtxShaderId);
+    var fragShader = wa.utils.compileShaderFromScriptElement(gl, fragShaderId);
     // then let's link our program
     var attribNames = ["a_Position", "a_Color", "a_TexCoord"];
     var shaderProgram = wa.utils.createShaderProgram(gl, vtxShader, fragShader, attribNames);
