@@ -96,6 +96,13 @@ wa.states.RGBTriadVideo.prototype.onUpdate = function(dt) {
     this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
     this.rgbTriadVideo.texScale[v.Z] = 1.00;
     this.rgbTriadVideo.update(dt);
+
+    /* Testing out mouse input
+    if (wa.gInputManager.mouseInput.isMouseDown)
+    {
+        console.log("pos: (" + wa.gInputManager.mouseInput.mousePos[v.X] + ", " + wa.gInputManager.mouseInput.mousePos[v.X] + ") delta: ("+ wa.gInputManager.mouseInput.mouseDelta[v.X] + ", " + wa.gInputManager.mouseInput.mouseDelta[v.X] + ")");
+    }
+    */
 };
 
 /**
