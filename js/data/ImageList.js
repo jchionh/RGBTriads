@@ -72,6 +72,8 @@ wa.data.VideoListURLs = [
         url: "video/metal_slug_x.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.4,
         },
     },
     {
