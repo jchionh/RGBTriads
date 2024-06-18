@@ -73,7 +73,7 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.4,
+            imageBrightness: 2.3,
         },
     },
     {
