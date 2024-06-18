@@ -19,8 +19,8 @@ function mainInit() {
 
     var selectElement = document.getElementById('ImageSelect');
 
-    for (var i = 0; i < wa.data.ImageListURLs.length; ++i) {
-        var opt = document.createElement("option");
+    for (let i = 0; i < wa.data.ImageListURLs.length; ++i) {
+        let opt = document.createElement("option");
         opt.value= wa.data.ImageListURLs[i];
         opt.innerHTML = wa.data.ImageListURLs[i].slice("images/".length);
         // then append it to the select element
@@ -28,8 +28,8 @@ function mainInit() {
     }
 
     var selectVideoElement = document.getElementById('VideoSelect');
-    for (var i = 0; i < wa.data.VideoListURLs.length; ++i) {
-        var opt = document.createElement("option");
+    for (let i = 0; i < wa.data.VideoListURLs.length; ++i) {
+        let opt = document.createElement("option");
         // just set the index
         opt.value = i;
         opt.innerHTML = wa.data.VideoListURLs[i].desc;
@@ -39,8 +39,8 @@ function mainInit() {
 
     var selectTriadElement = document.getElementById('TriadSelect');
 
-    for (var i = 0; i < wa.data.RGBTriadListURLs.length; ++i) {
-        var opt = document.createElement("option");
+    for (let i = 0; i < wa.data.RGBTriadListURLs.length; ++i) {
+        let opt = document.createElement("option");
         opt.value= wa.data.RGBTriadListURLs[i];
         opt.innerHTML = wa.data.RGBTriadListURLs[i].slice("images/".length);
         // then append it to the select element
@@ -93,11 +93,7 @@ function mainInit() {
     wa.gStateRunner = new wa.runstate.StateRunner();
 
     // add a initial state to our state runner
-    /**
-     *
-     * @type {wa.runstate.BaseRunState}
-     */
-    var initialRunState = new wa.states.InitialState();
+    let initialRunState = new wa.states.InitialState();
     wa.gStateRunner.addState(initialRunState);
 
     // new a furstrum viewpoint
@@ -114,6 +110,10 @@ function mainInit() {
     // add a the RGB Triad State here
     wa.gRGBTriadState = new wa.states.RGBTriadVideo();
     wa.gStateRunner.addState(wa.gRGBTriadState);
+
+    // after adding the run state, update the current demo settings
+    let selectedVideoIndex = wa.gSelectVideo.value;
+    updateCurrentDemoSettings(wa.data.VideoListURLs[selectedVideoIndex].settings)
 
     // call our mainloop the first time with a current timestamp
     mainLoop(new Date().getTime());
@@ -471,7 +471,7 @@ function switchState() {
                 break;
 
             default:
-                var msg = 'state: [' + selectedState + '] not implemented yet.';
+                let msg = 'state: [' + selectedState + '] not implemented yet.';
                 console.log(msg);
                 wa.gMsgArea.innerHTML = msg;
                 break;

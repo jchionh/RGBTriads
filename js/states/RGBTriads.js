@@ -41,17 +41,17 @@ wa.states.RGBTriads.prototype.onStart = function() {
     var canvasHeight = wa.gCanvasElement.clientHeight;
     var halfCanvasHeight = canvasHeight / 2.0;
 
-   this.rgbTriadImage = new wa.entity.RGBTriadImageEntity();
-   // load image
-   var selectedImage = wa.gSelectImage.value;
-   var selectedTriad = wa.gSelectTriad.value;
-   this.rgbTriadImage.loadImageURL(selectedTriad, selectedImage, false);
-   this.rgbTriadImage.setDimensions(1600, 1200);
-   this.rgbTriadImage.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;
-   this.rgbTriadImage.texScale[v.Y] = wa.entity.ImageEntityGlobals.rgbTexScale;
-   this.rgbTriadImage.texScale[v.Z] = 1.00;
+    this.rgbTriadImage = new wa.entity.RGBTriadImageEntity();
+    // load image
+    var selectedImage = wa.gSelectImage.value;
+    var selectedTriad = wa.gSelectTriad.value;
+    this.rgbTriadImage.loadImageURL(selectedTriad, selectedImage, false);
+    this.rgbTriadImage.setDimensions(1600, 1200);
+    this.rgbTriadImage.texScale[v.X] = wa.entity.ImageEntityGlobals.rgbTexScale;
+    this.rgbTriadImage.texScale[v.Y] = wa.entity.ImageEntityGlobals.rgbTexScale;
+    this.rgbTriadImage.texScale[v.Z] = 1.00;
 
-   wa.utils.inList.addChild(root, this.rgbTriadImage);
+    wa.utils.inList.addChild(root, this.rgbTriadImage);
 };
 
 /**
