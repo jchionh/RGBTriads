@@ -341,6 +341,23 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[Arcade] The Simpsons",
+        url: "video/the_simpsons_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.789,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.468,
+            brightness: -0.086,
+            contrast: 0.256,
+        },
+    },
+    {
         desc: "[Arcade] X-Men: Children of the Atom",
         url: "video/xmen_children_of_the_atom.mp4",
         settings:  {
