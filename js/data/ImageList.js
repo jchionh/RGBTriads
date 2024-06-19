@@ -119,7 +119,7 @@ wa.data.VideoListURLs = [
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 2.088,
+            imageBrightness: 1.858,
             // Scanlines
             scanLinesDensity: 76,
             // vignette
