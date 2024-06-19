@@ -114,6 +114,23 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[Arcade] Dungeons & Dragons: Shadow Over Mystara",
+        url: "video/dnd_shadow_over_mystara_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.088,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.445,
+            brightness: 0.015,
+            contrast: 0.244,
+        },
+    },
+    {
         desc: "[Arcade] Marvel Super Heroes",
         url: "video/marvel_super_heroes.mp4",
         settings:  {
