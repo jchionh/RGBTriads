@@ -114,6 +114,57 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[Arcade] Marvel Super Heroes",
+        url: "video/marvel_super_heroes.mp4",
+        settings:  {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.789,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.504,
+            brightness: 0.093,
+            contrast: 0.217,
+        },
+    },
+    {
+        desc: "[Arcade] Marvel vs Capcom",
+        url: "video/marvel_vs_capcom.mp4",
+        settings:  {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.789,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.504,
+            brightness: 0.093,
+            contrast: 0.217,
+        },
+    },
+    {
+        desc: "[Arcade] Marvel vs Street Fighter",
+        url: "video/marvel_vs_street_fighter.mp4",
+        settings:  {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.858,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.504,
+            brightness: 0.093,
+            contrast: 0.217,
+        },
+    },
+    {
         desc: "[Arcade] Outrun (Passing Breeze)",
         url: "video/outrun_passing_breeze_z.mp4",
         settings: {
@@ -227,7 +278,7 @@ wa.data.VideoListURLs = [
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
-            imageBrightness: 1.369,
+            imageBrightness: 1.444,
             // Scanlines
             scanLinesDensity: 76,
             // vignette
@@ -253,6 +304,57 @@ wa.data.VideoListURLs = [
             saturation: 0.155,
             brightness: 0.023,
             contrast: 0.178,
+        },
+    },
+    {
+        desc: "[Arcade] The Punisher",
+        url: "video/the_punisher.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.835,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.468,
+            brightness: 0.079,
+            contrast: 0.256,
+        },
+    },
+    {
+        desc: "[Arcade] X-Men: Children of the Atom",
+        url: "video/xmen_children_of_the_atom.mp4",
+        settings:  {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.181,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.504,
+            brightness: 0.093,
+            contrast: 0.217,
+        },
+    },
+    {
+        desc: "[Arcade] X-Men vs Street Fighter",
+        url: "video/xmen_vs_street_fighter.mp4",
+        settings:  {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.789,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigFade: 40,
+            // video image values
+            saturation: 0.504,
+            brightness: 0.093,
+            contrast: 0.217,
         },
     },
     {
