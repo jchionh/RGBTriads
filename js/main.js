@@ -183,7 +183,7 @@ function updateCurrentDemoSettings(currentSettings) {
  */
 function do3dFunOnOff() {
     var do3dFun = document.getElementById("do3dFun").checked;
-    document.getElementById("do3dFunText").innerText = doVignette ? "On" : "Off";
+    document.getElementById("do3dFunText").innerText = do3dFun ? "On" : "Off";
     wa.entity.ImageEntityGlobals.do3dFun = do3dFun;
 }
 
