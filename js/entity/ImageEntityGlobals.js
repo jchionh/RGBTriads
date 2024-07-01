@@ -37,5 +37,9 @@ wa.entity.ImageEntityGlobals.bBrightness = 1.0;
 
 wa.entity.ImageEntityGlobals.doCurvature = true;
 
+// 0 -> Spherical
+// 1 -> Cylindrical
+wa.entity.ImageEntityGlobals.curvatureType = 0;
+
 wa.entity.ImageEntityGlobals.CurrentDemoSettings = new wa.data.DemoSettings();
 wa.entity.ImageEntityGlobals.DefaultDemoSettings = new wa.data.DemoSettings();

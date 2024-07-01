@@ -224,6 +224,15 @@ function curvatureOnOff() {
 }
 
 /**
+ * change the curvature type
+ * @param {document.input.radioElement} radioElement
+ */
+function curvatureChange(radioElement) {
+    // console.log("Curvature changed to: " + radioElement.value);
+    wa.entity.ImageEntityGlobals.curvatureType = parseInt(radioElement.value);
+}
+
+/**
  * turn triads on or off
  */
 function triadsOnOff() {
