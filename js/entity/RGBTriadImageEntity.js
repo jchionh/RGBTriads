@@ -274,6 +274,7 @@ wa.entity.RGBTriadImageEntity.prototype.drawTexture = function(gl, shaderHandleR
     gl.uniform1f(shaderHandleRefs.innerWarp, wa.entity.ImageEntityGlobals.CurrentDemoSettings.innerrWarp);
     gl.uniform1f(shaderHandleRefs.gradientRatio, wa.entity.ImageEntityGlobals.CurrentDemoSettings.gradientRatio);
     gl.uniform1f(shaderHandleRefs.curvature, wa.entity.ImageEntityGlobals.CurrentDemoSettings.curvature);
+    gl.uniform1i(shaderHandleRefs.curvatureType, wa.entity.ImageEntityGlobals.curvatureType);
 
     gl.uniform1f(shaderHandleRefs.texCenterU, this.texScale[v.X] / 2.0);
     gl.uniform1f(shaderHandleRefs.texCenterV, this.texScale[v.Y] / 2.0);
