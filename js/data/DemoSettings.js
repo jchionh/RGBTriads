@@ -42,6 +42,6 @@ wa.data.DemoSettings = function() {
     this.outerWarp = 0.88;
     this.innerWarp = 0.0;
     this.gradientRatio = 0.30;
-    this.curvature = 0.069;
+    this.curvature = 0.049;
     this.curvatureType = 0;
 }
