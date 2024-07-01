@@ -46,4 +46,5 @@ wa.render.ShaderHandleRefs = function() {
     this.innerWarp = 0; // float
     this.gradientRatio = 0; // float
     this.curvature = 0; // float
+    this.curvatureType = 0; // int
 };

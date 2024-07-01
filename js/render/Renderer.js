@@ -66,6 +66,7 @@ wa.render.Renderer.prototype.initDefaultShaders = function(gl, vtxShaderId, frag
     this.shaderHandleRefs.innerWarp = gl.getUniformLocation(shaderProgram, "u_innerWarp");
     this.shaderHandleRefs.gradientRatio = gl.getUniformLocation(shaderProgram, "u_gradientRatio");
     this.shaderHandleRefs.curvature = gl.getUniformLocation(shaderProgram, "u_curvature");
+    this.shaderHandleRefs.curvatureType = gl.getUniformLocation(shaderProgram, "u_curvatureType");
 
     this.shaderHandleRefs.doTriads = gl.getUniformLocation(shaderProgram, "u_doTriads");
 

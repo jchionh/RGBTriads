@@ -91,6 +91,7 @@
         uniform float u_innerWarp;
         uniform float u_gradientRatio;
         uniform float u_curvature;
+        uniform int u_curvatureType;
 
         uniform bool u_doTriads;
 
@@ -124,8 +125,13 @@
             if (!u_doCurvature) {
                 return v_ImageTexCoord.xy;
             }
+
             float magnitude = 1.0 - radialGradient(u_outerWarp, u_innerWarp, u_gradientRatio);
-            vec2 direction = normalize(v_ImageTexCoord.xy - vec2(u_texCenterU, u_texCenterV));
+
+            // if we're doing spherical,   compute our direction as texcoord - center point of screen
+            // if we're doing cylindrical, compute our direction as texcoord - center column of screen
+            float curvatureTypeUValue = u_curvatureType == 0 ? u_texCenterU : v_ImageTexCoord.x;
+            vec2 direction = normalize(v_ImageTexCoord.xy - vec2(curvatureTypeUValue, u_texCenterV));
             return v_ImageTexCoord.xy + (u_curvature * magnitude * direction);
         }
 
@@ -494,6 +500,24 @@
         </tr>
     </table>
     <button onclick="defaultCurvatureValues();">Default Curvature Values</button>
+    <div>&nbsp;</div>
+    <table>
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>Curvature Type:</legend>
+                    <div>
+                        <input type="radio" name="curvetype" id="spherical" value="0" checked onchange="curvatureChange(this);" />
+                        <label for="spherical">Spherical</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="curvetype" id="cylindrical" value="1" onchange="curvatureChange(this);" />
+                        <label for="cylindrical">Cylindrical</label>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
     <div>&nbsp;</div>
     <table>
         <tr>
