@@ -77,6 +77,29 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[Arcade] 1941 Counter Attack",
+        url: "video/1941_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 2.231,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.457,
+            brightness: 0.139,
+            contrast: 0.356,
+
+            // orientation is vertical
+            orientation: 'vertical',
+        },
+    },
+    {
         desc: "[Arcade] Alien Vs Predator",
         url: "video/alien_vs_predator_intro.mp4",
         settings: {
@@ -97,6 +120,29 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[Arcade] Battle Garegga",
+        url: "video/battle_garegga_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.904,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.468,
+            brightness: 0.114,
+            contrast: 0.315,
+
+            // orientation is vertical
+            orientation: 'vertical',
+        },
+    },
+    {
         desc: "[Arcade] Captain Commando",
         url: "video/captain_commando_intro.mp4",
         settings: {
@@ -114,6 +160,75 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[Arcade] Dig Dug",
+        url: "video/digdug_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.904,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.468,
+            brightness: 0.114,
+            contrast: 0.315,
+
+            // orientation is vertical
+            orientation: 'vertical',
+        },
+    },
+    {
+        desc: "[Arcade] Dimahoo",
+        url: "video/dimahoo_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.904,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.468,
+            brightness: 0.114,
+            contrast: 0.315,
+
+            // orientation is vertical
+            orientation: 'vertical',
+        },
+    },
+    {
+        desc: "[Arcade] DoDonPachi",
+        url: "video/dodonpachi_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.904,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.468,
+            brightness: 0.114,
+            contrast: 0.315,
+
+            // orientation is vertical
+            orientation: 'vertical',
+        },
+    },
+    {
         desc: "[Arcade] Dungeons & Dragons: Shadow Over Mystara",
         url: "video/dnd_shadow_over_mystara_intro.mp4",
         settings: {
@@ -128,6 +243,52 @@ wa.data.VideoListURLs = [
             saturation: 0.445,
             brightness: 0.015,
             contrast: 0.244,
+        },
+    },
+    {
+        desc: "[Arcade] Galaga",
+        url: "video/galaga_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.904,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.468,
+            brightness: 0.114,
+            contrast: 0.315,
+
+            // orientation is vertical
+            orientation: 'vertical',
+        },
+    },
+    {
+        desc: "[Arcade] Guwange",
+        url: "video/guwange_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.904,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.468,
+            brightness: 0.114,
+            contrast: 0.315,
+
+            // orientation is vertical
+            orientation: 'vertical',
         },
     },
     {
@@ -236,6 +397,29 @@ wa.data.VideoListURLs = [
             saturation: 0.519,
             brightness: 0.085,
             contrast: 0.403,
+        },
+    },
+    {
+        desc: "[Arcade] Space Invaders (No Audio)",
+        url: "video/space_invaders_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.904,
+
+            // Scanlines
+            scanLinesDensity: 76,
+
+            // vignette
+            vigFade: 40,
+
+            // video image values
+            saturation: 0.468,
+            brightness: 0.114,
+            contrast: 0.315,
+
+            // orientation is vertical
+            orientation: 'vertical',
         },
     },
     {

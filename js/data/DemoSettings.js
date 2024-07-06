@@ -44,4 +44,9 @@ wa.data.DemoSettings = function() {
     this.gradientRatio = 0.375;
     this.curvature = 0.065;
     this.curvatureType = 0;
+
+    // orientation
+    this.orientation = "horizontal";
+
+    this.zpos = 0.0;
 }

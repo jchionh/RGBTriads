@@ -161,3 +161,23 @@ wa.render.SceneNode.prototype.drawTexture = function(gl, shaderHandleRefs) {
     // here's an empty method for drawing texture.
     // derived classes will overrride this method to draw textures
 };
+
+/**
+ * Set the position
+ * @param {vec3} pos 
+ */
+wa.render.SceneNode.prototype.setPosition = function(pos) {
+    this.position[v.X] = pos[v.X];
+    this.position[v.Y] = pos[v.Y];
+    this.position[v.Z] = pos[v.Z];
+}
+
+/**
+ * Set the position
+ * @param {vec3} orientation
+ */
+wa.render.SceneNode.prototype.setOrientation = function(orientation) {
+    this.orientation[o.YAW] = orientation[o.YAW];
+    this.orientation[o.PITCH] = orientation[o.PITCH];
+    this.orientation[o.ROLL] = orientation[o.ROLL];
+}

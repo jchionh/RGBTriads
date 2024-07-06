@@ -504,7 +504,7 @@
     <table>
         <tr>
             <td>
-                <fieldset>
+                <fieldset id="curvatureFieldSet">
                     <legend>&nbsp;Curvature Type:&nbsp;</legend>
                     <div>
                         <input type="radio" name="curvetype" id="spherical" value="0" checked onchange="curvatureChange(this);" />
@@ -521,6 +521,24 @@
     <div>&nbsp;</div>
     <table>
         <tr>
+            <td>
+                <fieldset id="orientationFieldSet">
+                    <legend>&nbsp;Orientation:&nbsp;</legend>
+                    <div>
+                        <input type="radio" name="orientationType" id="horizontal" value="horizontal" checked onchange="orientationChange('horizontal');" />
+                        <label for="horizontal">Horizontal</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="orientationType" id="vertical" value="vertical" onchange="orientationChange('vertical');" />
+                        <label for="vertical">Vertical</label>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+    <!--
+    <table>
+        <tr>
             <td>&nbsp;</td>
             <td>3D Fun!</td>
             <td>&nbsp;</td>
@@ -532,6 +550,18 @@
     </table>
     <div>&nbsp;</div>
     <button onclick="reset3dFun();">Reset 3D Fun!</button>
+    <div>&nbsp;</div>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>ZPos</td>
+            <td>&nbsp;</td>
+            <td><input id="zpos" type="range" min="-500" max="0" step="0.01" value="0.0" oninput="sliderChanged('zpos');"/></td>
+            <td>&nbsp;</td>
+            <td><div id="zposText">0.0</div></td>
+        </tr>
+    </table>
+    -->
     <div>&nbsp;</div>
     <table>
         <tr>
@@ -590,6 +620,12 @@
 <script src="js/entity/RGBTriadImageEntity.js"></script>
 <script src="js/entity/RGBTriadVideoEntity.js"></script>
 <script src="js/entity/ImageEntityFactory.js"></script>
+
+<!-- animations -->
+<script src="js/anim/Tween.js"></script>
+<script src="js/anim/Anim.js"></script>
+<script src="js/anim/AnimManager.js"></script>
+<script src="js/anim/VideoRotateAnim.js"></script>
 
 <!-- input -->
 <script src="js/input/MouseInput.js"></script>

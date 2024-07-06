@@ -43,3 +43,8 @@ wa.entity.ImageEntityGlobals.curvatureType = 0;
 
 wa.entity.ImageEntityGlobals.CurrentDemoSettings = new wa.data.DemoSettings();
 wa.entity.ImageEntityGlobals.DefaultDemoSettings = new wa.data.DemoSettings();
+
+wa.entity.ImageEntityGlobals.zpos = 0.0;
+
+wa.entity.ImageEntityGlobals.orientation = 'horizontal';
+wa.entity.ImageEntityGlobals.orientationNeedsChange = false;

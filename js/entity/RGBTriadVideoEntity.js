@@ -385,13 +385,13 @@ wa.entity.RGBTriadVideoEntity.prototype.update = function(dt) {
 
     if (wa.entity.ImageEntityGlobals.do3dFun) {
         this.orientation[o.PITCH] += this.rotationSpeed;
-        if (this.orientation[o.PITCH] > 360.0) {
-            this.orientation[o.PITCH] -= (this.orientation[o.PITCH] - 360.0);
+        if (this.orientation[o.PITCH] > 6.2831853072) {
+            this.orientation[o.PITCH] -= (this.orientation[o.PITCH] - 6.2831853072);
         }
 
         this.orientation[o.ROLL] -= this.rotationSpeed;
         if (this.orientation[o.ROLL] < 0.0) {
-            this.orientation[o.ROLL] += (360.0 - this.orientation[o.ROLL]);
+            this.orientation[o.ROLL] += (6.2831853072 - this.orientation[o.ROLL]);
         }
 
         if (this.position[v.Z] > 0.0 || this.position[v.Z] < -1000.0) {
@@ -401,6 +401,12 @@ wa.entity.RGBTriadVideoEntity.prototype.update = function(dt) {
         }
         this.position[v.Z] += (this.direction * this.translateSpeed);
     }
+    /*
+    else
+    {
+        this.position[v.Z] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.zpos;
+    }
+    */
 };
 
 
