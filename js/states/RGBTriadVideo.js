@@ -22,6 +22,7 @@ wa.states.RGBTriadVideo = function() {
      * @type {Array<wa.entity.ImageEntity>}
      */
     this.imageEntities = [];
+    this.queuedAnimations = [];
 };
        
 // extend from GLRunState
@@ -35,6 +36,9 @@ wa.utils.extend(wa.states.RGBTriadVideo, wa.runstate.GLRunState);
 wa.states.RGBTriadVideo.prototype.onStart = function() {
     console.log('RGBTriadVideo::onStart');
     var root = this.scene.getRoot();
+
+    // create our anim manager
+    this.animManager = new wa.anim.AnimManager();
     
     var canvasWidth = wa.gCanvasElement.clientWidth;
     var halfCanvasWidth = canvasWidth / 2.0;
@@ -82,6 +86,9 @@ wa.states.RGBTriadVideo.prototype.onStop = function() {
  * @param {number} dt
  */
 wa.states.RGBTriadVideo.prototype.onUpdate = function(dt) {
+
+    this.animManager.update(dt);
+
     // check audio
     var doAudio = wa.entity.ImageEntityGlobals.doAudio;
     if (this.rgbTriadVideo.videoElement.muted != !doAudio) {
@@ -96,6 +103,29 @@ wa.states.RGBTriadVideo.prototype.onUpdate = function(dt) {
     this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
     this.rgbTriadVideo.texScale[v.Z] = 1.00;
     this.rgbTriadVideo.update(dt);
+
+    if (wa.entity.ImageEntityGlobals.orientationNeedsChange) {
+        var desiredOrientation = vec3.create();
+        var desiredPos = vec3.create();
+
+        if (wa.entity.ImageEntityGlobals.orientation === 'horizontal') {
+            desiredOrientation[o.ROLL] = 0.0;
+            desiredPos[v.Z] = 0.0;
+        }
+        else {
+            desiredOrientation[o.ROLL] = 1.5707963268;
+            desiredPos[v.Z] = -484.0;
+        }
+    
+        this.queuedAnimations.push(new wa.anim.VideoRotateAnim(this.rgbTriadVideo, desiredOrientation, desiredPos, 300));
+        wa.entity.ImageEntityGlobals.orientationNeedsChange = false;
+    }
+
+    // now push any animations to the anim manager one at a time
+    if (this.queuedAnimations.length > 0 && this.animManager.getNumAnims() == 0) {
+        var animation = this.queuedAnimations.shift();
+        this.animManager.addAnim(animation);
+    }
 
     /* Testing out mouse input
     if (wa.gInputManager.mouseInput.isMouseDown)

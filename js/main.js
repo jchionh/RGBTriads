@@ -47,7 +47,7 @@ function mainInit() {
         selectTriadElement.appendChild(opt);
     }
 
-    wa.gPrevTimestamp = 0;
+    wa.gPrevTimestamp = new Date().getTime();
     wa.gDelta = 0;
     wa.gTrackedInputArea = document.getElementById('renderArea');
     wa.gCanvasElement = document.getElementById('renderCanvas');
@@ -176,6 +176,9 @@ function updateCurrentDemoSettings(currentSettings) {
 
     // do curvature
     setCurvatureValues(currentSettings);
+
+    // do orientation
+    setOrientationValues(currentSettings);
 }
 
 /**
@@ -233,6 +236,19 @@ function curvatureChange(radioElement) {
 }
 
 /**
+ * change the orientation
+ * @param {string} orientation 
+ */
+function orientationChange(orientation) {
+    if (wa.entity.ImageEntityGlobals.orientation === orientation) {
+        return;
+    }
+    wa.entity.ImageEntityGlobals.orientation = orientation;
+    wa.entity.ImageEntityGlobals.orientationNeedsChange = true;
+    console.log('Change orientation to: ' + orientation);
+}
+
+/**
  * turn triads on or off
  */
 function triadsOnOff() {
@@ -281,6 +297,31 @@ function setVignetteValues(currentSettings) {
     document.getElementById(name).value = fStop;
     document.getElementById(name + "Text").innerText = fStop;
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = fStop;
+}
+
+/**
+ * Set the orientation values
+ * @param {wa.data.DemoSettings} currentSettings
+ */
+function setOrientationValues(currentSettings) {
+
+    var orientation = currentSettings.orientation;
+
+    var horizElement = document.getElementById('horizontal');
+    var vertElement = document.getElementById('vertical');
+
+    if (orientation === 'horizontal') 
+    {
+        horizElement.checked = true;
+        vertElement.checked = false;
+    }
+    else
+    {
+        horizElement.checked = false;
+        vertElement.checked = true;
+    }
+
+    orientationChange(orientation);
 }
 
 /**
@@ -438,7 +479,7 @@ function setRGBTriadValues(currentSettings) {
  */
 function mainLoop(timestamp) {
     // calculate our delta
-    wa.gDelta = timestamp - wa.gPrevTimestamp;
+    wa.gDelta = Math.max(0, timestamp - wa.gPrevTimestamp);
     wa.gPrevTimestamp = timestamp;
 
     wa.gFrameTimeSlidingWindow.insertNumber(wa.gDelta);
