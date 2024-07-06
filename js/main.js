@@ -267,6 +267,16 @@ function sliderChanged(name) {
     wa.entity.ImageEntityGlobals.CurrentDemoSettings[name] = value;
 }
 
+/**
+ * update the state of the slider
+ * @param {String} name
+ */
+function sliderChangedGlobal(name) {
+    var value = document.getElementById(name).value;
+    document.getElementById(name + "Text").innerText = "" + value;
+    wa.entity.ImageEntityGlobals[name] = value;
+}
+
 function reset3dFun() {
     wa.entity.ImageEntityGlobals.reset3dFun = true;
 }

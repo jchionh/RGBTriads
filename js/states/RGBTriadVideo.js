@@ -94,10 +94,11 @@ wa.states.RGBTriadVideo.prototype.onUpdate = function(dt) {
     if (this.rgbTriadVideo.videoElement.muted != !doAudio) {
         this.rgbTriadVideo.videoElement.muted = !doAudio;
     }
-
+    
     if (this.rgbTriadVideo.videoElement.volume != wa.entity.ImageEntityGlobals.volume) {
         this.rgbTriadVideo.videoElement.volume = wa.entity.ImageEntityGlobals.volume;
     }
+    
 
     this.rgbTriadVideo.texScale[v.X] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
     this.rgbTriadVideo.texScale[v.Y] = wa.entity.ImageEntityGlobals.CurrentDemoSettings.rgbTexScale;
