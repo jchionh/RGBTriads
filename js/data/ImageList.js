@@ -121,7 +121,7 @@ wa.data.VideoListURLs = [
     },
     {
         desc: "[Arcade] Battle Garegga",
-        url: "video/battle_garegga_intro.mp4",
+        url: "video/battle_garegga_intro_1.mp4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
