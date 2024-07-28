@@ -1062,7 +1062,7 @@ wa.data.VideoListURLs = [
             // video image values
             saturation: 0.349,
             brightness: 0.116,
-            contrast: 0.387,
+            contrast: 0.302,
         },
     },
     {
@@ -1079,7 +1079,7 @@ wa.data.VideoListURLs = [
             // video image values
             saturation: 0.411,
             brightness: 0.046,
-            contrast: 0.302,
+            contrast: 0.387,
         },
     },
     {
