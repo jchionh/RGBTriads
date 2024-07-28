@@ -1062,6 +1062,23 @@ wa.data.VideoListURLs = [
             // video image values
             saturation: 0.349,
             brightness: 0.116,
+            contrast: 0.387,
+        },
+    },
+    {
+        desc: "[SNES] Earthbound",
+        url: "video/earthbound_intro.mp4",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.717,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigOuterBorder: 0.831,
+            // video image values
+            saturation: 0.411,
+            brightness: 0.046,
             contrast: 0.302,
         },
     },
