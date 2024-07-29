@@ -345,10 +345,7 @@ wa.entity.RGBTriadVideoEntity.prototype.drawTexture = function(gl, shaderHandleR
         //gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.videoElement);
         gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, this.imageTexture.width, this.imageTexture.height, gl.RGBA, gl.UNSIGNED_BYTE, this.videoElement);
         // after updating the new frame, we have to re-generate the mipmaps
-        // Since we're not moving in 3D, and the rotation with translation of -484.0 in the Z
-        // didn't use any mipmaps, we can get away with less work and not generate any mipmaps
-        // per video frame decode
-        //gl.generateMipmap(gl.TEXTURE_2D);
+        gl.generateMipmap(gl.TEXTURE_2D);
     }
 
     // send in the image with and height
