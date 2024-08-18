@@ -539,3 +539,20 @@ function switchState() {
     }
 }
 
+function openExplanation() {
+    var modal = document.getElementById("explanation");
+    modal.style.display = "block";
+}
+
+function closeExplanation() {
+    var modal = document.getElementById("explanation");
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById("explanation");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
