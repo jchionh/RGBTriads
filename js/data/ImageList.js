@@ -70,6 +70,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug X (No Audio)",
         url: "video/metal_slug_x.mp4",
+        key: "metalslugxna",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -79,6 +80,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] 1941 Counter Attack",
         url: "video/1941_intro.mp4",
+        key: "1941",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -102,6 +104,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Alien Vs Predator",
         url: "video/alien_vs_predator_intro.mp4",
+        key: "avp",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -122,6 +125,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Battle Garegga",
         url: "video/battle_garegga_intro_1.mp4",
+        key: "bgaregga",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -145,6 +149,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Captain Commando",
         url: "video/captain_commando_intro.mp4",
+        key: "ccommando",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -162,6 +167,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Dig Dug",
         url: "video/digdug_intro.mp4",
+        key: "digdug",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -185,6 +191,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Dimahoo",
         url: "video/dimahoo_intro.mp4",
+        key: "dimahoo",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -208,6 +215,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] DoDonPachi",
         url: "video/dodonpachi_intro.mp4",
+        key: "dodonpachi",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -231,6 +239,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Dungeons & Dragons: Shadow Over Mystara",
         url: "video/dnd_shadow_over_mystara_intro.mp4",
+        key: "dndmystara",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -248,6 +257,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Galaga",
         url: "video/galaga_intro.mp4",
+        key: "galaga",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -271,6 +281,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Guwange",
         url: "video/guwange_intro.mp4",
+        key: "guwange",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -294,6 +305,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Marvel Super Heroes",
         url: "video/marvel_super_heroes.mp4",
+        key: "marvelsuperheroes",
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -311,6 +323,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Marvel vs Capcom",
         url: "video/marvel_vs_capcom.mp4",
+        key: "marvelvscapcom",
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -328,6 +341,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Marvel vs Street Fighter",
         url: "video/marvel_vs_street_fighter.mp4",
+        key: "marvelvsstreetfighter",
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -345,6 +359,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Outrun (Passing Breeze)",
         url: "video/outrun_passing_breeze_z.mp4",
+        key: "outrunpassingbreeze",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -364,6 +379,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Outrun (Magical Sound Shower)",
         url: "video/outrun_magical_sound_shower_z.mp4",
+        key: "outrunmagicalsoundshower",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -383,6 +399,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Outrun (Splash Wave)",
         url: "video/outrun_splash_wave_z.mp4",
+        key: "outrunsplashwave",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -402,6 +419,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Space Invaders (No Audio)",
         url: "video/space_invaders_intro.mp4",
+        key: "spaceinvadersna",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -425,6 +443,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Street Fighter 2 Hyper Fighting",
         url: "video/street_fighter_2_hyper_fighting_intro.mp4",
+        key: "sf2hf",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -442,6 +461,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Street Fighter Alpha",
         url: "video/street_fighter_alpha_intro.mp4",
+        key: "sfa",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -459,6 +479,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Street Fighter Alpha 2",
         url: "video/street_fighter_alpha_2_intro.mp4",
+        key: "sfa2",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -476,6 +497,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] Street Fighter Alpha 3",
         url: "video/street_fighter_alpha_3_intro.mp4",
+        key: "sfa3",
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -493,6 +515,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] The Final Fight",
         url: "video/final_fight_intro.mp4",
+        key: "finalfight",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -510,6 +533,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] The Punisher",
         url: "video/the_punisher.mp4",
+        key: "punisher",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -527,6 +551,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] The Simpsons",
         url: "video/the_simpsons_intro.mp4",
+        key: "simpsons",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -544,6 +569,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] X-Men: Children of the Atom",
         url: "video/xmen_children_of_the_atom.mp4",
+        key: "xmen",
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -561,6 +587,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Arcade] X-Men vs Street Fighter",
         url: "video/xmen_vs_street_fighter.mp4",
+        key: "xmenvssf",
         settings:  {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -578,6 +605,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Genesis] Comix Zone",
         url: "video/comix_zone_intro.mp4",
+        key: "comix",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -596,6 +624,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Genesis] Castlevania: Bloodlines",
         url: "video/castlevania_bloodlines_intro.mp4",
+        key: "cvbloodlines",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -614,6 +643,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Genesis] Gunstar Heroes",
         url: "video/gunstar_heroes_intro.mp4",
+        key: "gunstarheroes",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -630,6 +660,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Genesis] Sonic The Hedgehog",
         url: "video/sonic_intro.mp4",
+        key: "sonic",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -646,6 +677,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Genesis] Streets of Rage 2",
         url: "video/streets_of_rage_2_intro.mp4",
+        key: "streets2",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -664,6 +696,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Genesis] Thunder Force IV",
         url: "video/thunder_force_4_intro.mp4",
+        key: "thunderforce4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -681,6 +714,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Genesis] Zero Wing",
         url: "video/zero_wing_intro.mp4",
+        key: "zerowing",
         settings: {
             ...new wa.data.DemoSettings(),
 
@@ -700,6 +734,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Garou: Mark of the Wolves",
         url: "video/garou_mark_of_the_wolves_intro.mp4",
+        key: "garoumotw",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -720,6 +755,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] The King of Fighters 98",
         url: "video/king_of_fighters_98_intro.mp4",
+        key: "kof98",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -740,6 +776,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug X",
         url: "video/metal_slug_x_intro.mp4",
+        key: "metalslugx",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -760,6 +797,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug 2",
         url: "video/metal_slug_2_intro.mp4",
+        key: "metalslug2",
         settings: {
             ...new wa.data.DemoSettings(),
            // RGB
@@ -780,6 +818,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug 3",
         url: "video/metal_slug_3_intro.mp4",
+        key: "metalslug3",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -800,6 +839,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug 4",
         url: "video/metal_slug_4_intro.mp4",
+        key: "metalslug4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -820,6 +860,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Metal Slug 5",
         url: "video/metal_slug_5_intro.mp4",
+        key: "metalslug5",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -840,6 +881,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Neo Drift Out",
         url: "video/neo_drift_out_intro.mp4",
+        key: "neodriftout",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -860,6 +902,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Neo Turf Masters",
         url: "video/neo_turf_masters_intro.mp4",
+        key: "neoturfmasters",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -880,6 +923,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] Samurai Shodown II",
         url: "video/samurai_shodown_II_intro.mp4",
+        key: "samsho2",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -900,6 +944,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] The Last Blade 1",
         url: "video/the_last_blade_1_intro.mp4",
+        key: "lastblade1",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -920,6 +965,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[Neo Geo] The Last Blade 2",
         url: "video/the_last_blade_2_intro.mp4",
+        key: "lastblade2",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -940,6 +986,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[PSX] Castlevania: Symphony of the Night",
         url: "video/castlevania_symphony_of_the_night_30.mp4",
+        key: "cvsotn",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -962,6 +1009,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[PSX] Final Fantasy VII",
         url: "video/final_fantasy_7_intro_long.mp4",
+        key: "ff7",
         settings: {
             ...new wa.data.DemoSettings(),
 
@@ -985,6 +1033,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[PSX] Final Fantasy VIII",
         url: "video/final_fantasy_8_intro.mp4",
+        key: "ff8",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1007,6 +1056,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[PSX] Final Fantasy IX",
         url: "video/final_fantasy_9_intro.mp4",
+        key: "ff9",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1029,6 +1079,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[PSX] Metal Gear Solid",
         url: "video/metal_gear_solid_intro_long.mp4",
+        key: "mgs",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1051,6 +1102,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Chrono Trigger",
         url: "video/chrono_trigger_intro.mp4",
+        key: "chronotrigger",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1068,6 +1120,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Earthbound",
         url: "video/earthbound_intro.mp4",
+        key: "earthbound",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1085,6 +1138,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Final Fantasy IV",
         url: "video/final_fantasy_4_intro.mp4",
+        key: "ff4",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1102,6 +1156,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Final Fantasy V",
         url: "video/final_fantasy_5_intro_long.mp4",
+        key: "ff5",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1119,6 +1174,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Final Fantasy VI",
         url: "video/final_fantasy_6_intro.mp4",
+        key: "ff6",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1136,6 +1192,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Super Metriod",
         url: "video/super_metroid_intro.mp4",
+        key: "supermetriod",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1153,6 +1210,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] Super Mario World",
         url: "video/super_mario_world_intro.mp4",
+        key: "supermarioworld",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
@@ -1170,6 +1228,7 @@ wa.data.VideoListURLs = [
     {
         desc: "[SNES] The Legend of Zelda: A Link to the Past",
         url: "video/zelda_link_to_the_past.mp4",
+        key: "zeldalttp",
         settings: {
             ...new wa.data.DemoSettings(),
             // RGB
