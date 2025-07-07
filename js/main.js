@@ -37,6 +37,18 @@ function mainInit() {
         selectVideoElement.appendChild(opt);
     }
 
+    // after appending the selected video, check our URL params.
+    // if we have a param and selected a valid video, set the correct params
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameKey = urlParams.get('g');
+    const gameIndex = getGameIndex(gameKey);
+
+    // we have a valid game key then let's set the selected video to that
+    if (gameIndex >= 0)
+    {
+        selectVideoElement.value = gameIndex
+    }
+
     var selectTriadElement = document.getElementById('TriadSelect');
 
     for (let i = 0; i < wa.data.RGBTriadListURLs.length; ++i) {
@@ -119,6 +131,16 @@ function mainInit() {
     mainLoop(new Date().getTime());
 }
 
+function getGameIndex(gameKey) {
+    for (let i = 0; i < wa.data.VideoListURLs.length; ++i) {
+        if (wa.data.VideoListURLs[i].key === gameKey)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 function switchImage() {
     if (wa.gRGBTriadState === null) {
         return;
@@ -140,7 +162,11 @@ function switchVideo() {
 
     var selectedVideoIndex = wa.gSelectVideo.value;
     var selectedVideo = wa.data.VideoListURLs[selectedVideoIndex].url;
+    var selectedKey = wa.data.VideoListURLs[selectedVideoIndex].key;
+    console.log("Slected key: " + selectedKey);
     console.log("Selected Video: " + selectedVideo);
+
+    window.history.replaceState("object or string", "Title", "/?g="+selectedKey);
 
     var selectedTriad = wa.gSelectTriad.value;
     console.log("Selected Triad: " + selectedTriad);
