@@ -1118,6 +1118,24 @@ wa.data.VideoListURLs = [
         },
     },
     {
+        desc: "[SNES] Chrono Trigger (To Faraway Times...)",
+        url: "video/ct_faraway_ending.mp4",
+        key: "ctfaraway",
+        settings: {
+            ...new wa.data.DemoSettings(),
+            // RGB
+            imageBrightness: 1.717,
+            // Scanlines
+            scanLinesDensity: 76,
+            // vignette
+            vigOuterBorder: 0.831,
+            // video image values
+            saturation: 0.349,
+            brightness: 0.116,
+            contrast: 0.302,
+        },
+    },
+    {
         desc: "[SNES] Earthbound",
         url: "video/earthbound_intro.mp4",
         key: "earthbound",
